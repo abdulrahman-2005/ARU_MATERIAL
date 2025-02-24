@@ -236,11 +236,8 @@ function renderMaterials(course) {
                 <div class="material-content">
                     <h4>${fileTitle}</h4>
                     <div class="material-actions">
-                        <button onclick="openPDF('${filePath}', false)" class="btn-view">
-                            <i class="fas fa-eye"></i> View
-                        </button>
                         <button onclick="openPDF('${filePath}', true)" class="btn-external">
-                            <i class="fas fa-external-link-alt"></i>
+                            <i class="fas fa-external-link-alt"></i> Open PDF
                         </button>
                     </div>
                 </div>
@@ -276,11 +273,8 @@ function renderMaterials(course) {
                         </div>
                     `).join('') : ''}
                     <div class="material-actions">
-                        <button onclick="openPDF('${filePath}', false)" class="btn-view">
-                            <i class="fas fa-eye"></i> View
-                        </button>
                         <button onclick="openPDF('${filePath}', true)" class="btn-external">
-                            <i class="fas fa-external-link-alt"></i>
+                            <i class="fas fa-external-link-alt"></i> Open PDF
                         </button>
                         ${quizButton}
                     </div>
