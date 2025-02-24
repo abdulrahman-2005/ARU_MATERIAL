@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Management System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="prism.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf_viewer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div id="landing-page" class="landing-page">
+        <div class="landing-content">
+            <div class="logo-container">
+                <i class="fas fa-graduation-cap"></i>
+            </div>
+            <h1 id="landing-institution"></h1>
+            <h2 id="landing-faculty"></h2>
+            <div class="semester-badge">
+                <span id="landing-level"></span>
+                <span class="divider">•</span>
+                <span id="landing-term"></span>
+            </div>
+            <button id="enter-btn" class="enter-button">
+                Enter Course Portal <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <div id="main-content" class="main-content hidden">
+        <header>
+            <div class="header-content">
+                <h1 id="institutionName"></h1>
+                <h2 id="facultyName"></h2>
+                <div class="semester-info">
+                    <span id="level"></span>
+                    <span id="term"></span>
+                </div>
+                <div class="account-section">
+                    <div class="account-icon"></div>
+                    <div class="account-menu"></div>
+                </div>
+            </div>
+        </header>
+
+        <nav class="course-nav">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" id="courseSearch" placeholder="Search courses...">
+            </div>
+            <div id="courseGrid" class="course-grid">
+                <!-- Course cards will be inserted here -->
+            </div>
+        </nav>
+
+        <main>
+            <div class="course-container">
+            </div>
+        </main>
+
+        <div id="pdfViewer" class="modal">
+            <div class="modal-content">
+                <!-- Content will be dynamically inserted -->
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="developer-info">
+                <h3>Developed by</h3>
+                <a href="" id="developer-link" target="_blank" class="developer-name"></a>
+            </div>
+            <div class="social-links" id="social-links">
+                <!-- Social links will be inserted here -->
+            </div>
+        </div>
+    </footer>
+
+    <button id="scrollTopBtn" class="scroll-top-btn" title="Go to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="meta.js"></script>
+    <script src="account.js"></script>
+    <script src="quiz.js"></script>
+    <script src="main.js"></script>
+    <script src="prism.js"></script>
+</body>
+</html> 

@@ -1,0 +1,50 @@
+Please analyze this lecture PDF and create a comprehensive quiz with the following specifications:
+
+1. Create 15 multiple choice questions that test key concepts from the lecture
+2. Each question should:
+   - Test understanding, not just memorization
+   - Include 4 options with one correct answer
+   - Have a clear explanation for the correct answer
+   - Be worth 2 points
+   - Include code examples where relevant
+
+3. Format the output as a JSON object matching this structure:
+{
+    "title": "[Lecture Topic] Quiz",
+    "course_id": "[Course ID]",
+    "related_file": "[PDF filename]",
+    "time_limit": 10,
+    "passing_score": 70,
+    "randomize_questions": true,
+    "questions": [
+        {
+            "id": "Q1",
+            "text": "[Question text - can include code blocks using ```language\ncode\n```]",
+            "type": "multiple_choice", 
+            "options": [
+                "[Option 1]",#can include code blocks using ```language\ncode\n```
+                "[Option 2]",#can include code blocks using ```language\ncode\n```
+                "[Option 3]",#can include code blocks using ```language\ncode\n```
+                "[Option 4]"#can include code blocks using ```language\ncode\n```
+            ],
+            "correct_answer": [index of correct option, 0-3],
+            "points": 2,
+            "explanation": "[Detailed explanation with optional code examples]"
+        }
+    ],
+    "instructions": [
+        "You have 10 minutes to complete this quiz",
+        "Each question is worth 2 points",
+        "You need 70% to pass",
+        "All questions must be answered before submission",
+        "Questions and answers are randomized for each attempt"
+    ]
+}
+
+Important:
+- Questions should progress from fundamental concepts to more complex applications
+- Include both theoretical and practical questions
+- Use code examples where appropriate, formatted with ```language\n code\n```
+- Ensure explanations are clear and educational
+- Make distractors (wrong options) plausible but clearly incorrect
+- Cover the main topics from the lecture evenly
