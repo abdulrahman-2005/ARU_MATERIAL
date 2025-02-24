@@ -7,7 +7,7 @@ const DATA = {
         "level": 2,
         "term": 2,
         "schedule_type": "Face to Face",
-        "version": "1.0.0-beta"
+        "version": "1.1.0-beta"
     },
     "developer": {
         "name": "Abdelrahman Azmy",
