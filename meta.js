@@ -31,17 +31,17 @@ const DATA = {
             "department_id": "DEP_001"
         },
         "INS_002": {
-            "name": "Shymaa Said",
+            "name": "Shymaa Saad",
             "title": "Ass.lec.",
             "department_id": "DEP_001"
         },
         "INS_003": {
-            "name": "Ahmed Gad",
+            "name": "Asmaa Gad",
             "title": "Dr.",
             "department_id": "DEP_001"
         },
         "INS_004": {
-            "name": "Hossam Said",
+            "name": "Hossam Fawzan",
             "title": "Dr.",
             "department_id": "DEP_001"
         },
@@ -61,17 +61,17 @@ const DATA = {
             "department_id": "DEP_001"
         },
         "INS_008": {
-            "name": "Eslam Elasha",
+            "name": "Eslam Elsaba",
             "title": "Eng.",
             "department_id": "DEP_001"
         },
         "INS_009": {
-            "name": "Hend Ahmed",
+            "name": "Gaber Hassan",
             "title": "Dr.",
             "department_id": "DEP_001"
         },
         "INS_010": {
-            "name": "Eman Abd elmohseni",
+            "name": "Eman Abd El-maksoud",
             "title": "Dr.",
             "department_id": "DEP_001"
         }
