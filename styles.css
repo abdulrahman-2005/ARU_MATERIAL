@@ -2484,4 +2484,53 @@ code {
 .word-wrap {
     word-wrap: break-word;
     overflow-wrap: break-word;
+}
+
+/* Version badge styles */
+.version-badge {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--card-background);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    animation: slideIn 0.5s ease-out 1s both;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.version-badge i {
+    color: var(--primary-color);
+    font-size: 1rem;
+}
+
+.version-badge:hover {
+    transform: translateY(-2px);
+    border-color: var(--primary-color);
+    background: var(--background-color);
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .version-badge {
+        bottom: 1rem;
+        right: 1rem;
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+    }
 } 

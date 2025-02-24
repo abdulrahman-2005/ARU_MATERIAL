@@ -46,6 +46,12 @@ document.addEventListener('DOMContentLoaded', () => {
             initializeMainContent();
         }, 50);
     });
+
+    // Update version badge
+    const versionText = document.getElementById('version-text');
+    if (versionText) {
+        versionText.textContent = `v${DATA.metadata.version}`;
+    }
 });
 
 function initializeMainContent() {

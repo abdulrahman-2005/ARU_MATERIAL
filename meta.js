@@ -6,7 +6,8 @@ const DATA = {
         "faculty_name": "Faculty of Computers and Information",
         "level": 2,
         "term": 2,
-        "schedule_type": "Face to Face"
+        "schedule_type": "Face to Face",
+        "version": "1.0.0-beta"
     },
     "developer": {
         "name": "Abdelrahman Azmy",
