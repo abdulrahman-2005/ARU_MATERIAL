@@ -215,14 +215,14 @@ function renderMaterials(course) {
         
         const card = document.createElement('div');
         card.className = 'material-card';
-
+        console.log(file)
         if (typeof file === 'string') {
             // Old format - just filename
             const fileTitle = file.replace('.pdf', '')
                 .replace(/^Lecture/, 'Lecture ')
                 .replace(/^Section/, 'Section ');
             const filePath = `files/${course.code}_${file}`;
-
+            console.log(filePath)
             card.innerHTML = `
                 <div class="material-icon">
                     <i class="fas ${isLecture ? 'fa-book-open' : 'fa-users'}"></i>
@@ -242,6 +242,7 @@ function renderMaterials(course) {
         } else {
             // New format - object with title, src, type, messages
             const filePath = `files/${course.code}_${file.src}`;
+            console.log(filePath)
             let quizButton = '';
             
             // Add quiz button if quizzes are available
@@ -342,10 +343,10 @@ function renderInstructors(course) {
 }
 
 function getFilePath(course, fileName) {
-    return `materials/${course.code}_${fileName}`;
+    return `files/${course.code}_${fileName}`;
 }
 
-function openPDF(src, newTab) {
+async function openPDF(src, newTab) {
     if (newTab) {
         window.open(src, '_blank');
         return;
@@ -353,35 +354,47 @@ function openPDF(src, newTab) {
 
     const modal = document.getElementById('pdfViewer');
     const fileName = src.split('/').pop().replace('.pdf', '');
-    
-    modal.style.display = 'block';
-    document.body.style.overflow = 'hidden'; // Prevent background scrolling
-    
-    // Update modal content with iframe
-    modal.querySelector('.modal-content').innerHTML = `
-        <div class="pdf-toolbar">
-            <div class="pdf-title">
-                <i class="fas fa-file-pdf"></i> ${fileName}
-            </div>
-            <button onclick="window.open('${src}', '_blank')" class="toolbar-button">
-                <i class="fas fa-external-link-alt"></i> Open in New Tab
-            </button>
-            <button onclick="downloadPDF('${src}')" class="toolbar-button">
-                <i class="fas fa-download"></i> Download
-            </button>
-            <button class="close toolbar-button">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <iframe src="${src}#toolbar=0"></iframe>
-    `;
 
-    // Re-attach close button event listener
-    modal.querySelector('.close').addEventListener('click', () => {
-        modal.style.display = 'none';
-        document.body.style.overflow = ''; // Restore scrolling
-    });
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+
+    try {
+        const response = await fetch(src);
+        if (!response.ok) throw new Error(`Failed to fetch PDF: ${response.status}`);
+
+        const blob = await response.blob();
+        const pdfUrl = URL.createObjectURL(blob);
+
+        modal.querySelector('.modal-content').innerHTML = `
+            <div class="pdf-toolbar">
+                <div class="pdf-title">
+                    <i class="fas fa-file-pdf"></i> ${fileName}
+                </div>
+                <button onclick="window.open('${pdfUrl}', '_blank')" class="toolbar-button">
+                    <i class="fas fa-external-link-alt"></i> Open in New Tab
+                </button>
+                <button onclick="downloadPDF('${src}')" class="toolbar-button">
+                    <i class="fas fa-download"></i> Download
+                </button>
+                <button class="close toolbar-button">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <iframe src="${pdfUrl}#toolbar=0" width="100%" height="500px" style="border:none;"></iframe>
+        `;
+
+        modal.querySelector('.close').addEventListener('click', () => {
+            modal.style.display = 'none';
+            document.body.style.overflow = '';
+            URL.revokeObjectURL(pdfUrl);
+        });
+
+    } catch (error) {
+        console.error("Error loading PDF:", error);
+        alert("Failed to load PDF. Try opening it in a new tab.");
+    }
 }
+
 
 // Add this helper function for downloading
 function downloadPDF(src) {
