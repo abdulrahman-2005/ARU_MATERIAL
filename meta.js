@@ -76,6 +76,14 @@ const DATA = {
             "department_id": "DEP_001"
         }
     },
+    "contributors": {
+        "CON_001": {
+            "name": "Mostafa Tamer Zahran"
+        },
+        "CON_002": {
+            "name": "Saad Mohamed Saad"
+        }
+    },
     "courses": {
         "CRS_001": {
             "name": "Introduction to Database Systems",
@@ -144,7 +152,7 @@ const DATA = {
                     ]
                 },
                 {
-                    "title": "Lecture 2: Software Development Life Cycle",
+                    "title": "Lecture 2: SOFTWARE PROCESSES",
                     "src": "Lecture2.pdf",
                     "type": "lecture",
                     "quizzes": [
@@ -158,7 +166,7 @@ const DATA = {
                     ]
                 },
                 {
-                    "title": "Lecture 3: Software Design Principles",
+                    "title": "Lecture 3: Requirements Engineering",
                     "src": "Lecture3.pdf",
                     "type": "lecture",
                     "quizzes": [
@@ -172,7 +180,7 @@ const DATA = {
                     ]
                 },
                 {
-                    "title": "Lecture 4: Software Testing and Quality Assurance",
+                    "title": "Lecture 4: System Modeling",
                     "src": "Lecture4.pdf",
                     "type": "lecture",
                     "quizzes": [
@@ -186,7 +194,7 @@ const DATA = {
                     ]
                 },
                 {
-                    "title": "Section 1: Introduction to Software Engineering",
+                    "title": "Section 1: Lab 1 UML, SRS",
                     "src": "Section1.pdf",
                     "type": "section",
                     "quizzes": [
@@ -200,7 +208,7 @@ const DATA = {
                     ]
                 },
                 {
-                    "title": "Section 2: Software Development Methodologies",
+                    "title": "Section 2: Lab 2",
                     "src": "Section2.pdf",
                     "type": "section",
                     "quizzes": [
@@ -211,6 +219,17 @@ const DATA = {
                             "type": "quiz_available",
                             "text": "Quiz available for this lecture"
                         }
+                    ]
+                },
+                {
+                    "title": "ATM Software Summary",
+                    "src": "ATMSoftware",
+                    "type": "contribution",
+                    "contributors": ["CON_001", "CON_002"],
+                    "quizzes": [
+                    ],
+                    "messages": [
+
                     ]
                 }
             ]
@@ -266,7 +285,7 @@ const DATA = {
             "has_section": true,
             "files": [
                 {
-                    "title": "Lecture 1: Introduction to Computer Networks",
+                    "title": "Lecture 1: Network Fundamentals",
                     "src": "Lecture1.pdf",
                     "type": "lecture",
                     "quizzes": ["QZ_003"],

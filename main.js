@@ -202,11 +202,16 @@ function renderMaterials(course) {
                 <h3><i class="fas fa-users"></i> Sections</h3>
                 <div class="materials-grid" id="sections-grid"></div>
             </div>
+            <div class="materials-section">
+                <h3><i class="fas fa-hands-helping"></i> Contributions</h3>
+                <div class="materials-grid" id="contributions-grid"></div>
+            </div>
         </div>
     `;
 
     const lecturesGrid = container.querySelector('#lectures-grid');
     const sectionsGrid = container.querySelector('#sections-grid');
+    const contributionsGrid = container.querySelector('#contributions-grid');
 
     if (!course.files || course.files.length === 0) {
         container.innerHTML = '<div class="empty-state">No materials available for this course.</div>';
@@ -214,58 +219,53 @@ function renderMaterials(course) {
     }
 
     // Sort and group files
-    const files = course.files.reduce((acc, file) => {
-        const fileName = typeof file === 'string' ? file : file.src;
-        const isLecture = fileName.toLowerCase().includes('lecture');
-        const grid = isLecture ? lecturesGrid : sectionsGrid;
-        
-        const card = document.createElement('div');
-        card.className = 'material-card';
-        console.log(file)
+    course.files.forEach(file => {
         if (typeof file === 'string') {
-            // Old format - just filename
-            const fileTitle = file.replace('.pdf', '')
-                .replace(/^Lecture/, 'Lecture ')
-                .replace(/^Section/, 'Section ');
-            const filePath = `files/${course.code}_${file}`;
-            console.log(filePath)
-            card.innerHTML = `
-                <div class="material-icon">
-                    <i class="fas ${isLecture ? 'fa-book-open' : 'fa-users'}"></i>
-                </div>
-                <div class="material-content">
-                    <h4>${fileTitle}</h4>
-                    <div class="material-actions">
-                        <button onclick="openPDF('${filePath}', true)" class="btn-external">
-                            <i class="fas fa-external-link-alt"></i> Open PDF
-                        </button>
-                    </div>
-                </div>
-            `;
+            // Handle old format files...
         } else {
-            // New format - object with title, src, type, messages
-            const filePath = `files/${course.code}_${file.src}`;
-            console.log(filePath)
-            let quizButton = '';
+            // New format with file object
+            const card = document.createElement('div');
+            card.className = 'material-card';
             
-            // Add quiz button if quizzes are available
-            if (file.quizzes && file.quizzes.length > 0) {
-                const quizId = file.quizzes[0]; // Get first quiz
-                const hasCompleted = quizSystem.hasCompletedQuiz(quizId);
-                quizButton = `
-                    <button onclick="quizSystem.startQuiz('${quizId}')" class="btn-quiz ${hasCompleted ? 'completed' : ''}">
-                        <i class="fas fa-${hasCompleted ? 'check-circle' : 'question-circle'}"></i>
-                        ${hasCompleted ? 'Retake Quiz' : 'Take Quiz'}
-                    </button>
-                `;
+            let grid;
+            let icon;
+            
+            switch(file.type) {
+                case 'lecture':
+                    grid = lecturesGrid;
+                    icon = 'fa-book-open';
+                    break;
+                case 'section':
+                    grid = sectionsGrid;
+                    icon = 'fa-users';
+                    break;
+                case 'contribution':
+                    grid = contributionsGrid;
+                    icon = 'fa-hands-helping';
+                    break;
+                default:
+                    grid = lecturesGrid;
+                    icon = 'fa-file';
             }
+
+            const contributorsHtml = file.contributors ? `
+                <div class="material-contributors">
+                    ${file.contributors.map(id => {
+                        const contributor = courseData.contributors[id];
+                        return `<span class="contributor-tag">
+                            <i class="fas fa-user-edit"></i> ${contributor.name}
+                        </span>`;
+                    }).join('')}
+                </div>
+            ` : '';
 
             card.innerHTML = `
                 <div class="material-icon">
-                    <i class="fas ${file.type === 'lecture' ? 'fa-book-open' : 'fa-users'}"></i>
+                    <i class="fas ${icon}"></i>
                 </div>
                 <div class="material-content">
                     <h4>${file.title}</h4>
+                    ${contributorsHtml}
                     ${file.messages ? file.messages.map(msg => `
                         <div class="message">
                             <i class="fas fa-exclamation-circle"></i>
@@ -273,17 +273,34 @@ function renderMaterials(course) {
                         </div>
                     `).join('') : ''}
                     <div class="material-actions">
-                        <button onclick="openPDF('${filePath}', true)" class="btn-external">
+                        <button onclick="openPDF('files/${course.code}_${file.src}', true)" class="btn-external">
                             <i class="fas fa-external-link-alt"></i> Open PDF
                         </button>
-                        ${quizButton}
+                        ${file.quizzes && file.quizzes.length > 0 ? `
+                            <button onclick="quizSystem.startQuiz('${file.quizzes[0]}')" 
+                                class="btn-quiz ${quizSystem.hasCompletedQuiz(file.quizzes[0]) ? 'completed' : ''}">
+                                <i class="fas fa-${quizSystem.hasCompletedQuiz(file.quizzes[0]) ? 'check-circle' : 'question-circle'}"></i>
+                                ${quizSystem.hasCompletedQuiz(file.quizzes[0]) ? 'Retake Quiz' : 'Take Quiz'}
+                            </button>
+                        ` : ''}
                     </div>
                 </div>
             `;
+            
+            grid.appendChild(card);
         }
-        grid.appendChild(card);
-        return acc;
-    }, { lectures: [], sections: [] });
+    });
+
+    // Add empty state messages for each section if needed
+    if (!lecturesGrid.hasChildNodes()) {
+        lecturesGrid.innerHTML = '<div class="empty-state">No lectures available.</div>';
+    }
+    if (!sectionsGrid.hasChildNodes()) {
+        sectionsGrid.innerHTML = '<div class="empty-state">No sections available.</div>';
+    }
+    if (!contributionsGrid.hasChildNodes()) {
+        contributionsGrid.innerHTML = '<div class="empty-state">No contributions available.</div>';
+    }
 }
 
 function renderSchedule(courseId) {
