@@ -1,3 +1,11 @@
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+let pdfDoc = null;
+let pageNum = 1;
+let pageRendering = false;
+let pageNumPending = null;
+let scale = 1.5;
+
 document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const courseId = urlParams.get('id');
@@ -154,7 +162,7 @@ function renderMaterials(course) {
                         </div>
                     `).join('') : ''}
                     <div class="material-actions">
-                        <button onclick="openPDF('files/${course.code}_${file.src}', true)" class="btn-external">
+                        <button onclick="openPDF('../files/${course.code}_${file.src}', true)" class="btn-external">
                             <i class="fas fa-external-link-alt"></i> Open PDF
                         </button>
                         ${file.quizzes && file.quizzes.length > 0 ? `
@@ -241,10 +249,10 @@ function renderInstructors(course) {
 }
 
 function getFilePath(course, fileName) {
-    return `files/${course.code}_${fileName}`;
+    return `../files/${course.code}_${fileName}`;
 }
 
-async function openPDF(src, newTab) {
+async function openPDF(src, newTab = false) {
     if (newTab) {
         window.open(src, '_blank');
         return;
@@ -268,17 +276,19 @@ async function openPDF(src, newTab) {
                 <div class="pdf-title">
                     <i class="fas fa-file-pdf"></i> ${fileName}
                 </div>
-                <button onclick="window.open('${pdfUrl}', '_blank')" class="toolbar-button">
-                    <i class="fas fa-external-link-alt"></i> Open in New Tab
-                </button>
-                <button onclick="downloadPDF('${src}')" class="toolbar-button">
-                    <i class="fas fa-download"></i> Download
-                </button>
-                <button class="close toolbar-button">
-                    <i class="fas fa-times"></i>
-                </button>
+                <div class="pdf-actions">
+                    <button onclick="window.open('${pdfUrl}', '_blank')" class="toolbar-button">
+                        <i class="fas fa-external-link-alt"></i> Open in New Tab
+                    </button>
+                    <button onclick="downloadPDF('${src}')" class="toolbar-button">
+                        <i class="fas fa-download"></i> Download
+                    </button>
+                    <button class="close toolbar-button">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
             </div>
-            <iframe src="${pdfUrl}#toolbar=0" width="100%" height="500px" style="border:none;"></iframe>
+            <iframe src="${pdfUrl}#toolbar=0" width="100%" height="90vh" style="border:none;"></iframe>
         `;
 
         modal.querySelector('.close').addEventListener('click', () => {
@@ -293,8 +303,6 @@ async function openPDF(src, newTab) {
     }
 }
 
-
-// Add this helper function for downloading
 function downloadPDF(src) {
     const link = document.createElement('a');
     link.href = src;
