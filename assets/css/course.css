@@ -3,10 +3,8 @@
 /* Course Header */
 .course-header {
     background: var(--card-background);
-    padding: 2rem;
-    border-radius: 12px;
-    margin: 2rem auto;
-    max-width: 1200px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 1rem;
 }
 
 .course-header h2 {
@@ -21,11 +19,12 @@
 
 /* Course Sections */
 .course-section {
-    background: var(--card-background);
     padding: 2rem;
-    border-radius: 12px;
-    margin: 2rem auto;
-    max-width: 1200px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.course-section:last-child {
+    border-bottom: none;
 }
 
 .course-section h3 {
@@ -70,13 +69,13 @@
 .materials-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
 .material-card {
     background: var(--background-color);
-    border-radius: 12px;
-    padding: 1.5rem;
+    border-radius: 8px;
+    padding: 1.25rem;
     border: 1px solid var(--border-color);
     transition: all 0.3s ease;
 }
@@ -258,17 +257,30 @@
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
     .course-header {
-        padding: 1.5rem;
-        margin: 1rem;
+        padding: 1rem 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .course-header h2 {
+        font-size: 1.5rem;
     }
 
     .course-section {
         padding: 1.5rem;
-        margin: 1rem;
+    }
+
+    .course-section h3 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
     }
 
     .materials-grid {
         grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .material-card {
+        padding: 1rem;
     }
 
     .material-actions {
