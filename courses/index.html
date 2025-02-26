@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses · FCI Material Y2T2</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/courses-page.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="nav-header">
+            <div></div> <!-- Empty div for flex spacing -->
+            <div class="nav-actions">
+                <a href="../stats/" class="nav-btn">
+                    <i class="fas fa-user"></i>
+                    <span>Account</span>
+                </a>
+            </div>
+        </div>
+        <div class="header-content">
+            <h1 id="institutionName"></h1>
+            <h2 id="facultyName"></h2>
+            <div class="semester-info">
+                <span id="level"></span>
+                <span id="term"></span>
+            </div>
+            <div class="account-section">
+                <div class="account-icon"></div>
+                <div class="account-menu"></div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="course-nav">
+        <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" id="courseSearch" placeholder="Search courses...">
+        </div>
+        <div id="courseGrid" class="course-grid">
+            <!-- Course cards will be inserted here -->
+        </div>
+    </nav>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="developer-info">
+                <h3>Developed by</h3>
+                <a href="" id="developer-link" target="_blank" class="developer-name"></a>
+            </div>
+            <div class="social-links" id="social-links">
+                <!-- Social links will be inserted here -->
+            </div>
+        </div>
+    </footer>
+
+    <script src="../meta.js"></script>
+    <script src="../assets/js/account.js"></script>
+    <script src="../assets/js/courses.js"></script>
+    <script src="../assets/js/utils.js"></script>
+</body>
+</html> 

@@ -34,7 +34,7 @@
         <link rel="icon" type="image/png" sizes="16x16" href="assets/icon.png">
     
         <!-- CSS Stylesheets -->
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="assets/css/styles.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
         <link rel="stylesheet" href="prism.css">
     
@@ -52,13 +52,19 @@
             <h1 id="landing-institution"></h1>
             <h2 id="landing-faculty"></h2>
             <div class="semester-badge">
-                <span id="landing-level"></span>
+                <select id="landing-year">
+                    <option value="2">Year 2</option>
+                    <option value="3">Year 3</option>
+                </select>
                 <span class="divider">•</span>
-                <span id="landing-term"></span>
+                <select id="landing-term">
+                    <option value="1">Term 1</option>
+                    <option value="2">Term 2</option>
+                </select>
             </div>
-            <button id="enter-btn" class="enter-button">
+            <a href="courses/" class="enter-button">
                 Enter Course Portal <i class="fas fa-arrow-right"></i>
-            </button>
+            </a>
         </div>
         <div class="version-badge">
             <i class="fas fa-code-branch"></i>
@@ -120,10 +126,11 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <script src="meta.js"></script>
+    <script src="meta.js" id="meta-script"></script>
     <script src="account.js"></script>
     <script src="quiz.js"></script>
     <script src="main.js"></script>
     <script src="prism.js"></script>
+    <script src="assets/js/landing.js"></script>
 </body>
 </html> 
