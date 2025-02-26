@@ -5,17 +5,26 @@ document.addEventListener('DOMContentLoaded', () => {
     // Set landing page information
     document.getElementById('landing-institution').textContent = DATA.metadata.institution_name;
     document.getElementById('landing-faculty').textContent = DATA.metadata.faculty_name;
-    document.getElementById('landing-level').textContent = `Level ${DATA.metadata.level}`;
-    document.getElementById('landing-term').textContent = `Term ${DATA.metadata.term}`;
-
-    // Update version badge
+    // Add version badge
     const versionText = document.getElementById('version-text');
     if (versionText) {
         versionText.textContent = `v${DATA.metadata.version}`;
     }
 
+    // Add developer info to landing page
+    const landingContent = document.querySelector('.landing-content');
+    landingContent.insertAdjacentHTML('beforeend', `
+        <div class="developer-badge">
+            <i class="fas fa-code"></i>
+            Developed by <a href="${developerInfo.website}" target="_blank">${developerInfo.name}</a>
+        </div>
+    `);
+
+    
+
     // Initialize footer
     initializeFooter();
+
 });
 
 function initializeFooter() {

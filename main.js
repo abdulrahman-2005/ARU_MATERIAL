@@ -16,25 +16,9 @@ pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs
 // Wait for DOM to be loaded
 document.addEventListener('DOMContentLoaded', () => {
     // DATA is already available from meta.js
-    setMetaSrc();
     courseData = DATA;
     // Initialize landing page first
-    const developerInfo = courseData.developer;
-    
-    // Set landing page information
-    document.getElementById('landing-institution').textContent = courseData.metadata.institution_name;
-    document.getElementById('landing-faculty').textContent = courseData.metadata.faculty_name;
-    document.getElementById('landing-level').textContent = `Level ${courseData.metadata.level}`;
-    document.getElementById('landing-term').textContent = `Term ${courseData.metadata.term}`;
-
-    // Add developer info to landing page
-    const landingContent = document.querySelector('.landing-content');
-    landingContent.insertAdjacentHTML('beforeend', `
-        <div class="developer-badge">
-            <i class="fas fa-code"></i>
-            Developed by <a href="${developerInfo.website}" target="_blank">${developerInfo.name}</a>
-        </div>
-    `);
+   
 
     // Initialize footer
     initializeFooter();
@@ -51,12 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
             initializeMainContent();
         }, 50);
     });
-
-    // Update version badge
-    const versionText = document.getElementById('version-text');
-    if (versionText) {
-        versionText.textContent = `v${DATA.metadata.version}`;
-    }
 });
 
 function initializeMainContent() {
