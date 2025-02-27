@@ -4,6 +4,7 @@ class AccountSystem {
         this.currentUser = this.loadUser() || this.createDefaultUser();
         this.initializeUI();
         this.id = window.location.pathname.split('/')[1];
+        this.id = this.id.toUpperCase();
 
 
         const oldData = localStorage.getItem("userData");
