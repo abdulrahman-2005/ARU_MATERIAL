@@ -9,7 +9,7 @@ class AccountSystem {
         const oldData = localStorage.getItem("userData");
         if (oldData) {
             const newData = JSON.parse(oldData);
-            this.currentUser["Y4T2"] = newData;
+            this.currentUser["Y2T2"] = newData;
             localStorage.setItem(this.LOCAL_STORAGE_KEY, JSON.stringify(this.currentUser));
             localStorage.removeItem("userData");
         }
