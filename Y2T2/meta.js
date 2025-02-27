@@ -223,7 +223,7 @@ const DATA = {
                 },
                 {
                     "title": "ATM Software Summary",
-                    "src": "ATMSoftware",
+                    "src": "ATMSoftware.pdf",
                     "type": "contribution",
                     "contributors": ["CON_001", "CON_002"],
                     "quizzes": [
