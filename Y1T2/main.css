@@ -1,0 +1,15 @@
+/* Vibrant Sunflower Yellow Theme */
+:root {
+    --primary-color: #ffcc00 !important;
+    --primary-gradient: linear-gradient(135deg, #ffcc00 0%, #ffdd33 100%) !important;
+    --secondary-color: #ffee55 !important;
+    --accent-color: #cca300 !important;
+    --background-color: #100d00 !important;
+    --card-background: #201a00 !important;
+    --text-primary: #ffffff !important;
+    --text-secondary: #fff9cc !important;
+    --border-color: #332b00 !important;
+    --hover-color: #665500 !important;
+    --black-contrast: #000000 !important;
+    --white-contrast: #ffffff !important;
+}

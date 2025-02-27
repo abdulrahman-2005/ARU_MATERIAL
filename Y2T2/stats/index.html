@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics · FCI Material Y2T2</title>
+    <link rel="icon" href="../../assets/icon.png">
+    <link rel="stylesheet" href="../main.css">
+
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/stats-page.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FLS8KDSE6G"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-FLS8KDSE6G');
+    </script>
+</head>
+
+<body>
+    <header>
+        <div class="nav-header">
+            <a href="../courses/" class="nav-btn">
+                <i class="fas fa-arrow-left"></i>
+                <span>Back to Courses</span>
+            </a>
+            <div class="nav-actions">
+                <a href="../stats/" class="nav-btn active">
+                    <i class="fas fa-user"></i>
+                    <span>Account</span>
+                </a>
+            </div>
+        </div>
+        <div class="header-content">
+            <h1 id="institutionName"></h1>
+            <h2 id="facultyName"></h2>
+            <div class="semester-info">
+                <span id="level"></span>
+                <span id="term"></span>
+            </div>
+            <div class="account-section">
+                <div class="account-icon"></div>
+                <div class="account-menu"></div>
+            </div>
+        </div>
+    </header>
+
+    <div class="stats-header">
+        <h2><i class="fas fa-chart-line"></i> Your Progress Dashboard</h2>
+        <div class="stats-meta">
+            <span class="last-updated">
+                <i class="fas fa-sync"></i> Last updated: <time id="lastUpdated"></time>
+            </span>
+        </div>
+    </div>
+    <div class="stats-content">
+        <div id="overview-section"></div>
+        <div id="progress-trend-section"></div>
+        <div id="course-performance-section"></div>
+        <div id="time-analysis-section"></div>
+        <div id="recent-activity-section"></div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="developer-info">
+                <h3>Developed by</h3>
+                <a href="" id="developer-link" target="_blank" class="developer-name"></a>
+            </div>
+            <div class="social-links" id="social-links">
+                <!-- Social links will be inserted here -->
+            </div>
+        </div>
+    </footer>
+
+    <script src="../meta.js"></script>
+    <script src="../main.js"></script>
+    <script src="../../assets/js/account.js"></script>
+    <script src="../../assets/js/stats.js"></script>
+    <script src="../../assets/js/utils.js"></script>
+</body>
+
+</html>

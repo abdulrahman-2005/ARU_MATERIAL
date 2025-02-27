@@ -1,0 +1,18 @@
+
+
+/* Vibrant Amber Orange Theme */
+:root {
+    --primary-color: #ff6600 !important;
+    --primary-gradient: linear-gradient(135deg, #ff6600 0%, #ff8800 100%) !important;
+    --secondary-color: #ffaa33 !important;
+    --accent-color: #cc5200 !important;
+    --background-color: #0a0500 !important;
+    --card-background: #1a0d00 !important;
+    --text-primary: #ffffff !important;
+    --text-secondary: #ffe0b3 !important;
+    --border-color: #331400 !important;
+    --hover-color: #662900 !important;
+    --black-contrast: #000000 !important;
+    --white-contrast: #ffffff !important;
+}
+

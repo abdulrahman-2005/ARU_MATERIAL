@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Course · FCI Material Y2T2</title>
-    <link rel="stylesheet" href="../assets/css/prism.css">
-    <link rel="stylesheet" href="../assets/css/styles.css">
-    <link rel="stylesheet" href="../assets/css/course.css">
+    <title>Courses · FCI Material Y2T2</title>
+    <link rel="icon" href="../../assets/icon.png">
+    <link rel="stylesheet" href="../main.css">
+    
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/courses-page.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FLS8KDSE6G"></script>
@@ -23,10 +24,7 @@
 <body>
     <header>
         <div class="nav-header">
-            <a href="../courses/" class="nav-btn">
-                <i class="fas fa-arrow-left"></i>
-                <span>Back to Courses</span>
-            </a>
+            <div></div> <!-- Empty div for flex spacing -->
             <div class="nav-actions">
                 <a href="../stats/" class="nav-btn">
                     <i class="fas fa-user"></i>
@@ -48,17 +46,15 @@
         </div>
     </header>
 
-    <main>
-        <div class="course-container">
-            <!-- Course content will be loaded here -->
+    <nav class="course-nav">
+        <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" id="courseSearch" placeholder="Search courses...">
         </div>
-    </main>
-
-    <div id="pdfViewer" class="modal">
-        <div class="modal-content">
-            <!-- PDF viewer content -->
+        <div id="courseGrid" class="course-grid">
+            <!-- Course cards will be inserted here -->
         </div>
-    </div>
+    </nav>
 
     <footer class="site-footer">
         <div class="footer-content">
@@ -72,12 +68,10 @@
         </div>
     </footer>
 
-    <script src="../assets/js/prism.js"></script>
     <script src="../meta.js"></script>
     <script src="../main.js"></script>
-    <script src="../assets/js/account.js"></script>
-    <script src="../assets/js/quiz.js"></script>
-    <script src="../assets/js/course.js"></script>
-    <script src="../assets/js/utils.js"></script>
+    <script src="../../assets/js/account.js"></script>
+    <script src="../../assets/js/courses.js"></script>
+    <script src="../../assets/js/utils.js"></script>
 </body>
 </html> 

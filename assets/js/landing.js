@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     // DATA is available from meta.js
     const developerInfo = DATA.developer;
-    
+    const landingPageInfo = DATA.landing_page;
+
     // Set landing page information
     document.getElementById('landing-institution').textContent = DATA.metadata.institution_name;
     document.getElementById('landing-faculty').textContent = DATA.metadata.faculty_name;
@@ -20,7 +21,29 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
     `);
 
-    
+
+
+    const landingTerm = document.getElementById('landing-term');
+    const landingYear = document.getElementById('landing-year');
+    const enterButton = document.getElementById('enter-button');
+
+    landingTerm.innerHTML = landingPageInfo.available_terms.map(term => `<option value="${term}">Term ${term}</option>`).join('');
+    landingYear.innerHTML = landingPageInfo.available_years.map(year => `<option value="${year}">Year ${year}</option>`).join('');
+
+    landingTerm.addEventListener('change', () => {
+        updateEnterButtonHref();
+    });
+
+    landingYear.addEventListener('change', () => {
+        updateEnterButtonHref();
+    });
+
+    function updateEnterButtonHref() {
+        enterButton.href = `/Y${landingYear.value}T${landingTerm.value}/courses/`;
+    }
+
+    updateEnterButtonHref();
+
 
     // Initialize footer
     initializeFooter();
@@ -35,7 +58,7 @@ function initializeFooter() {
 
     const socialLinks = document.getElementById('social-links');
     socialLinks.innerHTML = '';
-    
+
     if (developerInfo.social.github) {
         socialLinks.innerHTML += `
             <a href="${developerInfo.social.github}" target="_blank" class="social-link" title="GitHub">
@@ -57,4 +80,6 @@ function initializeFooter() {
             </a>
         `;
     }
-} 
+}
+
+

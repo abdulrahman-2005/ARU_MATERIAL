@@ -1,0 +1,15 @@
+/* Vibrant Ruby Red Theme */
+:root {
+    --primary-color: #ff0033 !important;
+    --primary-gradient: linear-gradient(135deg, #ff0033 0%, #ff3366 100%) !important;
+    --secondary-color: #ff5c8d !important;
+    --accent-color: #d10024 !important;
+    --background-color: #0a0000 !important;
+    --card-background: #1a0505 !important;
+    --text-primary: #ffffff !important;
+    --text-secondary: #ffccd5 !important;
+    --border-color: #330011 !important;
+    --hover-color: #4d0019 !important;
+    --black-contrast: #000000 !important;
+    --white-contrast: #ffffff !important;
+}

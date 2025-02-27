@@ -1,0 +1,12 @@
+:root {
+    --primary-color: #6366f1 !important;
+    --primary-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%) !important;
+    --secondary-color: #22d3ee !important;
+    --accent-color: #f43f5e !important;
+    --background-color: #0f172a !important;
+    --card-background: #1e293b !important;
+    --text-primary: #f8fafc !important;
+    --text-secondary: #94a3b8 !important;
+    --border-color: #334155 !important;
+    --hover-color: #2d3b54 !important;
+}

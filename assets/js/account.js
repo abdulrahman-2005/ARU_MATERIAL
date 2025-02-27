@@ -1,15 +1,41 @@
 class AccountSystem {
     constructor() {
+        this.LOCAL_STORAGE_KEY = 'ARU_UNI_MATERIAL_FCI_ACCOUNT';
         this.currentUser = this.loadUser() || this.createDefaultUser();
         this.initializeUI();
+        this.id = window.location.pathname.split('/')[1];
+
+
+        const oldData = localStorage.getItem("userData");
+        if (oldData) {
+            const newData = JSON.parse(oldData);
+            this.currentUser["Y4T2"] = newData;
+            localStorage.setItem(this.LOCAL_STORAGE_KEY, JSON.stringify(this.currentUser));
+            localStorage.removeItem("userData");
+        }
+
     }
 
     loadUser() {
-        return JSON.parse(localStorage.getItem('userData'));
+        return JSON.parse(localStorage.getItem(this.LOCAL_STORAGE_KEY));
     }
 
     createDefaultUser() {
-        return { quizResults: {}, year: 2, term: 2 };
+        return {
+            "Y1T2": {
+                "quizResults": {}
+            },
+            "Y2T2": {
+                "quizResults": {}
+            },
+            "Y3T2": {
+                "quizResults": {}
+            },
+            "Y4T2": {
+                "quizResults": {}
+            },
+            
+        };
     }
 
     initializeUI() {
@@ -21,7 +47,8 @@ class AccountSystem {
     }
     
     getQuizAnalytics() {
-        const results = this.currentUser.quizResults;
+        console.log(this.currentUser);
+        const results = this.currentUser[this.id].quizResults;
         const coursePerformance = this.getCoursePerformance(results);
         const timeAnalysis = this.getTimeAnalysis(results);
         const progressTrend = this.getProgressTrend(results);
@@ -256,11 +283,11 @@ class AccountSystem {
     }
 
     saveQuizResult(quizId, result) {
-        this.currentUser.quizResults[quizId] = {
+        this.currentUser[this.id].quizResults[quizId] = {
             ...result,
             timestamp: new Date().toISOString()
         };
-        localStorage.setItem('userData', JSON.stringify(this.currentUser));
+        localStorage.setItem(this.LOCAL_STORAGE_KEY, JSON.stringify(this.currentUser));
     }
 }
 
