@@ -4,7 +4,7 @@ const DATA = {
         "institution_name": "ARISH University",
         "faculty_id": "FAC_001",
         "faculty_name": "Faculty of Computers and Information",
-        "level": 1,
+        "level": 4,
         "term": 2,
         "schedule_type": "Face to Face",
         "version": "2.0.0-alpha",

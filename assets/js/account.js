@@ -48,7 +48,6 @@ class AccountSystem {
     }
     
     getQuizAnalytics() {
-        console.log(this.currentUser);
         const results = this.currentUser[this.id].quizResults;
         const coursePerformance = this.getCoursePerformance(results);
         const timeAnalysis = this.getTimeAnalysis(results);
