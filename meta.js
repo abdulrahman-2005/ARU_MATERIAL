@@ -238,7 +238,7 @@ const DATA = {
             "name": "Analysis and Design of Algorithm",
             "code": "ALG101",
             "credit_hours": 3,
-            "instructors": ["INS_003", "INS_006"],
+            "instructors": ["INS_002", "INS_006"],
             "has_lecture": true,
             "has_section": true,
             "files": [
