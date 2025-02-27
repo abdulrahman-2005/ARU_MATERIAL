@@ -48,3 +48,4 @@ Important:
 - Ensure explanations are clear and educational
 - Make distractors (wrong options) plausible but clearly incorrect
 - Cover the main topics from the lecture evenly
+- MAKE SURE TO CREATE 15 QUESTIONS, YOU HAVE TO CREATE 15 QUESTIONS

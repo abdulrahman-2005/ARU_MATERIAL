@@ -7,7 +7,7 @@ const DATA = {
         "level": 2,
         "term": 2,
         "schedule_type": "Face to Face",
-        "version": "1.2.1-beta"
+        "version": "2.0.0-alpha",
     },
     "developer": {
         "name": "Abdelrahman Azmy",
@@ -252,6 +252,54 @@ const DATA = {
             "has_lecture": true,
             "has_section": true,
             "files": [
+                {
+                    "title": "Lecture 1: Introduction to Data Structures",
+                    "src": "Lecture1.pdf",
+                    "type": "lecture",
+                    "quizzes": ["QZ_011"],
+                    "messages": [
+                        {
+                            "type": "quiz_available",
+                            "text": "Quiz available for this lecture"
+                        }
+                    ]
+                },
+                {
+                    "title": "Lecture 2: Introduction (2)",
+                    "src": "Lecture2.pdf",
+                    "type": "lecture",
+                    "quizzes": ["QZ_012"],
+                    "messages": [
+                        {
+                            "type": "quiz_available",
+                            "text": "Quiz available for this lecture"
+                        }
+                    ]
+                },
+                {
+                    "title": "Lecture 3: Arrays and Linked Lists",
+                    "src": "Lecture3.pdf",
+                    "type": "lecture",
+                    "quizzes": ["QZ_013"],
+                    "messages": [
+                        {
+                            "type": "quiz_available",
+                            "text": "Quiz available for this lecture"
+                        }
+                    ]
+                },
+                {
+                    "title": "Lecture 4:  Circular and Doubly Linked Lists",
+                    "src": "Lecture4.pdf",
+                    "type": "lecture",
+                    "quizzes": ["QZ_014"],
+                    "messages": [
+                        {
+                            "type": "quiz_available",
+                            "text": "Quiz available for this lecture"
+                        }
+                    ]
+                }
             ]
         },
         "CRS_006": {
@@ -2224,9 +2272,845 @@ const QUIZ_DATA = {
             "All questions must be answered before submission.",
             "Questions and answers are randomized for each attempt."
         ]
+    },
+    "QZ_011": {
+        "title": "Data Structures Introduction Quiz",
+        "course_id": "DS101",
+        "related_file": "DS101_Lecture1.pdf",
+        "time_limit": 10,
+        "passing_score": 70,
+        "randomize_questions": true,
+        "questions": [
+            {
+                "id": "Q1",
+                "text": "What is the main purpose of a data structure?",
+                "type": "multiple_choice",
+                "options": [
+                    "To store and organize data efficiently",
+                    "To execute complex algorithms",
+                    "To increase the speed of a processor",
+                    "To replace programming languages"
+                ],
+                "correct_answer": 0,
+                "points": 2,
+                "explanation": "Data structures are used to store and organize data efficiently, enabling optimized operations such as searching, inserting, and deleting elements."
+            },
+            {
+                "id": "Q2",
+                "text": "Which of the following is an example of a non-primitive data structure?",
+                "type": "multiple_choice",
+                "options": [
+                    "Integer",
+                    "Float",
+                    "Array",
+                    "Character"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "Arrays are non-primitive data structures because they are derived from primitive types and allow multiple values to be stored in a structured format."
+            },
+            {
+                "id": "Q3",
+                "text": "Which of the following is an example of a linear data structure?",
+                "type": "multiple_choice",
+                "options": [
+                    "Tree",
+                    "Graph",
+                    "Queue",
+                    "Heap"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "A queue is a linear data structure that follows the FIFO (First-In-First-Out) principle, unlike trees or graphs, which are non-linear."
+            },
+            {
+                "id": "Q4",
+                "text": "What are the two main considerations when choosing a data structure?",
+                "type": "multiple_choice",
+                "options": [
+                    "Ease of implementation and cost",
+                    "Memory usage and execution time",
+                    "Programming language and syntax",
+                    "CPU speed and disk storage"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "The efficiency of a data structure is determined by its memory consumption and execution time, affecting the overall performance of a program."
+            },
+            {
+                "id": "Q5",
+                "text": "Which of the following correctly defines an algorithm?",
+                "type": "multiple_choice",
+                "options": [
+                    "A complete program written in C++",
+                    "A sequence of steps to solve a problem",
+                    "A type of data structure",
+                    "A mathematical equation"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "An algorithm is a step-by-step set of instructions designed to solve a specific problem efficiently."
+            },
+            {
+                "id": "Q6",
+                "text": "Which data structure follows the Last In, First Out (LIFO) principle?",
+                "type": "multiple_choice",
+                "options": [
+                    "Queue",
+                    "Stack",
+                    "Array",
+                    "Graph"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "A stack follows the LIFO principle, meaning the last element added is the first one to be removed."
+            },
+            {
+                "id": "Q7",
+                "text": "What is an Abstract Data Type (ADT)?",
+                "type": "multiple_choice",
+                "options": [
+                    "A data type built into the C++ language",
+                    "A conceptual model defining operations on a data structure",
+                    "A specific implementation of a data structure",
+                    "A type of database system"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "An Abstract Data Type (ADT) defines a set of operations for a data structure without specifying its implementation."
+            },
+            {
+                "id": "Q8",
+                "text": "Which operator in C++ is used for input?",
+                "type": "multiple_choice",
+                "options": [
+                    "<<",
+                    ">>",
+                    "==",
+                    "&&"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "The '>>' operator in C++ is used for input, typically with 'cin'."
+            },
+            {
+                "id": "Q9",
+                "text": "Which loop in C++ always executes at least once?",
+                "type": "multiple_choice",
+                "options": [
+                    "for",
+                    "while",
+                    "do-while",
+                    "switch"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "The 'do-while' loop guarantees at least one execution because the condition is checked after the loop body executes."
+            },
+            {
+                "id": "Q10",
+                "text": "Which of the following is NOT a characteristic of non-linear data structures?",
+                "type": "multiple_choice",
+                "options": [
+                    "Data elements are arranged sequentially",
+                    "Elements are connected in various ways",
+                    "Used in trees and graphs",
+                    "More complex to implement than linear structures"
+                ],
+                "correct_answer": 0,
+                "points": 2,
+                "explanation": "Non-linear data structures do not arrange data sequentially, unlike linear structures such as arrays and linked lists."
+            }
+        ],
+        "instructions": [
+            "You have 10 minutes to complete this quiz",
+            "Each question is worth 2 points",
+            "You need 70% to pass",
+            "All questions must be answered before submission",
+            "Questions and answers are randomized for each attempt"
+        ]
+    },
+    "QZ_012": {
+        "title": "Data Structures Fundamentals Quiz",
+        "course_id": "DS101",
+        "related_file": "DS101_Lecture2.pdf",
+        "time_limit": 10,
+        "passing_score": 70,
+        "randomize_questions": true,
+        "questions": [
+            {
+                "id": "Q1",
+                "text": "What is the main advantage of using arrays compared to declaring individual variables?",
+                "type": "multiple_choice",
+                "options": [
+                    "Arrays always execute faster than individual variables",
+                    "Arrays reduce the number of identifiers needed for related data",
+                    "Arrays can store different data types in the same structure",
+                    "Arrays automatically sort their elements"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "As mentioned in the lecture, one key motivation for using arrays is the reduction of identifiers. Instead of declaring many individual variables (like test1, test2, test3, etc.), you can declare a single array that holds multiple elements of the same type. This makes code cleaner and more manageable, especially when dealing with a large number of related values."
+            },
+            {
+                "id": "Q2",
+                "text": "Given the following code snippet, what will be the value of `sum` after execution?\n```cpp\nint x[5] = {10, 20, 30, 40, 50};\nint sum = 0;\nfor(int i = 0; i < 5; i += 2) {\n    sum += x[i];\n}\n```",
+                "type": "multiple_choice",
+                "options": [
+                    "150",
+                    "90",
+                    "50",
+                    "10"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "The loop iterates with i = 0, 2, and 4 (incrementing by 2 each time). The values added to sum are x[0] = 10, x[2] = 30, and x[4] = 50. Therefore, sum = 10 + 30 + 50 = 90. This tests understanding of array indexing and loop behavior."
+            },
+            {
+                "id": "Q3",
+                "text": "What is the correct way to initialize all elements of an array `test` with 50 elements to zero?",
+                "type": "multiple_choice",
+                "options": [
+                    "int test[50] = 0;",
+                    "int test[50] = { 0 };",
+                    "int test[50] = { 0, 0, 0, ... };",
+                    "int test[50] = zero;"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "The correct way to initialize all elements of an array to 0 is using the syntax `int test[50] = { 0 };`. As mentioned in the lecture (slide 9), this special initialization syntax sets the first element to 0 and all remaining elements to 0 as well."
+            },
+            {
+                "id": "Q4",
+                "text": "Which of the following statements is true about arrays in C++?",
+                "type": "multiple_choice",
+                "options": [
+                    "Arrays can change size during runtime",
+                    "The index of the first element in an array is 1",
+                    "Elements are stored at contiguous memory locations",
+                    "Arrays can store elements of different data types"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "As stated in the lecture (slide 12), elements in an array are stored at contiguous memory locations. This means they are stored one after another in memory, which enables efficient access using index offsets. Static arrays in C++ have fixed sizes, start at index 0, and can only store elements of the same data type."
+            },
+            {
+                "id": "Q5",
+                "text": "What is the purpose of a function prototype in C++?",
+                "type": "multiple_choice",
+                "options": [
+                    "To execute the function before main()",
+                    "To make the function run faster",
+                    "To tell the compiler about the function's return type, name, and arguments",
+                    "To make the function available in other source files"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "As explained in the lecture (slide 17), a function prototype tells the compiler what the function will return, what the function will be called (function name), as well as what arguments the function can be passed. This allows the compiler to check for proper usage of the function before encountering its full definition."
+            },
+            {
+                "id": "Q6",
+                "text": "What will be the output of the following recursive function call?\n```cpp\nint strange(int n) {\n    if (n <= 1) return 1;\n    return strange(n-2) + strange(n-1);\n}\n\nint main() {\n    cout << strange(4);\n    return 0;\n}\n```",
+                "type": "multiple_choice",
+                "options": [
+                    "4",
+                    "5",
+                    "7",
+                    "8"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "This is a recursive function. Let's trace its execution:\n- strange(4) = strange(2) + strange(3)\n- strange(2) = strange(0) + strange(1) = 1 + 1 = 2\n- strange(3) = strange(1) + strange(2) = 1 + (strange(0) + strange(1)) = 1 + (1 + 1) = 1 + 2 = 3\n- Therefore, strange(4) = strange(2) + strange(3) = 2 + 3 = 5\nThis tests understanding of recursive function execution."
+            },
+            {
+                "id": "Q7",
+                "text": "Which of the following is a valid function overloading in C++?",
+                "type": "multiple_choice",
+                "options": [
+                    "```cpp\nint calculate(int a);\nfloat calculate(int a);\n```",
+                    "```cpp\nint sum(int a, int b);\nint sum(int a, int b, int c);\n```",
+                    "```cpp\nint process(int a);\nint Process(int a);\n```",
+                    "```cpp\nint display(int a);\nint display(int b);\n```"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "According to the function overloading rules presented in the lecture (slide 28), valid overloading occurs when the parameter lists differ. The second option is valid because the functions have different numbers of parameters (two vs. three). The first option is invalid because only the return type differs, which is not enough for overloading. The third option has functions that differ only in capitalization, which makes them distinct functions in C++. The fourth option has functions with the same signature, just using different parameter names, which is not overloading."
+            },
+            {
+                "id": "Q8",
+                "text": "What is a required element in every proper recursive function?",
+                "type": "multiple_choice",
+                "options": [
+                    "At least two recursive calls",
+                    "A global variable to track recursion depth",
+                    "At least one base case to stop recursion",
+                    "A static variable inside the function"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "As explained in the lecture (slides 31-36), every proper recursive function must have at least one base case. The base case is essential as it stops the recursion by providing a direct answer without further recursive calls. Without a base case, the function would call itself indefinitely, resulting in infinite recursion and eventually a stack overflow."
+            },
+            {
+                "id": "Q9",
+                "text": "What happens in the following code?\n```cpp\nint *p;\n*p = 42;\n```",
+                "type": "multiple_choice",
+                "options": [
+                    "The value 42 is stored at memory address 0",
+                    "A memory leak occurs",
+                    "The code will likely cause a segmentation fault/crash",
+                    "The pointer p is set to address 42"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "This code will likely cause a segmentation fault or crash. The pointer p is declared but not initialized, so it contains a garbage value (an undefined memory address). When trying to dereference this uninitialized pointer with *p = 42, the program attempts to write to an invalid memory location, causing a crash. The correct approach would be to allocate memory first using 'p = new int;' before dereferencing."
+            },
+            {
+                "id": "Q10",
+                "text": "Which statement correctly describes the difference between static and dynamic data structures?",
+                "type": "multiple_choice",
+                "options": [
+                    "Static structures are faster, while dynamic structures use less memory",
+                    "Static structures are allocated memory at compile time, while dynamic structures are allocated memory at runtime",
+                    "Static structures can change size during execution, while dynamic structures cannot",
+                    "Static structures are stored in the heap, while dynamic structures are stored in the data segment"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "As stated in the lecture (slides 37-39), static data structures are allocated memory at compile time and stored in the data segment, while dynamic data structures are allocated memory at runtime from the heap. This fundamental difference means static structures cannot change size during execution, while dynamic structures can grow or shrink as needed."
+            },
+            {
+                "id": "Q11",
+                "text": "What will be the output of the following code?\n```cpp\nvoid modify(int arr[]) {\n    arr[0] = 100;\n}\n\nint main() {\n    int numbers[3] = {1, 2, 3};\n    modify(numbers);\n    cout << numbers[0];\n    return 0;\n}\n```",
+                "type": "multiple_choice",
+                "options": [
+                    "1",
+                    "3",
+                    "100",
+                    "0"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "The output will be 100. As mentioned in the lecture (slide 43), arrays are always passed by reference to functions, even without explicitly using the & symbol. This means that when the array 'numbers' is passed to the 'modify' function, the function is working with the original array, not a copy. Therefore, when the function changes arr[0] to 100, it's actually changing numbers[0] in the main function."
+            },
+            {
+                "id": "Q12",
+                "text": "What is the purpose of the 'new' operator in C++?",
+                "type": "multiple_choice",
+                "options": [
+                    "To declare a new variable",
+                    "To create a new function",
+                    "To allocate memory from the heap at runtime",
+                    "To initialize an array with default values"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "As explained in the lecture (slide 32), the new operator allocates memory from the heap to a node of specified type at runtime. It returns the address of that node, which can be stored in a pointer. This is fundamental for creating dynamic data structures that can grow or shrink during program execution."
+            },
+            {
+                "id": "Q13",
+                "text": "What is the correct way to access the 'suit' member of a card structure through a pointer 'cardPtr'?",
+                "type": "multiple_choice",
+                "options": [
+                    "cardPtr.suit",
+                    "cardPtr->suit",
+                    "suit.cardPtr",
+                    "*cardPtr.suit"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "As shown in the lecture (slide 40), the correct way to access a structure member through a pointer is using the arrow operator (->). So 'cardPtr->suit' is the correct syntax. Alternatively, (*cardPtr).suit would also work, but the arrow operator is preferred for readability."
+            },
+            {
+                "id": "Q14",
+                "text": "What would happen if the base case was omitted in the factorial recursive function below?\n```cpp\nint factorial(int n) {\n    // Base case omitted\n    return n * factorial(n-1);\n}\n```",
+                "type": "multiple_choice",
+                "options": [
+                    "The function would still work correctly for n > 0",
+                    "The function would return 0 for all inputs",
+                    "Infinite recursion would occur, eventually causing a stack overflow",
+                    "The compiler would detect the error and not compile"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "As explained in the lecture (slides 35-36), without a base case, the function would call itself indefinitely (infinite recursion). Each call would use some stack memory, and eventually, the program would run out of stack space, causing a stack overflow error. The base case is essential to stop the recursion at some point."
+            },
+            {
+                "id": "Q15",
+                "text": "Given the following structure definition, what is the correct way to initialize a student with ID 101, name 'John', and college ID 5 with name 'Engineering'?",
+                "type": "multiple_choice",
+                "options": [
+                    "```cpp\nstudent s = {101, \"John\", {}, {5, \"Engineering\"}};\n```",
+                    "```cpp\nstudent s; s.id = 101; s.name = \"John\"; s.clg_data = {5, \"Engineering\"};\n```",
+                    "```cpp\nstudent s = new student(101, \"John\", 5, \"Engineering\");\n```",
+                    "```cpp\nstudent s; s.id = 101; s.name = \"John\"; s.clg_data.college_id = 5; s.clg_data.college_name = \"Engineering\";\n```"
+                ],
+                "correct_answer": 3,
+                "points": 2,
+                "explanation": "Based on the structure example in the lecture (slides 41-43), the correct way to initialize a nested structure is to access each member individually using the dot notation. The student structure contains a Stud_col structure as a member, so we need to access the college_id and college_name members through the clg_data member of the student structure. The fourth option correctly shows this approach."
+            }
+        ],
+        "instructions": [
+            "You have 10 minutes to complete this quiz",
+            "Each question is worth 2 points",
+            "You need 70% to pass",
+            "All questions must be answered before submission",
+            "Questions and answers are randomized for each attempt"
+        ]
+    },
+    "QZ_013": {
+        "title": "Data Structures: Linked Lists Quiz",
+        "course_id": "DS101",
+        "related_file": "DS101_Lecture3.pdf",
+        "time_limit": 10,
+        "passing_score": 70,
+        "randomize_questions": true,
+        "questions": [
+            {
+                "id": "Q1",
+                "text": "What are the two main components of a node in a singly linked list?",
+                "type": "multiple_choice",
+                "options": [
+                    "Data and Index",
+                    "Data and Link (Next)",
+                    "Value and Previous",
+                    "Index and Address"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "A node in a singly linked list consists of two components: the Data part where the actual information is stored, and the Link (Next) part which is a pointer to the next element in the list. This structure allows nodes to be stored in non-contiguous memory locations while maintaining the sequence of the list."
+            },
+            {
+                "id": "Q2",
+                "text": "What happens when you add a new node to the head of a linked list?",
+                "type": "multiple_choice",
+                "options": [
+                    "The new node becomes the last node in the list",
+                    "The new node points to NULL and the old head points to the new node",
+                    "The new node points to the old head and becomes the new head",
+                    "The new node is inserted between the head and the second node"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "When adding a node to the head of a linked list, the new node's 'next' pointer is set to point to the current head node (old head), and then the head pointer is updated to point to the new node. This makes the new node the first node in the list, effectively adding it to the beginning of the list."
+            },
+            {
+                "id": "Q3",
+                "text": "Which of these best describes a circular linked list?",
+                "type": "multiple_choice",
+                "options": [
+                    "A list where each node points to both the next and previous nodes",
+                    "A list where the first node points to the last node and vice versa",
+                    "A list where the last node points to the first node instead of NULL",
+                    "A list where nodes are arranged in a circular array"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "In a circular linked list, the key characteristic is that the last node points back to the first node instead of pointing to NULL as in a standard singly linked list. This creates a circular structure where you can traverse from any node and eventually return to that same node by following the 'next' pointers."
+            },
+            {
+                "id": "Q4",
+                "text": "What is the time complexity of adding a node to the tail of a singly linked list (assuming you only have a head pointer)?",
+                "type": "multiple_choice",
+                "options": [
+                    "O(1)",
+                    "O(log n)",
+                    "O(n)",
+                    "O(n²)"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "When adding a node to the tail of a singly linked list with only a head pointer, you need to traverse the entire list to find the last node. This traversal takes O(n) time, where n is the number of nodes in the list. Only after finding the last node can you add the new node after it."
+            },
+            {
+                "id": "Q5",
+                "text": "Consider the following code for the `addToHead` function:\n```cpp\nvoid List::addToHead(int data)\n{\n    Node* p = new Node;\n    p->info = data;\n    p->next = head;\n    head = p;\n}\n```\nWhat happens if the list is empty when this function is called?",
+                "type": "multiple_choice",
+                "options": [
+                    "It causes a null pointer exception because head is NULL",
+                    "It creates a circular list where the node points to itself",
+                    "It works correctly because head is NULL and the new node will point to NULL",
+                    "It requires a special case to handle empty lists that is missing"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "The `addToHead` function works correctly even for an empty list. When the list is empty, head is NULL. The function creates a new node, sets its data, makes it point to NULL (since head is NULL), and then updates head to point to this new node. This correctly establishes the new node as both the head and tail of the previously empty list."
+            },
+            {
+                "id": "Q6",
+                "text": "What is the main advantage of a doubly linked list over a singly linked list?",
+                "type": "multiple_choice",
+                "options": [
+                    "It uses less memory",
+                    "It allows for bidirectional traversal",
+                    "It supports faster insertion at the head",
+                    "It can only contain a fixed number of nodes"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "A doubly linked list allows for traversal in both directions (forward and backward) because each node has pointers to both its successor and predecessor. This bidirectional capability makes operations like backward traversal and deleting the previous node much more efficient compared to a singly linked list where you can only move forward."
+            },
+            {
+                "id": "Q7",
+                "text": "When deleting a node from a linked list, which of the following cases requires special handling?",
+                "type": "multiple_choice",
+                "options": [
+                    "Deleting from an empty list",
+                    "Deleting the only node in the list",
+                    "Deleting the first node of a multi-node list",
+                    "All of the above"
+                ],
+                "correct_answer": 3,
+                "points": 2,
+                "explanation": "All three cases require special handling when deleting a node from a linked list. For an empty list, you should check and exit to avoid null pointer exceptions. When deleting the only node, you need to set head to NULL. When deleting the first node in a multi-node list, you need to update the head pointer. These special cases are explicitly mentioned in the lecture as requiring different handling approaches."
+            },
+            {
+                "id": "Q8",
+                "text": "Consider this `deleteFromHead` function:\n```cpp\nint list::deleteFromHead()\n{\n    int x;\n    if(head==NULL) {\n        cout<<\"list Empty\";\n        exit(0);\n    }\n    else if(head->next==NULL) {\n        x=head->info;\n        delete head;\n        return x;\n    }\n    else {\n        Node* p=head;\n        head=head->next;\n        x=p->info;\n        delete p;\n        return x;\n    }\n}\n```\nWhat error exists in the function?",
+                "type": "multiple_choice",
+                "options": [
+                    "The function doesn't set head to NULL when deleting the only node",
+                    "The function fails to properly update pointers in the multi-node case",
+                    "The function doesn't free the memory of the deleted node properly",
+                    "The function doesn't handle the case where the list becomes empty after deletion"
+                ],
+                "correct_answer": 0,
+                "points": 2,
+                "explanation": "The error in the function is that when deleting the only node in the list (the case where head->next==NULL), the function deletes the node but doesn't set head to NULL. After deletion, head becomes a dangling pointer pointing to freed memory. The function should set head to NULL to properly indicate that the list is now empty."
+            },
+            {
+                "id": "Q9",
+                "text": "What is the correct approach to implementing the destructor for a linked list?",
+                "type": "multiple_choice",
+                "options": [
+                    "Delete the head node and set it to NULL",
+                    "Delete each node one by one by traversing the list",
+                    "Call the deleteFromHead function repeatedly until the list is empty",
+                    "Set all node pointers to NULL"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "The correct approach to implementing a destructor for a linked list is to traverse the list and delete each node one by one. This ensures that all dynamically allocated memory is properly freed. Simply deleting the head node or setting pointers to NULL would cause memory leaks as the other nodes would remain in memory without being accessible."
+            },
+            {
+                "id": "Q10",
+                "text": "What would be a potential issue with the following `findNode` implementation?\n```cpp\nint list::findNode(int x) {\n    Node* p = head;\n    int c = 1;\n    while (p!=NULL && p->info!= x) {\n        p = p->next;\n        c++;\n    }\n    if (p->info==x) return c;\n    return 0;\n}\n```",
+                "type": "multiple_choice",
+                "options": [
+                    "It doesn't handle empty lists correctly",
+                    "It returns the wrong position for the node",
+                    "It will cause a null pointer exception if the value is not found",
+                    "It doesn't increment the counter correctly"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "The issue is that if the value x is not found in the list, p will eventually become NULL (after the while loop). Then, the line `if (p->info==x)` will cause a null pointer exception because it tries to access the 'info' field of a NULL pointer. The function should check if p is NULL before trying to access p->info."
+            },
+            {
+                "id": "Q11",
+                "text": "Which of the following is NOT an advantage of linked lists over arrays?",
+                "type": "multiple_choice",
+                "options": [
+                    "Dynamic size that can grow and shrink as needed",
+                    "No need for contiguous memory allocation",
+                    "Faster random access to elements",
+                    "Easier insertion and deletion"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "Random access is NOT an advantage of linked lists; in fact, it's a disadvantage. With arrays, you can access any element directly using its index in O(1) time. In contrast, linked lists require sequential traversal from the head to access elements, resulting in O(n) time complexity for accessing arbitrary elements. This is explicitly mentioned as a drawback of linked lists in the lecture."
+            },
+            {
+                "id": "Q12",
+                "text": "What is the primary distinction between a singly linked list and a doubly linked list?",
+                "type": "multiple_choice",
+                "options": [
+                    "Singly linked lists can only have a fixed number of nodes while doubly linked lists can grow dynamically",
+                    "Singly linked lists have a head pointer only while doubly linked lists have both head and tail pointers",
+                    "Singly linked lists have one pointer per node (to the next node) while doubly linked lists have two pointers per node (to the next and previous nodes)",
+                    "Singly linked lists can only store simple data types while doubly linked lists can store complex data structures"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "The primary distinction between singly and doubly linked lists is in the node structure. In a singly linked list, each node has one pointer that points to the next node in the sequence. In a doubly linked list, each node has two pointers: one pointing to the next node and another pointing to the previous node. This allows doubly linked lists to be traversed in both forward and backward directions."
+            },
+            {
+                "id": "Q13",
+                "text": "What is the correct way to traverse a circular linked list?",
+                "type": "multiple_choice",
+                "options": [
+                    "Check if the current node is NULL to stop traversal",
+                    "Check if the next pointer of the current node points to the head node to stop traversal",
+                    "Traverse exactly n nodes where n is the known length of the list",
+                    "Always traverse until a node points to NULL"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "In a circular linked list, there is no NULL pointer at the end (unlike a singly linked list). Instead, the last node points back to the first node (the head). Therefore, to traverse a circular linked list without infinite looping, you should check if the next pointer of the current node points to the head node. This indicates you've completed one full traversal of the list."
+            },
+            {
+                "id": "Q14",
+                "text": "What would happen if you implement the `addToTail` function without traversing to find the last node?",
+                "type": "multiple_choice",
+                "options": [
+                    "The function would add the node at the head instead",
+                    "The function would create a circular list",
+                    "The function would always replace the last node instead of adding after it",
+                    "This is impossible without a separate tail pointer"
+                ],
+                "correct_answer": 3,
+                "points": 2,
+                "explanation": "Without traversing the list to find the last node, it's impossible to implement an `addToTail` function in a singly linked list that only has a head pointer. You need to find the last node to add after it. The only way to avoid traversal would be to maintain a separate tail pointer that always points to the last node, which would make the operation O(1) instead of O(n)."
+            },
+            {
+                "id": "Q15",
+                "text": "Given this code for `countList`:\n```cpp\nint list::countList()\n{\n    int c=0;\n    Node* p=head;\n    while(p!=NULL)\n    {\n        c++;\n        p=p->next;\n    }\n    return c;\n}\n```\nWhat would happen if you tried to use this function on a circular linked list?",
+                "type": "multiple_choice",
+                "options": [
+                    "It would return 0 because no node points to NULL",
+                    "It would cause an infinite loop",
+                    "It would count only the first node",
+                    "It would return the correct count if the last node points to NULL"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "The `countList` function shown is designed for a singly linked list where the last node points to NULL. In a circular linked list, the last node points back to the head instead of NULL. The while loop condition `p!=NULL` would never be false because p will never become NULL. This would cause an infinite loop as the function keeps traversing the circular list endlessly. For circular lists, you need a different termination condition, such as checking if p points back to the head."
+            }
+        ],
+        "instructions": [
+            "You have 10 minutes to complete this quiz",
+            "Each question is worth 2 points",
+            "You need 70% to pass",
+            "All questions must be answered before submission",
+            "Questions and answers are randomized for each attempt"
+        ]
+    },
+    "QZ_014": {
+        "title": "Data Structures: Circular and Doubly Linked Lists Quiz",
+        "course_id": "DS101",
+        "related_file": "DS101_Lecture4.pdf",
+        "time_limit": 10,
+        "passing_score": 70,
+        "randomize_questions": true,
+        "questions": [
+            {
+                "id": "Q1",
+                "text": "What is the primary difference between a singly linked list and a circular linked list?",
+                "type": "multiple_choice",
+                "options": [
+                    "A circular linked list uses dynamic memory allocation, while a singly linked list uses static memory allocation",
+                    "In a circular linked list, the last node points back to the first node, while in a singly linked list, the last node points to NULL",
+                    "A circular linked list can only contain a fixed number of nodes, while a singly linked list can grow dynamically",
+                    "A circular linked list stores data in contiguous memory locations, while a singly linked list uses pointers"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "The key difference is that in a circular linked list, the last node's next pointer points back to the first node (head) of the list, creating a circle. In contrast, a singly linked list's last node points to NULL, indicating the end of the list. This circular structure allows for continuous traversal through the list without reaching an end."
+            },
+            {
+                "id": "Q2",
+                "text": "How do you determine when you have finished traversing a circular linked list?",
+                "type": "multiple_choice",
+                "options": [
+                    "When you reach a node with a NULL pointer",
+                    "When you reach the tail node",
+                    "When the current node's pointer is equal to the head",
+                    "When you have visited exactly n nodes, where n is the size of the list"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "In a circular linked list, there is no NULL pointer at the end since the list forms a circle. Instead, to determine if you have completed one full traversal, you check if the current node's next pointer is equal to the head of the list. This indicates you've come full circle and are about to revisit the first node."
+            },
+            {
+                "id": "Q3",
+                "text": "What is a significant advantage of a doubly linked list over a singly linked list?",
+                "type": "multiple_choice",
+                "options": [
+                    "Doubly linked lists use less memory",
+                    "Doubly linked lists allow for faster insertion at the head",
+                    "Doubly linked lists make it easier to traverse the list backward",
+                    "Doubly linked lists automatically sort elements as they are inserted"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "A key advantage of a doubly linked list is that it allows for easy backward traversal. Since each node contains references to both its predecessor and successor, you can efficiently move backward through the list. This is not possible in a singly linked list without starting from the beginning. This bidirectional traversal capability makes certain operations more efficient in doubly linked lists."
+            },
+            {
+                "id": "Q4",
+                "text": "When adding a new node to the head of a circular linked list, which pointers need to be updated?",
+                "type": "multiple_choice",
+                "options": [
+                    "Only the new node's next pointer",
+                    "The new node's next pointer and the head pointer",
+                    "The new node's next pointer, the head pointer, and the last node's next pointer",
+                    "Only the head pointer"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "When adding a node to the head of a circular linked list, three pointer updates are needed: 1) the new node's next pointer must point to the current head, 2) the head pointer must be updated to point to the new node, and 3) the last node's next pointer must be updated to point to the new head (the newly added node). This third step is unique to circular linked lists and maintains the circular structure."
+            },
+            {
+                "id": "Q5",
+                "text": "Which function correctly implements adding a node to the head of a circular linked list?",
+                "type": "multiple_choice",
+                "options": [
+                    "```cpp\nvoid addToHead(int data) {\n  node* p = new node;\n  p->info = data;\n  p->next = head;\n  head = p;\n}\n```",
+                    "```cpp\nvoid addToHead(int data) {\n  node* p = new node;\n  p->info = data;\n  p->next = NULL;\n  head = p;\n}\n```",
+                    "```cpp\nvoid addToHead(int data) {\n  node* p = new node;\n  p->info = data;\n  p->next = head;\n  head = p;\n  node* q = head;\n  while(q->next != NULL)\n    q = q->next;\n  q->next = head;\n}\n```",
+                    "```cpp\nvoid addToHead(int data) {\n  node* p = new node;\n  p->info = data;\n  p->next = head;\n  if(head == NULL) {\n    head = p;\n    head->next = head;\n  } else {\n    node* q = head;\n    while(q->next != head)\n      q = q->next;\n    q->next = p;\n    head = p;\n  }\n}\n```"
+                ],
+                "correct_answer": 3,
+                "points": 2,
+                "explanation": "The correct implementation is option D. This function properly handles both the empty list case and the case with existing nodes. When the list is empty, it creates a self-referential node. When the list has nodes, it traverses to find the last node (whose next points to head), updates the last node's next to point to the new node, and then updates head to be the new node. Options A and B don't maintain the circular structure, and option C incorrectly uses NULL check instead of checking against head."
+            },
+            {
+                "id": "Q6",
+                "text": "In a circular doubly linked list, how many NULL pointers are there?",
+                "type": "multiple_choice",
+                "options": [
+                    "One - the head's prev pointer",
+                    "Two - the head's prev pointer and the tail's next pointer",
+                    "Zero - all pointers point to other nodes",
+                    "It depends on the number of nodes in the list"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "In a circular doubly linked list, there are zero NULL pointers. Unlike a standard doubly linked list (which has two NULL pointers), in a circular doubly linked list, the head's prev pointer points to the tail node, and the tail's next pointer points to the head node. This creates a complete circle in both directions, eliminating any NULL pointers in the structure."
+            },
+            {
+                "id": "Q7",
+                "text": "What is the time complexity of adding a node to the tail of a circular singly linked list?",
+                "type": "multiple_choice",
+                "options": [
+                    "O(1) - constant time",
+                    "O(log n) - logarithmic time",
+                    "O(n) - linear time",
+                    "O(n²) - quadratic time"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "The time complexity is O(n) - linear time. When adding a node to the tail of a circular singly linked list, we need to traverse the entire list from head to find the current last node (the one whose next pointer points back to head). This traversal takes O(n) time where n is the number of nodes in the list. Only after finding this last node can we insert the new node and update the pointers accordingly."
+            },
+            {
+                "id": "Q8",
+                "text": "When deleting the head node from a circular linked list that contains only one node, what is the resulting state of the list?",
+                "type": "multiple_choice",
+                "options": [
+                    "The list becomes empty with head pointing to NULL",
+                    "The head points to itself in a circular fashion",
+                    "The operation is not allowed and results in an error",
+                    "The head becomes NULL but the node remains in memory"
+                ],
+                "correct_answer": 0,
+                "points": 2,
+                "explanation": "When deleting the only node in a circular linked list, the list becomes empty and the head pointer is set to NULL. This is a special case that needs to be handled explicitly in the deleteFromHead function. After freeing the memory for the node, there are no nodes left in the list, so the head must point to NULL to indicate an empty list."
+            },
+            {
+                "id": "Q9",
+                "text": "Which of the following is INCORRECT about a doubly linked list?",
+                "type": "multiple_choice",
+                "options": [
+                    "Each node contains pointers to both the next and previous nodes",
+                    "It allows for bidirectional traversal",
+                    "It uses more memory per node than a singly linked list",
+                    "It requires less pointer updates during insertion and deletion operations"
+                ],
+                "correct_answer": 3,
+                "points": 2,
+                "explanation": "It is incorrect that a doubly linked list requires fewer pointer updates during insertion and deletion. In fact, a doubly linked list requires MORE pointer updates since each node has two pointers (prev and next) that need to be maintained. For example, when inserting a node, you must update both the next and prev pointers of adjacent nodes, as well as both pointers of the new node. The trade-off is that these additional pointer updates enable more efficient operations in certain scenarios."
+            },
+            {
+                "id": "Q10",
+                "text": "What is the correct implementation of the deleteFromHead function for a doubly linked list?",
+                "type": "multiple_choice",
+                "options": [
+                    "```cpp\nint deleteFromHead() {\n  int x;\n  if(head == NULL) {\n    cout << \"List Empty\";\n    exit(0);\n  }\n  x = head->info;\n  head = head->next;\n  delete head->prev;\n  head->prev = NULL;\n  return x;\n}\n```",
+                    "```cpp\nint deleteFromHead() {\n  int x;\n  if(head == NULL) {\n    cout << \"List Empty\";\n    exit(0);\n  }\n  node* p = head;\n  x = p->info;\n  head = head->next;\n  if(head != NULL)\n    head->prev = NULL;\n  delete p;\n  return x;\n}\n```",
+                    "```cpp\nint deleteFromHead() {\n  int x;\n  if(head == NULL) {\n    cout << \"List Empty\";\n    exit(0);\n  }\n  x = head->info;\n  node* p = head;\n  head = head->next;\n  delete p;\n  return x;\n}\n```",
+                    "```cpp\nint deleteFromHead() {\n  int x;\n  node* p = head;\n  head = head->next;\n  head->prev = NULL;\n  x = p->info;\n  delete p;\n  return x;\n}\n```"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "Option B is the correct implementation. It properly handles all cases: 1) checks if the list is empty, 2) saves the value to return, 3) updates head to point to the next node, 4) checks if the new head exists before setting its prev pointer to NULL (which handles the case where the list becomes empty), and 5) deletes the original head node. Option A has an incorrect order of operations that would cause a memory error. Option C doesn't update the prev pointer of the new head. Option D doesn't check for empty list cases and would cause errors."
+            },
+            {
+                "id": "Q11",
+                "text": "What is the primary application of circular linked lists mentioned in the lecture?",
+                "type": "multiple_choice",
+                "options": [
+                    "Implementing stacks and queues efficiently",
+                    "Managing memory allocation in operating systems",
+                    "Representing data with a cyclic order, such as turn-based multiplayer games",
+                    "Optimizing database index structures"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "According to the lecture, a primary application of circular linked lists is representing data with a cyclic order where there is no fixed beginning or end. The lecture specifically mentions turn-based multiplayer games as an example, where player turns rotate in a cycle (player A, then B, then C, then back to A again). This cyclic pattern is naturally modeled by a circular linked list."
+            },
+            {
+                "id": "Q12",
+                "text": "What is the difference between the countList function for a circular linked list and a normal singly linked list?",
+                "type": "multiple_choice",
+                "options": [
+                    "The circular list version increments the counter twice for each node",
+                    "The circular list version checks for head instead of NULL to determine the end of the list",
+                    "The circular list version uses a different initial counter value",
+                    "There is no difference in the implementation"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "The key difference is in the termination condition. In a normal singly linked list, we continue traversing until we reach a NULL pointer. In a circular linked list, there is no NULL pointer at the end. Instead, we continue traversing until the next pointer of the current node equals the head pointer, indicating we've come full circle. This difference is reflected in the loop condition: for a circular list, it's `while(p->next != head)` instead of `while(p->next != NULL)`."
+            },
+            {
+                "id": "Q13",
+                "text": "When adding a node to the tail of a doubly linked list, what is a critical step that must be performed?",
+                "type": "multiple_choice",
+                "options": [
+                    "Set the new node's next pointer to NULL and update the previous tail's next pointer to the new node",
+                    "Set the new node's next pointer to the head and update the head's prev pointer",
+                    "Set the new node's prev pointer to the last node and the new node's next pointer to NULL",
+                    "Create a temporary copy of the entire list before making any modifications"
+                ],
+                "correct_answer": 0,
+                "points": 2,
+                "explanation": "When adding a node to the tail of a doubly linked list, two critical pointer updates must occur: 1) the new node's next pointer must be set to NULL (as it's becoming the last node), and 2) the previous tail node's next pointer must be updated to point to the new node. Additionally, the new node's prev pointer must be set to the previous tail node. This ensures the doubly linked list structure is maintained with proper bidirectional connections."
+            },
+            {
+                "id": "Q14",
+                "text": "What happens when you attempt to delete from the tail of an empty doubly linked list using the implementation shown in the lecture?",
+                "type": "multiple_choice",
+                "options": [
+                    "The function returns NULL and continues execution",
+                    "The function prints 'List Empty' and exits the program",
+                    "The function throws an exception",
+                    "The function creates a new empty node and returns it"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "According to the deleteFromTail function shown in the lecture, when attempting to delete from an empty list (head == NULL), the function prints 'List Empty' and then calls exit(0), which terminates the program. This is an explicit check done at the beginning of the function to handle the empty list case. While this approach is somewhat drastic (terminating the program), it prevents undefined behavior that would occur from trying to delete from an empty list."
+            },
+            {
+                "id": "Q15",
+                "text": "Consider the following code for deleting a node from a doubly linked list. What's missing or incorrect?\n```cpp\nint deleteNode(int value) {\n  node* current = head;\n  \n  while(current != NULL) {\n    if(current->info == value) {\n      if(current == head) {\n        return deleteFromHead();\n      }\n      else {\n        current->prev->next = current->next;\n        if(current->next != NULL)\n          current->next->prev = current->prev;\n        int x = current->info;\n        delete current;\n        return x;\n      }\n    }\n    current = current->next;\n  }\n  \n  cout << \"Value not found\";\n  return -1;\n}\n```",
+                "type": "multiple_choice",
+                "options": [
+                    "The function doesn't handle the case where the value isn't found in the list",
+                    "The function doesn't properly update the prev pointer when deleting the head node",
+                    "The function doesn't handle the case where the node to delete is the tail",
+                    "The function is correct and handles all cases properly"
+                ],
+                "correct_answer": 3,
+                "points": 2,
+                "explanation": "The function is actually correct and handles all necessary cases. It checks if the node to delete is the head and calls deleteFromHead() in that case. For other nodes, it updates the next pointer of the previous node and the prev pointer of the next node (if it exists). The condition `if(current->next != NULL)` properly handles the case where the node to delete is the tail. The function also returns -1 and prints a message if the value isn't found. All edge cases are properly addressed."
+            }
+        ],
+        "instructions": [
+            "You have 10 minutes to complete this quiz",
+            "Each question is worth 2 points",
+            "You need 70% to pass",
+            "All questions must be answered before submission",
+            "Questions and answers are randomized for each attempt"
+        ]
     }
-
-
 
 
 }
