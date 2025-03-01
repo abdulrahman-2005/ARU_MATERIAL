@@ -126,6 +126,18 @@ const DATA = {
                             "text": "Quiz available for this lecture"
                         }
                     ]
+                },
+                {
+                    "title": "Lecture 2: Introduction to Information Systems",
+                    "src": "Lecture2.pdf",
+                    "type": "lecture",
+                    "quizzes": ["QZ_015"],
+                    "messages": [
+                        {
+                            "type": "quiz_available",
+                            "text": "Quiz available for this lecture"
+                        }
+                    ]
                 }
             ]
         },
@@ -3101,6 +3113,233 @@ const QUIZ_DATA = {
                 "correct_answer": 3,
                 "points": 2,
                 "explanation": "The function is actually correct and handles all necessary cases. It checks if the node to delete is the head and calls deleteFromHead() in that case. For other nodes, it updates the next pointer of the previous node and the prev pointer of the next node (if it exists). The condition `if(current->next != NULL)` properly handles the case where the node to delete is the tail. The function also returns -1 and prints a message if the value isn't found. All edge cases are properly addressed."
+            }
+        ],
+        "instructions": [
+            "You have 10 minutes to complete this quiz",
+            "Each question is worth 2 points",
+            "You need 70% to pass",
+            "All questions must be answered before submission",
+            "Questions and answers are randomized for each attempt"
+        ]
+    },
+    "QZ_015": {
+        "title": "Information Systems SDLC Quiz",
+        "course_id": "IS101",
+        "related_file": "IS101_Lecture2.pdf",
+        "time_limit": 10,
+        "passing_score": 70,
+        "randomize_questions": true,
+        "questions": [
+            {
+                "id": "Q1",
+                "text": "What does SDLC stand for in the context of information systems?",
+                "type": "multiple_choice",
+                "options": [
+                    "Software Development Learning Curve",
+                    "System Design Life Course",
+                    "System Development Life Cycle",
+                    "Software Design Logical Components"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "SDLC stands for System Development Life Cycle, which is a framework that describes the phases involved in developing an information system, from initial feasibility study through maintenance of the completed application."
+            },
+            {
+                "id": "Q2",
+                "text": "Which of the following is NOT typically a phase in the traditional SDLC?",
+                "type": "multiple_choice",
+                "options": [
+                    "Requirements Analysis",
+                    "System Design",
+                    "System Marketing",
+                    "System Testing"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "System Marketing is not a phase in the traditional SDLC. The typical phases include Planning, Requirements Analysis, System Design, Implementation (Coding), Testing, Deployment, and Maintenance. Marketing would be a business function outside the scope of the traditional development lifecycle."
+            },
+            {
+                "id": "Q3",
+                "text": "During which phase of the SDLC would you typically create detailed specifications for hardware, software, and network requirements?",
+                "type": "multiple_choice",
+                "options": [
+                    "Requirements Analysis",
+                    "System Design",
+                    "Implementation",
+                    "System Testing"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "System Design is the phase where detailed specifications for hardware, software, network requirements, user interfaces, database designs, and process diagrams are created. This phase transforms user requirements into a detailed system architecture."
+            },
+            {
+                "id": "Q4",
+                "text": "What is the primary purpose of System Testing in the SDLC?",
+                "type": "multiple_choice",
+                "options": [
+                    "To ensure the code is properly documented",
+                    "To verify that all system components work together as expected",
+                    "To train users on the new system",
+                    "To ensure the system has an attractive user interface"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "The primary purpose of System Testing is to verify that all system components (hardware, software, interfaces, etc.) work together as expected. It ensures that the entire system meets the specified requirements and functions correctly as an integrated whole."
+            },
+            {
+                "id": "Q5",
+                "text": "Pilot Conversion is a type of:",
+                "type": "multiple_choice",
+                "options": [
+                    "System Design methodology",
+                    "Programming paradigm",
+                    "System Conversion strategy",
+                    "Database architecture"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "Pilot Conversion is a type of System Conversion strategy. It involves implementing the new system in one area of the organization or with a small group of users before rolling it out to the entire organization. This allows for testing the system in a real environment with limited risk."
+            },
+            {
+                "id": "Q6",
+                "text": "What distinguishes Pilot Conversion from other conversion strategies?",
+                "type": "multiple_choice",
+                "options": [
+                    "It involves converting the entire system at once",
+                    "It implements the system in one department or location first",
+                    "It runs the old and new systems simultaneously forever",
+                    "It automatically transfers all data from the old system"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "Pilot Conversion distinguishes itself by implementing the new system in one department or location first before rolling it out to the entire organization. This allows the organization to test the system in a real operating environment, identify issues, and make adjustments before full implementation."
+            },
+            {
+                "id": "Q7",
+                "text": "In system design, which of the following activities would typically occur FIRST?",
+                "type": "multiple_choice",
+                "options": [
+                    "Creating detailed database schemas",
+                    "Writing program code",
+                    "Identifying high-level system architecture",
+                    "Performing system integration testing"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "In system design, identifying the high-level system architecture would typically occur first. This involves making fundamental decisions about the overall structure of the system before delving into specific details like database schemas, code writing, or testing."
+            },
+            {
+                "id": "Q8",
+                "text": "Which testing approach focuses on examining the system's components without knowledge of their internal structure?",
+                "type": "multiple_choice",
+                "options": [
+                    "White-box testing",
+                    "Black-box testing",
+                    "Alpha testing",
+                    "Unit testing"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "Black-box testing focuses on examining the functionality of an application without knowledge of its internal structure or code. Testers only know what the system should do, not how it does it. They provide inputs and examine outputs without considering the internal processing."
+            },
+            {
+                "id": "Q9",
+                "text": "Consider a retail company implementing a new inventory management system. Which conversion strategy would be MOST appropriate if they cannot afford any downtime?",
+                "type": "multiple_choice",
+                "options": [
+                    "Direct Conversion",
+                    "Parallel Conversion",
+                    "Phased Conversion",
+                    "Pilot Conversion"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "Parallel Conversion would be most appropriate when a company cannot afford any downtime. This strategy involves running both the old and new systems simultaneously for a period of time, ensuring business continuity while verifying the new system works correctly. It's the safest approach but requires more resources."
+            },
+            {
+                "id": "Q10",
+                "text": "What is a key advantage of using a structured SDLC approach for system development?",
+                "type": "multiple_choice",
+                "options": [
+                    "It eliminates the need for documentation",
+                    "It provides a framework for project management and control",
+                    "It guarantees that projects will be completed under budget",
+                    "It removes the need for system testing"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "A key advantage of using a structured SDLC approach is that it provides a framework for project management and control. By breaking down the development process into defined phases with clear deliverables, it helps teams manage resources, track progress, and maintain quality throughout the project."
+            },
+            {
+                "id": "Q11",
+                "text": "During system testing, a developer finds that when multiple users access the database simultaneously, some transactions fail. What type of testing uncovered this issue?",
+                "type": "multiple_choice",
+                "options": [
+                    "Unit testing",
+                    "Integration testing",
+                    "Load testing",
+                    "Acceptance testing"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "Load testing is a type of performance testing that examines how the system behaves under expected or heavy loads. This includes testing the system's response with multiple concurrent users or transactions. The scenario described, where transactions fail during simultaneous database access, would typically be uncovered during load testing."
+            },
+            {
+                "id": "Q12",
+                "text": "A company is implementing a new accounting system and decides to convert one module at a time, starting with accounts payable, then moving to accounts receivable, and finally general ledger. Which conversion strategy is being used?",
+                "type": "multiple_choice",
+                "options": [
+                    "Direct Conversion",
+                    "Parallel Conversion",
+                    "Phased Conversion",
+                    "Pilot Conversion"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "This describes Phased Conversion, which involves implementing different modules or components of the system sequentially over time. The organization is breaking down the implementation into manageable segments, converting one module at a time rather than implementing the entire system at once."
+            },
+            {
+                "id": "Q13",
+                "text": "Consider the following pseudocode for a system module:\n```\nfunction processOrder(order):\n    if validateOrder(order) then\n        calculateTotal(order)\n        updateInventory(order)\n        generateInvoice(order)\n        return SUCCESS\n    else\n        return ERROR\n    end if\nend function\n```\nWhich phase of the SDLC does this representation most closely align with?",
+                "type": "multiple_choice",
+                "options": [
+                    "Requirements Analysis",
+                    "System Design",
+                    "Implementation",
+                    "Testing"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "The pseudocode provided most closely aligns with the System Design phase. It represents a high-level algorithm that outlines the processing logic without actual programming language syntax details. In System Design, algorithms and process flows are defined before moving to actual implementation (coding) in a specific programming language."
+            },
+            {
+                "id": "Q14",
+                "text": "Which of the following would be a key challenge specifically associated with Pilot Conversion?",
+                "type": "multiple_choice",
+                "options": [
+                    "Managing data inconsistencies between different versions of the system",
+                    "Training all users simultaneously",
+                    "Ensuring data integrity when running two systems in parallel",
+                    "Managing different business processes for the pilot group versus the rest of the organization"
+                ],
+                "correct_answer": 3,
+                "points": 2,
+                "explanation": "A key challenge specific to Pilot Conversion is managing different business processes for the pilot group versus the rest of the organization. When one department or location uses the new system while others continue using the old system, it can create operational inconsistencies and communication challenges between departments, requiring careful management of the interim period."
+            },
+            {
+                "id": "Q15",
+                "text": "A developer is examining the following test results for a login module:\n```\nTest ID: LOG-001\nInput: username='admin', password='correct_password'\nExpected Output: Login successful, redirect to dashboard\nActual Output: Login successful, redirect to dashboard\nStatus: PASS\n\nTest ID: LOG-002\nInput: username='admin', password='wrong_password'\nExpected Output: Error message 'Invalid credentials'\nActual Output: System crash, null pointer exception\nStatus: FAIL\n```\nWhat should the developer do next?",
+                "type": "multiple_choice",
+                "options": [
+                    "Deploy the system since the valid login test passed",
+                    "Debug the error handling code for invalid login attempts",
+                    "Rerun the first test to ensure it consistently passes",
+                    "Change the expected output of the second test to match the actual result"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "The developer should debug the error handling code for invalid login attempts. The test results show that while valid logins work correctly, invalid login attempts cause a system crash instead of displaying the expected error message. This indicates a defect in the error handling logic that needs to be fixed before the system can be considered properly tested."
             }
         ],
         "instructions": [
