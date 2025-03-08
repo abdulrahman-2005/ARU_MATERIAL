@@ -18,7 +18,6 @@ let DATA = {
             "linkedin": "https://linkedin.com/in/abdelrahman-azmy",
             "globe": "https://abdoazmy.netlify.app"
         },
-        "description": "Passionate about creating intuitive and efficient web applications"
     },
     "midterm_included_files": {
         "IS101": [1, 2, 3],
