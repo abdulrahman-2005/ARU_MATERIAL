@@ -1,4 +1,4 @@
-const DATA = {
+let DATA = {
     "metadata": {
         "institution_id": "ARISH_001",
         "institution_name": "ARISH University",
@@ -25,3 +25,5 @@ const DATA = {
         "available_terms": [2]
     }
 }
+
+localStorage.setItem("MATERIAL_FCI_VERSION", JSON.stringify(DATA.metadata.version));

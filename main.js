@@ -61,3 +61,7 @@ try {
     console.error(e);
 }
 
+
+const version = JSON.parse(localStorage.getItem("MATERIAL_FCI_VERSION"));
+DATA.metadata.version = version;
+
