@@ -292,19 +292,20 @@ function displaySchedule() {
     const container = document.getElementById('schedule-content');
     let html = '<table class="schedule-table">';
     
-    // Add header with days
-    html += '<tr><th>Time</th>';
-    Object.values(DATA.days).forEach(day => {
-        html += `<th>${day}</th>`;
+    // Add header with time slots
+    html += '<tr><th></th>'; // Empty corner cell
+    Object.values(DATA.time_slots).forEach(time => {
+        html += `<th>${time}</th>`;
     });
     html += '</tr>';
 
-    // Generate schedule grid
-    Object.entries(DATA.time_slots).forEach(([slotId, time]) => {
-        html += `<tr><td>${time}</td>`;
+    // Generate schedule grid - days as rows
+    Object.entries(DATA.days).forEach(([dayId, day]) => {
+        html += `<tr>
+            <th>${day}</th>`; // Day label in first column
         
-        // For each day
-        Object.entries(DATA.days).forEach(([dayId, day]) => {
+        // For each time slot in this day
+        Object.entries(DATA.time_slots).forEach(([slotId, time]) => {
             html += '<td class="schedule-cell">';
             
             // Find schedule items for this day and time

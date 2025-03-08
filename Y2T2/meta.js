@@ -491,8 +491,8 @@ let DATA = {
             "day_id": "D_002",
             "time_slot_id": "TS_002",
             "course_id": "CRS_004",
-            "instructor_id": "INS_003",
-            "session_type_id": "ST_001"
+            "instructor_id": "INS_002",
+            "session_type_id": "ST_002"
         },
         "SCH_005": {
             "day_id": "D_002",
