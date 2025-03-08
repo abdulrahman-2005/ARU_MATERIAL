@@ -1,0 +1,457 @@
+.admin-content {
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.dashboard-header h2 {
+    font-size: 1.75rem;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.version-badge {
+    background: var(--card-background);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.data-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.data-section {
+    background: var(--card-background);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+}
+
+.data-section h3 {
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.data-content {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.data-table th,
+.data-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.data-table th {
+    color: var(--text-primary);
+    font-weight: 600;
+    background: var(--background-color);
+}
+
+.data-table tr:hover {
+    background: var(--background-color);
+}
+
+.json-key {
+    color: #6366f1;
+}
+
+.json-string {
+    color: #22c55e;
+}
+
+.json-number {
+    color: #f97316;
+}
+
+.json-boolean {
+    color: #f43f5e;
+}
+
+.json-null {
+    color: #94a3b8;
+}
+
+.expandable-content {
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    color: var(--text-secondary);
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.expandable-content:hover {
+    color: var(--text-primary);
+}
+
+.expandable-content::before {
+    content: '▶';
+    display: inline-block;
+    margin-right: 0.5rem;
+    transition: transform 0.2s;
+}
+
+.expandable-content.expanded::before {
+    transform: rotate(90deg);
+}
+
+.nested-content {
+    padding: 1rem;
+    background: var(--background-color);
+    border-radius: 0 0 8px 8px;
+    margin-top: -1px;
+    border: 1px solid var(--border-color);
+    border-top: none;
+    display: none;
+}
+
+.nested-content.visible {
+    display: block;
+}
+
+.error {
+    color: #ef4444;
+    padding: 0.5rem;
+    border-radius: 4px;
+    background: rgba(239, 68, 68, 0.1);
+    margin: 0.5rem 0;
+}
+
+.warning {
+    color: #f59e0b;
+    padding: 0.5rem;
+    border-radius: 4px;
+    background: rgba(245, 158, 11, 0.1);
+    margin: 0.5rem 0;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.dashboard-card {
+    background: var(--card-background);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+}
+
+.dashboard-card.wide {
+    grid-column: span 2;
+}
+
+.card-header {
+    margin-bottom: 1.5rem;
+}
+
+.card-header h3 {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.card-content {
+    height: 100%;
+}
+
+.stat-value {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.scrollable {
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+}
+
+.scrollable::-webkit-scrollbar {
+    width: 6px;
+}
+
+.scrollable::-webkit-scrollbar-track {
+    background: var(--background-color);
+    border-radius: 3px;
+}
+
+.scrollable::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 3px;
+}
+
+.list-item {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.list-item:last-child {
+    border-bottom: none;
+}
+
+.list-item-title {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.list-item-subtitle {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+}
+
+@media (max-width: 768px) {
+    .dashboard-card.wide {
+        grid-column: span 1;
+    }
+}
+
+/* Update the schedule table styles */
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    table-layout: fixed; /* This will help control column widths */
+}
+
+.schedule-table th,
+.schedule-table td {
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    text-align: center;
+    width: calc(100% / 6); /* Divide space equally between 6 columns (1 time + 5 days) */
+}
+
+.schedule-table th:first-child,
+.schedule-table td:first-child {
+    width: 80px; /* Fixed width for time column */
+}
+
+.schedule-cell {
+    height: 100px;
+    vertical-align: top;
+    padding: 0.5rem !important;
+}
+
+.schedule-item {
+    padding: 0.5rem;
+    border-radius: 6px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    border: 1px solid;
+    transition: all 0.2s ease;
+    font-size: 0.85rem;
+}
+
+/* Make text smaller on mobile */
+@media (max-width: 768px) {
+    .schedule-item {
+        font-size: 0.75rem;
+        padding: 0.25rem;
+    }
+
+    .schedule-table th,
+    .schedule-table td {
+        padding: 0.5rem;
+    }
+
+    .course-name,
+    .instructor-name {
+        font-size: 0.7rem;
+    }
+
+    .session-type {
+        font-size: 0.65rem;
+    }
+}
+
+.course-code {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+}
+
+.course-name {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.instructor-name {
+    font-size: 0.85rem;
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.session-type {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: auto;
+}
+
+/* Add these styles */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: var(--background-color);
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid var(--border-color);
+}
+
+.stat-card i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.stat-details {
+    flex: 1;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.file-item {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.file-item:last-child {
+    border-bottom: none;
+}
+
+.file-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--text-primary);
+}
+
+.file-header i {
+    color: var(--primary-color);
+}
+
+.badge {
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.quiz-badge {
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--primary-color);
+}
+
+.file-messages {
+    margin-top: 0.75rem;
+    padding-left: 2rem;
+}
+
+.message {
+    padding: 0.5rem;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.message.quiz_available {
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--primary-color);
+}
+
+.message.warning {
+    background: rgba(245, 158, 11, 0.1);
+    color: #f59e0b;
+}
+
+.message.info {
+    background: rgba(14, 165, 233, 0.1);
+    color: #0ea5e9;
+}
+
+.text-warning {
+    color: #f59e0b;
+    margin-left: 0.5rem;
+}
+
+.warnings-section {
+    margin-bottom: 1.5rem;
+} 

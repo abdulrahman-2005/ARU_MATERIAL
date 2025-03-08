@@ -7,7 +7,7 @@ const DATA = {
         "level": 2,
         "term": 1,
         "schedule_type": "Face to Face",
-        "version": "2.1.0-alpha",
+        "version": "2.2.0-alpha",
     },
     "developer": {
         "name": "Abdelrahman Azmy",
@@ -21,7 +21,7 @@ const DATA = {
         "description": "Passionate about creating intuitive and efficient web applications"
     },
     "landing_page": {
-        "available_years": [1,2,3,4],
+        "available_years": [2,1,3,4],
         "available_terms": [2]
     }
 }
