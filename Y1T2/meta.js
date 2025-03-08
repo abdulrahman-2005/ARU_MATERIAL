@@ -1,4 +1,4 @@
-const DATA = {
+let DATA = {
     "metadata": {
         "institution_id": "ARISH_001",
         "institution_name": "ARISH University",
@@ -19,6 +19,9 @@ const DATA = {
             "globe": "https://abdoazmy.netlify.app"
         },
         "description": "Passionate about creating intuitive and efficient web applications"
+    },
+    "midterm_included_files": {
+        "SAM": [1]
     },
     "session_types": {
         "ST_001": "Lecture",
@@ -46,7 +49,7 @@ const DATA = {
             "has_section": true,
             "files": [
                 {
-                    "title": "SAMPLE LECTURE TITLE",
+                    "title": "SAMPLE LECTURE TITLE Lecture1",
                     "src": "SAMPLE_PDF.pdf",
                     "type": "lecture or section",
                     "quizzes": ["QZ_001"],

@@ -6,6 +6,11 @@ let pageRendering = false;
 let pageNumPending = null;
 let scale = 1.5;
 
+const fileMessageTypeIcon = {
+    "quiz-available": "fa-solid fa-brain",
+    "midterm-included": "fa-solid fa-bomb"
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const courseId = urlParams.get('id');
@@ -157,7 +162,7 @@ function renderMaterials(course) {
                     ${contributorsHtml}
                     ${file.messages ? file.messages.map(msg => `
                         <div class="message">
-                            <i class="fas fa-exclamation-circle"></i>
+                            <i class="${fileMessageTypeIcon[msg.type]}"></i>
                             ${msg.text}
                         </div>
                     `).join('') : ''}

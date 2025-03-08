@@ -1,4 +1,4 @@
-const DATA = {
+let DATA = {
     "metadata": {
         "institution_id": "ARISH_001",
         "institution_name": "ARISH University",

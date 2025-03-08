@@ -1,4 +1,4 @@
-const DATA = {
+let DATA = {
     "metadata": {
         "institution_id": "ARISH_001",
         "institution_name": "ARISH University",
@@ -19,6 +19,13 @@ const DATA = {
             "globe": "https://abdoazmy.netlify.app"
         },
         "description": "Passionate about creating intuitive and efficient web applications"
+    },
+    "midterm_included_files": {
+        "IS101": [1, 2, 3],
+        "DS101": [1, 2, 3, 4],
+        "SE101": [1, 2, 3],
+        "DB101": [1, 2, 3],
+        "SAD101": [1, 2, 3],
     },
     "session_types": {
         "ST_001": "Lecture",
@@ -100,10 +107,17 @@ const DATA = {
                     "quizzes": ["QZ_001"],
                     "messages": [
                         {
-                            "type": "quiz_available",
+                            "type": "quiz-available",
                             "text": "Quiz available for this lecture"
                         }
                     ]
+                },
+                {
+                    "title": "Lecture 2: Database System Concepts and Architecture",
+                    "src": "Lecture2.pdf",
+                    "type": "lecture",
+                    "quizzes": [],
+                    "messages": []
                 }
             ]
         },
@@ -122,7 +136,7 @@ const DATA = {
                     "quizzes": ["QZ_002"],
                     "messages": [
                         {
-                            "type": "quiz_available",
+                            "type": "quiz-available",
                             "text": "Quiz available for this lecture"
                         }
                     ]
@@ -134,10 +148,24 @@ const DATA = {
                     "quizzes": ["QZ_015"],
                     "messages": [
                         {
-                            "type": "quiz_available",
+                            "type": "quiz-available",
                             "text": "Quiz available for this lecture"
                         }
                     ]
+                },
+                {
+                    "title": "Lecture 3: System Development Methodologies",
+                    "src": "Lecture3.pdf",
+                    "type": "lecture",
+                    "quizzes": [],
+                    "messages": []
+                },
+                {
+                    "title": "Lecture 4: SLDS steps",
+                    "src": "Lecture4.pdf",
+                    "type": "lecture",
+                    "quizzes": [],
+                    "messages": []
                 }
             ]
         },
@@ -158,7 +186,7 @@ const DATA = {
                     ],
                     "messages": [
                         {
-                            "type": "quiz_available",
+                            "type": "quiz-available",
                             "text": "Quiz available for this lecture"
                         }
                     ]
@@ -172,7 +200,7 @@ const DATA = {
                     ],
                     "messages": [
                         {
-                            "type": "quiz_available",
+                            "type": "quiz-available",
                             "text": "Quiz available for this lecture"
                         }
                     ]
@@ -186,7 +214,7 @@ const DATA = {
                     ],
                     "messages": [
                         {
-                            "type": "quiz_available",
+                            "type": "quiz-available",
                             "text": "Quiz available for this lecture"
                         }
                     ]
@@ -200,7 +228,7 @@ const DATA = {
                     ],
                     "messages": [
                         {
-                            "type": "quiz_available",
+                            "type": "quiz-available",
                             "text": "Quiz available for this lecture"
                         }
                     ]
@@ -214,7 +242,7 @@ const DATA = {
                     ],
                     "messages": [
                         {
-                            "type": "quiz_available",
+                            "type": "quiz-available",
                             "text": "Quiz available for this lecture"
                         }
                     ]
@@ -228,7 +256,7 @@ const DATA = {
                     ],
                     "messages": [
                         {
-                            "type": "quiz_available",
+                            "type": "quiz-available",
                             "text": "Quiz available for this lecture"
                         }
                     ]
@@ -242,6 +270,24 @@ const DATA = {
                     ],
                     "messages": [
 
+                    ]
+                },
+                {
+                    "title": "Section 3: ENTITY RELATIONSHIP DIAGRAM",
+                    "src": "Section3.pdf",
+                    "type": "section",
+                    "quizzes": [
+                    ],
+                    "messages": [
+                    ]
+                },
+                {
+                    "title": "Section 4: Use Case Diagram using Rational Rose or smart draw",
+                    "src": "Section4.pdf",
+                    "type": "section",
+                    "quizzes": [
+                    ],
+                    "messages": [
                     ]
                 }
             ]
@@ -271,7 +317,7 @@ const DATA = {
                     "quizzes": ["QZ_011"],
                     "messages": [
                         {
-                            "type": "quiz_available",
+                            "type": "quiz-available",
                             "text": "Quiz available for this lecture"
                         }
                     ]
@@ -283,7 +329,7 @@ const DATA = {
                     "quizzes": ["QZ_012"],
                     "messages": [
                         {
-                            "type": "quiz_available",
+                            "type": "quiz-available",
                             "text": "Quiz available for this lecture"
                         }
                     ]
@@ -295,7 +341,7 @@ const DATA = {
                     "quizzes": ["QZ_013"],
                     "messages": [
                         {
-                            "type": "quiz_available",
+                            "type": "quiz-available",
                             "text": "Quiz available for this lecture"
                         }
                     ]
@@ -307,10 +353,17 @@ const DATA = {
                     "quizzes": ["QZ_014"],
                     "messages": [
                         {
-                            "type": "quiz_available",
+                            "type": "quiz-available",
                             "text": "Quiz available for this lecture"
                         }
                     ]
+                },
+                {
+                    "title": "Section 3: Linked Lists",
+                    "src": "Section3.pdf",
+                    "type": "section",
+                    "quizzes": [],
+                    "messages": []
                 }
             ]
         },
@@ -329,10 +382,24 @@ const DATA = {
                     "quizzes": ["QZ_004"],
                     "messages": [
                         {
-                            "type": "quiz_available",
+                            "type": "quiz-available",
                             "text": "Quiz available for this lecture"
                         }
                     ]
+                },
+                {
+                    "title": "Lecture 2",
+                    "src": "Lecture2.pdf",
+                    "type": "lecture",
+                    "quizzes": [],
+                    "messages": []
+                },
+                {
+                    "title": "Lecture 3",
+                    "src": "Lecture3.pdf",
+                    "type": "lecture",
+                    "quizzes": [],
+                    "messages": []
                 }
             ]
         },
@@ -351,10 +418,31 @@ const DATA = {
                     "quizzes": ["QZ_003"],
                     "messages": [
                         {
-                            "type": "quiz_available",
+                            "type": "quiz-available",
                             "text": "Quiz available for this lecture"
                         }
                     ]
+                },
+                {
+                    "title": "Lecture 2: Network Models",
+                    "src": "Lecture2.pdf",
+                    "type": "lecture",
+                    "quizzes": [],
+                    "messages": []
+                },
+                {
+                    "title": "Lecture 3: Physical Layer",
+                    "src": "Lecture3.pdf",
+                    "type": "lecture",
+                    "quizzes": [],
+                    "messages": []
+                },
+                {
+                    "title": "Lecture 4: DataLink Layer",
+                    "src": "Lecture4.pdf",
+                    "type": "lecture",
+                    "quizzes": [],
+                    "messages": []
                 }
             ]
         }
