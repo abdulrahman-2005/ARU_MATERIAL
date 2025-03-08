@@ -50,6 +50,13 @@ function initializeCourseListing() {
     const searchInput = document.getElementById('courseSearch');
     searchInput.addEventListener('input', (e) => {
         const searchTerm = e.target.value.toLowerCase();
+        const justSearchTerm = e.target.value;
+
+        if (justSearchTerm === "ADMIN") {
+            e.target.value = '';
+            window.location.href = `../admin/`;
+        }
+
         document.querySelectorAll('.course-card').forEach(card => {
             const courseName = card.querySelector('.course-card-name').textContent.toLowerCase();
             const courseCode = card.querySelector('.course-card-code').textContent.toLowerCase();
