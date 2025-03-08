@@ -19,13 +19,18 @@ let DATA = {
             "globe": "https://abdoazmy.netlify.app"
         },
     },
-    "midterm_included_files": {
+    "midterm_included_lectures": {
         "IS101": [1, 2, 3],
         "DS101": [1, 2, 3, 4],
         "SE101": [1, 2, 3],
         "DB101": [1, 2, 3],
         "SAD101": [1, 2, 3],
-        "NET101": [1, 2, 3]
+        "NET101": [1, 2, 3],
+        "ALG101": [0,1],
+    },
+    "midterm_included_sections": {
+        "NET101": [1, 2, 3],
+        "ALG101": [0,1],
     },
     "session_types": {
         "ST_001": "Lecture",
