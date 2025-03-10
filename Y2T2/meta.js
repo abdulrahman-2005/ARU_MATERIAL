@@ -26,11 +26,11 @@ let DATA = {
         "DB101": [1, 2, 3],
         "SAD101": [1, 2, 3],
         "NET101": [1, 2, 3],
-        "ALG101": [0,1],
+        "ALG101": [0, 1],
     },
     "midterm_included_sections": {
         "NET101": [1, 2, 3],
-        "ALG101": [0,1],
+        "ALG101": [0, 1],
     },
     "session_types": {
         "ST_001": "Lecture",
@@ -101,7 +101,10 @@ let DATA = {
             "name": "Introduction to Database Systems",
             "code": "DB101",
             "credit_hours": 3,
-            "instructors": ["INS_001", "INS_005"],
+            "instructors": [
+                "INS_001",
+                "INS_005"
+            ],
             "has_lecture": true,
             "has_section": true,
             "files": [
@@ -109,20 +112,24 @@ let DATA = {
                     "title": "Lecture 1: Introduction to DBMS",
                     "src": "Lecture1.pdf",
                     "type": "lecture",
-                    "quizzes": ["QZ_001"],
+                    "quizzes": [
+                        "QZ_001"
+                    ],
                     "messages": [
                         {
                             "type": "quiz-available",
                             "text": "Quiz available for this lecture"
                         }
-                    ]
+                    ],
+                    "wordCount": 1561
                 },
                 {
                     "title": "Lecture 2: Database System Concepts and Architecture",
                     "src": "Lecture2.pdf",
                     "type": "lecture",
                     "quizzes": [],
-                    "messages": []
+                    "messages": [],
+                    "wordCount": 1398
                 }
             ]
         },
@@ -130,7 +137,10 @@ let DATA = {
             "name": "Introduction to Information System",
             "code": "IS101",
             "credit_hours": 3,
-            "instructors": ["INS_001", "INS_010"],
+            "instructors": [
+                "INS_001",
+                "INS_010"
+            ],
             "has_lecture": true,
             "has_section": true,
             "files": [
@@ -138,39 +148,47 @@ let DATA = {
                     "title": "Lecture 1: Information Systems Overview",
                     "src": "Lecture1.pdf",
                     "type": "lecture",
-                    "quizzes": ["QZ_002"],
+                    "quizzes": [
+                        "QZ_002"
+                    ],
                     "messages": [
                         {
                             "type": "quiz-available",
                             "text": "Quiz available for this lecture"
                         }
-                    ]
+                    ],
+                    "wordCount": 1529
                 },
                 {
                     "title": "Lecture 2: Introduction to Information Systems",
                     "src": "Lecture2.pdf",
                     "type": "lecture",
-                    "quizzes": ["QZ_015"],
+                    "quizzes": [
+                        "QZ_015"
+                    ],
                     "messages": [
                         {
                             "type": "quiz-available",
                             "text": "Quiz available for this lecture"
                         }
-                    ]
+                    ],
+                    "wordCount": 21
                 },
                 {
                     "title": "Lecture 3: System Development Methodologies",
                     "src": "Lecture3.pdf",
                     "type": "lecture",
                     "quizzes": [],
-                    "messages": []
+                    "messages": [],
+                    "wordCount": 184
                 },
                 {
                     "title": "Lecture 4: SLDS steps",
                     "src": "Lecture4.pdf",
                     "type": "lecture",
                     "quizzes": [],
-                    "messages": []
+                    "messages": [],
+                    "wordCount": 1688
                 }
             ]
         },
@@ -178,7 +196,10 @@ let DATA = {
             "name": "Introduction to Software Engineering",
             "code": "SE101",
             "credit_hours": 3,
-            "instructors": ["INS_002", "INS_004"],
+            "instructors": [
+                "INS_002",
+                "INS_004"
+            ],
             "has_lecture": true,
             "has_section": true,
             "files": [
@@ -187,113 +208,118 @@ let DATA = {
                     "src": "Lecture1.pdf",
                     "type": "lecture",
                     "quizzes": [
-                        "QZ_005",
+                        "QZ_005"
                     ],
                     "messages": [
                         {
                             "type": "quiz-available",
                             "text": "Quiz available for this lecture"
                         }
-                    ]
+                    ],
+                    "wordCount": 3022
                 },
                 {
                     "title": "Lecture 2: SOFTWARE PROCESSES",
                     "src": "Lecture2.pdf",
                     "type": "lecture",
                     "quizzes": [
-                        "QZ_006",
+                        "QZ_006"
                     ],
                     "messages": [
                         {
                             "type": "quiz-available",
                             "text": "Quiz available for this lecture"
                         }
-                    ]
+                    ],
+                    "wordCount": 2882
                 },
                 {
                     "title": "Lecture 3: Requirements Engineering",
                     "src": "Lecture3.pdf",
                     "type": "lecture",
                     "quizzes": [
-                        "QZ_007",
+                        "QZ_007"
                     ],
                     "messages": [
                         {
                             "type": "quiz-available",
                             "text": "Quiz available for this lecture"
                         }
-                    ]
+                    ],
+                    "wordCount": 3183
                 },
                 {
                     "title": "Lecture 4: System Modeling",
                     "src": "Lecture4.pdf",
                     "type": "lecture",
                     "quizzes": [
-                        "QZ_008",
+                        "QZ_008"
                     ],
                     "messages": [
                         {
                             "type": "quiz-available",
                             "text": "Quiz available for this lecture"
                         }
-                    ]
+                    ],
+                    "wordCount": 2161
                 },
                 {
                     "title": "Section 1: Lab 1 UML, SRS",
                     "src": "Section1.pdf",
                     "type": "section",
                     "quizzes": [
-                        "QZ_009",
+                        "QZ_009"
                     ],
                     "messages": [
                         {
                             "type": "quiz-available",
                             "text": "Quiz available for this lecture"
                         }
-                    ]
+                    ],
+                    "wordCount": 1489
                 },
                 {
                     "title": "Section 2: Lab 2",
                     "src": "Section2.pdf",
                     "type": "section",
                     "quizzes": [
-                        "QZ_010",
+                        "QZ_010"
                     ],
                     "messages": [
                         {
                             "type": "quiz-available",
                             "text": "Quiz available for this lecture"
                         }
-                    ]
+                    ],
+                    "wordCount": 3998
                 },
                 {
                     "title": "ATM Software Summary",
                     "src": "ATMSoftware.pdf",
                     "type": "contribution",
-                    "contributors": ["CON_001", "CON_002"],
-                    "quizzes": [
+                    "contributors": [
+                        "CON_001",
+                        "CON_002"
                     ],
-                    "messages": [
-
-                    ]
+                    "quizzes": [],
+                    "messages": [],
+                    "wordCount": 1332
                 },
                 {
                     "title": "Section 3: ENTITY RELATIONSHIP DIAGRAM",
                     "src": "Section3.pdf",
                     "type": "section",
-                    "quizzes": [
-                    ],
-                    "messages": [
-                    ]
+                    "quizzes": [],
+                    "messages": [],
+                    "wordCount": 1840
                 },
                 {
                     "title": "Section 4: Use Case Diagram using Rational Rose or smart draw",
                     "src": "Section4.pdf",
                     "type": "section",
-                    "quizzes": [
-                    ],
-                    "messages": [
-                    ]
+                    "quizzes": [],
+                    "messages": [],
+                    "wordCount": 2613
                 }
             ]
         },
@@ -301,17 +327,22 @@ let DATA = {
             "name": "Analysis and Design of Algorithm",
             "code": "ALG101",
             "credit_hours": 3,
-            "instructors": ["INS_002", "INS_006"],
+            "instructors": [
+                "INS_002",
+                "INS_006"
+            ],
             "has_lecture": true,
             "has_section": true,
-            "files": [
-            ]
+            "files": []
         },
         "CRS_005": {
             "name": "Data Structure",
             "code": "DS101",
             "credit_hours": 3,
-            "instructors": ["INS_003", "INS_008"],
+            "instructors": [
+                "INS_003",
+                "INS_008"
+            ],
             "has_lecture": true,
             "has_section": true,
             "files": [
@@ -319,56 +350,69 @@ let DATA = {
                     "title": "Lecture 1: Introduction to Data Structures",
                     "src": "Lecture1.pdf",
                     "type": "lecture",
-                    "quizzes": ["QZ_011"],
+                    "quizzes": [
+                        "QZ_011"
+                    ],
                     "messages": [
                         {
                             "type": "quiz-available",
                             "text": "Quiz available for this lecture"
                         }
-                    ]
+                    ],
+                    "wordCount": 2723
                 },
                 {
                     "title": "Lecture 2: Introduction (2)",
                     "src": "Lecture2.pdf",
                     "type": "lecture",
-                    "quizzes": ["QZ_012"],
+                    "quizzes": [
+                        "QZ_012"
+                    ],
                     "messages": [
                         {
                             "type": "quiz-available",
                             "text": "Quiz available for this lecture"
                         }
-                    ]
+                    ],
+                    "wordCount": 3037
                 },
                 {
                     "title": "Lecture 3: Arrays and Linked Lists",
                     "src": "Lecture3.pdf",
                     "type": "lecture",
-                    "quizzes": ["QZ_013"],
+                    "quizzes": [
+                        "QZ_013"
+                    ],
                     "messages": [
                         {
                             "type": "quiz-available",
                             "text": "Quiz available for this lecture"
                         }
-                    ]
+                    ],
+                    "wordCount": 1717
                 },
                 {
                     "title": "Lecture 4:  Circular and Doubly Linked Lists",
                     "src": "Lecture4.pdf",
                     "type": "lecture",
-                    "quizzes": ["QZ_014"],
+                    "quizzes": [
+                        "QZ_014"
+                    ],
                     "messages": [
                         {
                             "type": "quiz-available",
                             "text": "Quiz available for this lecture"
                         }
-                    ]
+                    ],
+                    "wordCount": 1940
                 },
                 {
                     "title": "Section 3: Linked Lists",
                     "src": "Section3.pdf",
                     "type": "section",
                     "quizzes": [],
-                    "messages": []
+                    "messages": [],
+                    "wordCount": 147
                 }
             ]
         },
@@ -376,7 +420,10 @@ let DATA = {
             "name": "Introduction to System Analysis and Design",
             "code": "SAD101",
             "credit_hours": 3,
-            "instructors": ["INS_005", "INS_007"],
+            "instructors": [
+                "INS_005",
+                "INS_007"
+            ],
             "has_lecture": true,
             "has_section": true,
             "files": [
@@ -384,27 +431,32 @@ let DATA = {
                     "title": "Lecture 1: Introduction to System Analysis and Design",
                     "src": "Lecture1.pdf",
                     "type": "lecture",
-                    "quizzes": ["QZ_004"],
+                    "quizzes": [
+                        "QZ_004"
+                    ],
                     "messages": [
                         {
                             "type": "quiz-available",
                             "text": "Quiz available for this lecture"
                         }
-                    ]
+                    ],
+                    "wordCount": 1105
                 },
                 {
                     "title": "Lecture 2",
                     "src": "Lecture2.pdf",
                     "type": "lecture",
                     "quizzes": [],
-                    "messages": []
+                    "messages": [],
+                    "wordCount": 883
                 },
                 {
                     "title": "Lecture 3",
                     "src": "Lecture3.pdf",
                     "type": "lecture",
                     "quizzes": [],
-                    "messages": []
+                    "messages": [],
+                    "wordCount": 813
                 }
             ]
         },
@@ -412,7 +464,10 @@ let DATA = {
             "name": "Introduction to Computer network",
             "code": "NET101",
             "credit_hours": 3,
-            "instructors": ["INS_008", "INS_009"],
+            "instructors": [
+                "INS_008",
+                "INS_009"
+            ],
             "has_lecture": true,
             "has_section": true,
             "files": [
@@ -420,34 +475,40 @@ let DATA = {
                     "title": "Lecture 1: Network Fundamentals",
                     "src": "Lecture1.pdf",
                     "type": "lecture",
-                    "quizzes": ["QZ_003"],
+                    "quizzes": [
+                        "QZ_003"
+                    ],
                     "messages": [
                         {
                             "type": "quiz-available",
                             "text": "Quiz available for this lecture"
                         }
-                    ]
+                    ],
+                    "wordCount": 1023
                 },
                 {
                     "title": "Lecture 2: Network Models",
                     "src": "Lecture2.pdf",
                     "type": "lecture",
                     "quizzes": [],
-                    "messages": []
+                    "messages": [],
+                    "wordCount": 1743
                 },
                 {
                     "title": "Lecture 3: Physical Layer",
                     "src": "Lecture3.pdf",
                     "type": "lecture",
                     "quizzes": [],
-                    "messages": []
+                    "messages": [],
+                    "wordCount": 1334
                 },
                 {
                     "title": "Lecture 4: DataLink Layer",
                     "src": "Lecture4.pdf",
                     "type": "lecture",
                     "quizzes": [],
-                    "messages": []
+                    "messages": [],
+                    "wordCount": 591
                 }
             ]
         }

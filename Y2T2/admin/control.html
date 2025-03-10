@@ -1,0 +1,3467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Data Manager</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --primary-hover: #4338ca;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --background-color: #f8fafc;
+            --card-background: #ffffff;
+            --border-color: #e2e8f0;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --error-color: #ef4444;
+            --info-color: #3b82f6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-primary);
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header h1 {
+            font-size: 1.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .tab {
+            padding: 0.75rem 1.5rem;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .tab:hover {
+            color: var(--primary-color);
+        }
+
+        .tab.active {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .card {
+            background: var(--card-background);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+            margin-bottom: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.2s ease;
+            border: none;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--background-color);
+        }
+
+        .btn-success {
+            background-color: var(--success-color);
+            color: white;
+        }
+
+        .btn-success:hover {
+            background-color: #0ca678;
+        }
+
+        .btn-warning {
+            background-color: var(--warning-color);
+            color: white;
+        }
+
+        .btn-warning:hover {
+            background-color: #d97706;
+        }
+
+        .btn-danger {
+            background-color: var(--error-color);
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background-color: #dc2626;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .data-table th {
+            color: var(--text-primary);
+            font-weight: 600;
+            background: var(--background-color);
+        }
+
+        .data-table tr:hover {
+            background: var(--background-color);
+        }
+
+        .data-table td .actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .data-table td .actions button {
+            padding: 0.25rem 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            background-color: var(--card-background);
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+
+        .form-row {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+            margin-bottom: 0;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal {
+            background-color: var(--card-background);
+            border-radius: 12px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active .modal {
+            transform: translateY(0);
+        }
+
+        .modal-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-secondary);
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+        }
+
+        .modal-footer {
+            padding: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+        }
+
+        .alert {
+            padding: 1rem;
+            border-radius: 6px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .alert-success {
+            background-color: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            color: var(--success-color);
+        }
+
+        .alert-warning {
+            background-color: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            color: var(--warning-color);
+        }
+
+        .alert-error {
+            background-color: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            color: var(--error-color);
+        }
+
+        .alert-info {
+            background-color: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            color: var(--info-color);
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.5rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .badge-primary {
+            background-color: rgba(79, 70, 229, 0.1);
+            color: var(--primary-color);
+        }
+
+        .badge-success {
+            background-color: rgba(16, 185, 129, 0.1);
+            color: var(--success-color);
+        }
+
+        .badge-warning {
+            background-color: rgba(245, 158, 11, 0.1);
+            color: var(--warning-color);
+        }
+
+        .badge-danger {
+            background-color: rgba(239, 68, 68, 0.1);
+            color: var(--error-color);
+        }
+
+        .json-display {
+            background-color: #1e293b;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            overflow-x: auto;
+            white-space: pre;
+        }
+
+        .json-key {
+            color: #93c5fd;
+        }
+
+        .json-string {
+            color: #86efac;
+        }
+
+        .json-number {
+            color: #fdba74;
+        }
+
+        .json-boolean {
+            color: #f87171;
+        }
+
+        .json-null {
+            color: #94a3b8;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background-color: var(--card-background);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .stat-title {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .stat-icon {
+            float: right;
+            font-size: 2rem;
+            color: var(--primary-color);
+            opacity: 0.2;
+        }
+
+        .search-container {
+            margin-bottom: 1.5rem;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.75rem 1rem 0.75rem 2.5rem;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            background-color: var(--card-background);
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748b'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'%3E%3C/path%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: 0.75rem center;
+            background-size: 1rem;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+
+        .filters {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-select {
+            padding: 0.5rem 2rem 0.5rem 1rem;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            background-color: var(--card-background);
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748b'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 1rem;
+        }
+
+        .filter-select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .pagination-item {
+            width: 2.5rem;
+            height: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            background-color: var(--card-background);
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .pagination-item:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .pagination-item.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .pagination-item.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .pagination-item.disabled:hover {
+            border-color: var(--border-color);
+            color: var(--text-primary);
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .empty-state-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--border-color);
+        }
+
+        .empty-state-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .empty-state-description {
+            margin-bottom: 1.5rem;
+        }
+
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            background-color: var(--background-color);
+            color: var(--text-secondary);
+        }
+
+        .tag .remove {
+            margin-left: 0.5rem;
+            cursor: pointer;
+        }
+
+        .tag .remove:hover {
+            color: var(--error-color);
+        }
+
+        .tag-input {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .tag-input input {
+            flex: 1;
+            padding: 0.5rem;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            background-color: var(--card-background);
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
+        .tag-input input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+
+        .tag-input button {
+            padding: 0.5rem;
+            border-radius: 6px;
+            border: none;
+            background-color: var(--primary-color);
+            color: white;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .tag-input button:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .array-editor {
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .array-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .array-item input {
+            flex: 1;
+            padding: 0.5rem;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            background-color: var(--card-background);
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
+        .array-item input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+
+        .array-item button {
+            padding: 0.5rem;
+            border-radius: 6px;
+            border: none;
+            background-color: var(--error-color);
+            color: white;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .array-item button:hover {
+            background-color: #dc2626;
+        }
+
+        .array-add {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .array-add input {
+            flex: 1;
+            padding: 0.5rem;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            background-color: var(--card-background);
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
+        .array-add input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+
+        .array-add button {
+            padding: 0.5rem;
+            border-radius: 6px;
+            border: none;
+            background-color: var(--primary-color);
+            color: white;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .array-add button:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .object-editor {
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .object-property {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .object-property input {
+            flex: 1;
+            padding: 0.5rem;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            background-color: var(--card-background);
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
+        .object-property input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+
+        .object-property button {
+            padding: 0.5rem;
+            border-radius: 6px;
+            border: none;
+            background-color: var(--error-color);
+            color: white;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .object-property button:hover {
+            background-color: #dc2626;
+        }
+
+        .object-add {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .object-add input {
+            flex: 1;
+            padding: 0.5rem;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            background-color: var(--card-background);
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
+        .object-add input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+
+        .object-add button {
+            padding: 0.5rem;
+            border-radius: 6px;
+            border: none;
+            background-color: var(--primary-color);
+            color: white;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .object-add button:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.5rem;
+            border-radius: 6px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .copy-btn:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .json-container {
+            position: relative;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            padding: 1rem 1.5rem;
+            border-radius: 6px;
+            background-color: var(--card-background);
+            color: var(--text-primary);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            z-index: 1000;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .toast.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .toast-success {
+            border-left: 4px solid var(--success-color);
+        }
+
+        .toast-error {
+            border-left: 4px solid var(--error-color);
+        }
+
+        .toast-warning {
+            border-left: 4px solid var(--warning-color);
+        }
+
+        .toast-info {
+            border-left: 4px solid var(--info-color);
+        }
+
+        .toast-icon {
+            font-size: 1.5rem;
+        }
+
+        .toast-success .toast-icon {
+            color: var(--success-color);
+        }
+
+        .toast-error .toast-icon {
+            color: var(--error-color);
+        }
+
+        .toast-warning .toast-icon {
+            color: var(--warning-color);
+        }
+
+        .toast-info .toast-icon {
+            color: var(--info-color);
+        }
+
+        .toast-content {
+            flex: 1;
+        }
+
+        .toast-title {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .toast-message {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .toast-close {
+            background: none;
+            border: none;
+            font-size: 1.25rem;
+            cursor: pointer;
+            color: var(--text-secondary);
+        }
+
+        .loading {
+            display: inline-block;
+            width: 1.5rem;
+            height: 1.5rem;
+            border: 3px solid rgba(79, 70, 229, 0.2);
+            border-radius: 50%;
+            border-top-color: var(--primary-color);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .loading-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .loading-spinner {
+            width: 3rem;
+            height: 3rem;
+            border: 4px solid rgba(79, 70, 229, 0.2);
+            border-radius: 50%;
+            border-top-color: var(--primary-color);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        .loading-text {
+            margin-top: 1rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-graduation-cap"></i> Academic Data Manager</h1>
+            <div class="header-actions">
+                <button id="export-btn" class="btn btn-primary"><i class="fas fa-download"></i> Export JSON</button>
+                <button id="import-btn" class="btn btn-outline"><i class="fas fa-upload"></i> Import JSON</button>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <div class="tab active" data-tab="dashboard">Dashboard</div>
+            <div class="tab" data-tab="courses">Courses</div>
+            <div class="tab" data-tab="instructors">Instructors</div>
+            <div class="tab" data-tab="schedule">Schedule</div>
+            <div class="tab" data-tab="metadata">Metadata</div>
+            <div class="tab" data-tab="developer">Developer Info</div>
+            <div class="tab" data-tab="json-editor">JSON Editor</div>
+        </div>
+
+        <div id="dashboard" class="tab-content active">
+            <!-- Dashboard content will be generated dynamically -->
+        </div>
+
+        <div id="courses" class="tab-content">
+            <!-- Courses content will be generated dynamically -->
+        </div>
+
+        <div id="instructors" class="tab-content">
+            <!-- Instructors content will be generated dynamically -->
+        </div>
+
+        <div id="schedule" class="tab-content">
+            <!-- Schedule content will be generated dynamically -->
+        </div>
+
+        <div id="metadata" class="tab-content">
+            <!-- Metadata content will be generated dynamically -->
+        </div>
+
+        <div id="developer" class="tab-content">
+            <!-- Developer info content will be generated dynamically -->
+        </div>
+
+        <div id="json-editor" class="tab-content">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title"><i class="fas fa-code"></i> JSON Editor</h3>
+                    <div class="card-actions">
+                        <button id="copy-json" class="btn btn-outline"><i class="fas fa-copy"></i> Copy</button>
+                        <button id="update-json" class="btn btn-primary"><i class="fas fa-save"></i> Update</button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <textarea id="json-textarea" class="form-control"
+                        style="height: 500px; font-family: monospace;"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal container -->
+    <div id="modal-container"></div>
+
+    <!-- Toast container -->
+    <div id="toast-container"></div>
+
+    <!-- Loading overlay -->
+    <div class="loading-overlay">
+        <div>
+            <div class="loading-spinner"></div>
+            <div class="loading-text">Loading...</div>
+        </div>
+    </div>
+
+    <script src="../meta.js"></script>
+    <script src="../../metaDataManager.js"></script>
+    <script>
+        // Main application code
+        let dataManager = null;
+
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // Initialize data manager
+            dataManager = createDataManager(DATA);
+
+            // Initialize UI
+            initializeTabs();
+            initializeModals();
+            initializeToasts();
+
+            // Load dashboard as default view
+            loadDashboard();
+
+            // Set up event listeners for global actions
+            document.getElementById('export-btn').addEventListener('click', exportData);
+            document.getElementById('import-btn').addEventListener('click', importData);
+            document.getElementById('copy-json').addEventListener('click', copyJsonToClipboard);
+            document.getElementById('update-json').addEventListener('click', updateFromJsonEditor);
+
+            // Update JSON editor with current data
+            updateJsonEditor();
+        });
+
+        // Tab functionality
+        function initializeTabs() {
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove active class from all tabs and content
+                    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+                    // Add active class to clicked tab and corresponding content
+                    tab.classList.add('active');
+                    const tabId = tab.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+
+                    // Load content based on tab
+                    switch (tabId) {
+                        case 'dashboard':
+                            loadDashboard();
+                            break;
+                        case 'courses':
+                            loadCourses();
+                            break;
+                        case 'instructors':
+                            loadInstructors();
+                            break;
+                        case 'schedule':
+                            loadSchedule();
+                            break;
+                        case 'metadata':
+                            loadMetadata();
+                            break;
+                        case 'developer':
+                            loadDeveloper();
+                            break;
+                        case 'json-editor':
+                            updateJsonEditor();
+                            break;
+                    }
+                });
+            });
+        }
+
+        // Modal functionality
+        function initializeModals() {
+            // Create modal container if it doesn't exist
+            if (!document.getElementById('modal-container')) {
+                const modalContainer = document.createElement('div');
+                modalContainer.id = 'modal-container';
+                document.body.appendChild(modalContainer);
+            }
+        }
+
+        // Toast notification functionality
+        function initializeToasts() {
+            // Create toast container if it doesn't exist
+            if (!document.getElementById('toast-container')) {
+                const toastContainer = document.createElement('div');
+                toastContainer.id = 'toast-container';
+                document.body.appendChild(toastContainer);
+            }
+        }
+
+        // Show toast notification
+        function showToast(type, title, message, duration = 3000) {
+            const toastContainer = document.getElementById('toast-container');
+
+            // Create toast element
+            const toast = document.createElement('div');
+            toast.className = `toast toast-${type}`;
+
+            // Set toast content
+            toast.innerHTML = `
+                <div class="toast-icon">
+                    <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : type === 'warning' ? 'exclamation-triangle' : 'info-circle'}"></i>
+                </div>
+                <div class="toast-content">
+                    <div class="toast-title">${title}</div>
+                    <div class="toast-message">${message}</div>
+                </div>
+                <button class="toast-close"><i class="fas fa-times"></i></button>
+            `;
+
+            // Add toast to container
+            toastContainer.appendChild(toast);
+
+            // Show toast
+            setTimeout(() => {
+                toast.classList.add('active');
+            }, 10);
+
+            // Set up close button
+            toast.querySelector('.toast-close').addEventListener('click', () => {
+                toast.classList.remove('active');
+                setTimeout(() => {
+                    toast.remove();
+                }, 300);
+            });
+
+            // Auto-close after duration
+            setTimeout(() => {
+                toast.classList.remove('active');
+                setTimeout(() => {
+                    toast.remove();
+                }, 300);
+            }, duration);
+        }
+
+        // Show modal
+        function showModal(title, content, actions) {
+            const modalContainer = document.getElementById('modal-container');
+
+            // Create modal overlay
+            const modalOverlay = document.createElement('div');
+            modalOverlay.className = 'modal-overlay';
+
+            // Create modal
+            const modal = document.createElement('div');
+            modal.className = 'modal';
+
+            // Set modal content
+            modal.innerHTML = `
+                <div class="modal-header">
+                    <h3 class="modal-title">${title}</h3>
+                    <button class="modal-close"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="modal-body">
+                    ${content}
+                </div>
+                <div class="modal-footer">
+                    ${actions.map(action => `
+                        <button class="btn ${action.class}" data-action="${action.id}">${action.text}</button>
+                    `).join('')}
+                </div>
+            `;
+
+            // Add modal to overlay
+            modalOverlay.appendChild(modal);
+
+            // Add overlay to container
+            modalContainer.appendChild(modalOverlay);
+
+            // Show modal
+            setTimeout(() => {
+                modalOverlay.classList.add('active');
+            }, 10);
+
+            // Set up close button
+            modal.querySelector('.modal-close').addEventListener('click', () => {
+                modalOverlay.classList.remove('active');
+                setTimeout(() => {
+                    modalOverlay.remove();
+                }, 300);
+            });
+
+            // Set up action buttons
+            actions.forEach(action => {
+                const button = modal.querySelector(`[data-action="${action.id}"]`);
+                if (button && action.handler) {
+                    button.addEventListener('click', () => {
+                        action.handler();
+                        modalOverlay.classList.remove('active');
+                        setTimeout(() => {
+                            modalOverlay.remove();
+                        }, 300);
+                    });
+                }
+            });
+
+            // Return modal for further manipulation
+            return { modalOverlay, modal };
+        }
+
+        // Show loading overlay
+        function showLoading() {
+            document.querySelector('.loading-overlay').classList.add('active');
+        }
+
+        // Hide loading overlay
+        function hideLoading() {
+            document.querySelector('.loading-overlay').classList.remove('active');
+        }
+
+        // Load dashboard content
+        function loadDashboard() {
+            const dashboardContainer = document.getElementById('dashboard');
+
+            // Get stats from data manager
+            const courseCount = dataManager.countCourses();
+            const instructorCount = dataManager.countInstructors();
+            const fileCount = dataManager.countFiles();
+            const scheduleCount = dataManager.countScheduleEntries();
+
+            // Create dashboard content
+            dashboardContainer.innerHTML = `
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title"><i class="fas fa-tachometer-alt"></i> Dashboard</h3>
+                    </div>
+                    <div class="card-body">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+                            <div class="stat-card">
+                                <div class="stat-icon"><i class="fas fa-book"></i></div>
+                                <div class="stat-content">
+                                    <div class="stat-value">${courseCount}</div>
+                                    <div class="stat-label">Courses</div>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                                <div class="stat-content">
+                                    <div class="stat-value">${instructorCount}</div>
+                                    <div class="stat-label">Instructors</div>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon"><i class="fas fa-file-alt"></i></div>
+                                <div class="stat-content">
+                                    <div class="stat-value">${fileCount}</div>
+                                    <div class="stat-label">Files</div>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon"><i class="fas fa-calendar-alt"></i></div>
+                                <div class="stat-content">
+                                    <div class="stat-value">${scheduleCount}</div>
+                                    <div class="stat-label">Schedule Entries</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title"><i class="fas fa-book"></i> Course Statistics</h3>
+                    </div>
+                    <div class="card-body">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Code</th>
+                                    <th>Name</th>
+                                    <th>Credit Hours</th>
+                                    <th>Files</th>
+                                    <th>Lectures</th>
+                                    <th>Sections</th>
+                                </tr>
+                            </thead>
+                            <tbody id="course-stats-body">
+                                ${generateCourseStatsRows()}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title"><i class="fas fa-chalkboard-teacher"></i> Instructor Load</h3>
+                    </div>
+                    <div class="card-body">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Title</th>
+                                    <th>Courses</th>
+                                    <th>Lectures</th>
+                                    <th>Sections</th>
+                                </tr>
+                            </thead>
+                            <tbody id="instructor-stats-body">
+                                ${generateInstructorStatsRows()}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Generate course stats rows for dashboard
+        function generateCourseStatsRows() {
+            const courseStats = dataManager.getCourseStats();
+
+            if (courseStats.length === 0) {
+                return '<tr><td colspan="6" class="text-center">No courses available</td></tr>';
+            }
+
+            return courseStats.map(course => `
+                <tr>
+                    <td>${course.code}</td>
+                    <td>${course.name}</td>
+                    <td>${course.creditHours}</td>
+                    <td>${course.fileCount}</td>
+                    <td>${course.lectureCount}</td>
+                    <td>${course.sectionCount}</td>
+                </tr>
+            `).join('');
+        }
+
+        // Generate instructor stats rows for dashboard
+        function generateInstructorStatsRows() {
+            const instructorStats = dataManager.getInstructorLoadStats();
+
+            if (Object.keys(instructorStats).length === 0) {
+                return '<tr><td colspan="5" class="text-center">No instructors available</td></tr>';
+            }
+
+            return Object.values(instructorStats).map(instructor => `
+                <tr>
+                    <td>${instructor.name}</td>
+                    <td>${instructor.title}</td>
+                    <td>${instructor.courseCount}</td>
+                    <td>${instructor.lectureCount}</td>
+                    <td>${instructor.sectionCount}</td>
+                </tr>
+            `).join('');
+        }
+
+        // Load courses content
+        function loadCourses() {
+            const coursesContainer = document.getElementById('courses');
+
+            // Get courses from data manager
+            const courses = dataManager.getAllCourses();
+
+            // Create courses content
+            coursesContainer.innerHTML = `
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title"><i class="fas fa-book"></i> Courses</h3>
+                        <div class="card-actions">
+                            <button id="add-course-btn" class="btn btn-primary"><i class="fas fa-plus"></i> Add Course</button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Code</th>
+                                    <th>Name</th>
+                                    <th>Credit Hours</th>
+                                    <th>Files</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="courses-body">
+                                ${generateCoursesRows(courses)}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            `;
+
+            // Set up add course button
+            document.getElementById('add-course-btn').addEventListener('click', showAddCourseModal);
+
+            // Set up edit and delete buttons for each course
+            Object.keys(courses).forEach(courseId => {
+                const editBtn = document.getElementById(`edit-course-${courseId}`);
+                const deleteBtn = document.getElementById(`delete-course-${courseId}`);
+                const filesBtn = document.getElementById(`manage-files-${courseId}`);
+
+                if (editBtn) {
+                    editBtn.addEventListener('click', () => showEditCourseModal(courseId));
+                }
+
+                if (deleteBtn) {
+                    deleteBtn.addEventListener('click', () => showDeleteCourseModal(courseId));
+                }
+
+                if (filesBtn) {
+                    filesBtn.addEventListener('click', () => showManageFilesModal(courseId));
+                }
+            });
+        }
+
+        // Generate courses rows
+        function generateCoursesRows(courses) {
+            if (Object.keys(courses).length === 0) {
+                return '<tr><td colspan="6" class="text-center">No courses available</td></tr>';
+            }
+
+            return Object.entries(courses).map(([id, course]) => `
+                <tr>
+                    <td>${id}</td>
+                    <td>${course.code}</td>
+                    <td>${course.name}</td>
+                    <td>${course.credit_hours}</td>
+                    <td>${course.files ? course.files.length : 0}</td>
+                    <td>
+                        <div class="actions">
+                            <button id="edit-course-${id}" class="btn btn-outline"><i class="fas fa-edit"></i></button>
+                            <button id="manage-files-${id}" class="btn btn-outline"><i class="fas fa-file-alt"></i></button>
+                            <button id="delete-course-${id}" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        // Show add course modal
+        function showAddCourseModal() {
+            // Get all instructors for the dropdown
+            const instructors = dataManager.getAllInstructors();
+
+            // Generate instructor options
+            const instructorOptions = Object.entries(instructors).map(([id, instructor]) =>
+                `<option value="${id}">${instructor.name} (${instructor.title})</option>`
+            ).join('');
+
+            // Generate course ID
+            const courseId = generateUniqueId('CRS_', Object.keys(dataManager.getAllCourses()));
+
+            // Create modal content
+            const content = `
+                <form id="add-course-form">
+                    <div class="form-group">
+                        <label for="course-id">Course ID</label>
+                        <input type="text" id="course-id" class="form-control" value="${courseId}" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="course-code">Course Code</label>
+                        <input type="text" id="course-code" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="course-name">Course Name</label>
+                        <input type="text" id="course-name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="course-credit-hours">Credit Hours</label>
+                        <input type="number" id="course-credit-hours" class="form-control" min="1" max="6" value="3" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="course-instructors">Instructors</label>
+                        <select id="course-instructors" class="form-control" multiple>
+                            ${instructorOptions}
+                        </select>
+                        <small>Hold Ctrl/Cmd to select multiple instructors</small>
+                    </div>
+                    <div class="form-group">
+                        <label>Options</label>
+                        <div>
+                            <label>
+                                <input type="checkbox" id="course-has-lecture" checked>
+                                Has Lectures
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="checkbox" id="course-has-section" checked>
+                                Has Sections
+                            </label>
+                        </div>
+                    </div>
+                </form>
+            `;
+
+            // Show modal
+            showModal('Add Course', content, [
+                {
+                    id: 'cancel',
+                    text: 'Cancel',
+                    class: 'btn-outline',
+                    handler: () => { }
+                },
+                {
+                    id: 'save',
+                    text: 'Save',
+                    class: 'btn-primary',
+                    handler: () => {
+                        // Get form values
+                        const id = document.getElementById('course-id').value;
+                        const code = document.getElementById('course-code').value;
+                        const name = document.getElementById('course-name').value;
+                        const creditHours = parseInt(document.getElementById('course-credit-hours').value);
+                        const instructorSelect = document.getElementById('course-instructors');
+                        const selectedInstructors = Array.from(instructorSelect.selectedOptions).map(option => option.value);
+                        const hasLecture = document.getElementById('course-has-lecture').checked;
+                        const hasSection = document.getElementById('course-has-section').checked;
+
+                        // Validate form
+                        if (!code || !name || isNaN(creditHours)) {
+                            showToast('error', 'Validation Error', 'Please fill in all required fields');
+                            return;
+                        }
+
+                        // Create course data
+                        const courseData = {
+                            name,
+                            code,
+                            credit_hours: creditHours,
+                            instructors: selectedInstructors,
+                            has_lecture: hasLecture,
+                            has_section: hasSection,
+                            files: []
+                        };
+
+                        try {
+                            // Add course
+                            dataManager.addCourse(id, courseData);
+
+                            // Save data to localStorage
+                            saveData();
+
+                            // Show success message
+                            showToast('success', 'Success', `Course ${code} added successfully`);
+
+                            // Reload courses
+                            loadCourses();
+                        } catch (error) {
+                            showToast('error', 'Error', error.message);
+                        }
+                    }
+                }
+            ]);
+        }
+
+        // Show edit course modal
+        function showEditCourseModal(courseId) {
+            // Get course data
+            const course = dataManager.getCourse(courseId);
+
+            // Get all instructors for the dropdown
+            const instructors = dataManager.getAllInstructors();
+
+            // Generate instructor options
+            const instructorOptions = Object.entries(instructors).map(([id, instructor]) =>
+                `<option value="${id}" ${course.instructors && course.instructors.includes(id) ? 'selected' : ''}>${instructor.name} (${instructor.title})</option>`
+            ).join('');
+
+            // Create modal content
+            const content = `
+                <form id="edit-course-form">
+                    <div class="form-group">
+                        <label for="course-id">Course ID</label>
+                        <input type="text" id="course-id" class="form-control" value="${courseId}" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="course-code">Course Code</label>
+                        <input type="text" id="course-code" class="form-control" value="${course.code}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="course-name">Course Name</label>
+                        <input type="text" id="course-name" class="form-control" value="${course.name}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="course-credit-hours">Credit Hours</label>
+                        <input type="number" id="course-credit-hours" class="form-control" min="1" max="6" value="${course.credit_hours}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="course-instructors">Instructors</label>
+                        <select id="course-instructors" class="form-control" multiple>
+                            ${instructorOptions}
+                        </select>
+                        <small>Hold Ctrl/Cmd to select multiple instructors</small>
+                    </div>
+                    <div class="form-group">
+                        <label>Options</label>
+                        <div>
+                            <label>
+                                <input type="checkbox" id="course-has-lecture" ${course.has_lecture ? 'checked' : ''}>
+                                Has Lectures
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="checkbox" id="course-has-section" ${course.has_section ? 'checked' : ''}>
+                                Has Sections
+                            </label>
+                        </div>
+                    </div>
+                </form>
+            `;
+
+            // Show modal
+            showModal('Edit Course', content, [
+                {
+                    id: 'cancel',
+                    text: 'Cancel',
+                    class: 'btn-outline',
+                    handler: () => { }
+                },
+                {
+                    id: 'save',
+                    text: 'Save',
+                    class: 'btn-primary',
+                    handler: () => {
+                        // Get form values
+                        const code = document.getElementById('course-code').value;
+                        const name = document.getElementById('course-name').value;
+                        const creditHours = parseInt(document.getElementById('course-credit-hours').value);
+                        const instructorSelect = document.getElementById('course-instructors');
+                        const selectedInstructors = Array.from(instructorSelect.selectedOptions).map(option => option.value);
+                        const hasLecture = document.getElementById('course-has-lecture').checked;
+                        const hasSection = document.getElementById('course-has-section').checked;
+
+                        // Validate form
+                        if (!code || !name || isNaN(creditHours)) {
+                            showToast('error', 'Validation Error', 'Please fill in all required fields');
+                            return;
+                        }
+
+                        // Create course data
+                        const courseData = {
+                            name,
+                            code,
+                            credit_hours: creditHours,
+                            instructors: selectedInstructors,
+                            has_lecture: hasLecture,
+                            has_section: hasSection
+                        };
+
+                        try {
+                            // Update course
+                            dataManager.updateCourse(courseId, courseData);
+
+                            // Save data to localStorage
+                            saveData();
+
+                            // Show success message
+                            showToast('success', 'Success', `Course ${code} updated successfully`);
+
+                            // Reload courses
+                            loadCourses();
+                        } catch (error) {
+                            showToast('error', 'Error', error.message);
+                        }
+                    }
+                }
+            ]);
+        }
+
+        // Show delete course modal
+        function showDeleteCourseModal(courseId) {
+            // Get course data
+            const course = dataManager.getCourse(courseId);
+
+            // Create modal content
+            const content = `
+                <p>Are you sure you want to delete the course "${course.name}" (${course.code})?</p>
+                <p>This action cannot be undone and will also delete all associated schedule entries.</p>
+            `;
+
+            // Show modal
+            showModal('Delete Course', content, [
+                {
+                    id: 'cancel',
+                    text: 'Cancel',
+                    class: 'btn-outline',
+                    handler: () => { }
+                },
+                {
+                    id: 'delete',
+                    text: 'Delete',
+                    class: 'btn-danger',
+                    handler: () => {
+                        try {
+                            // Delete course
+                            dataManager.deleteCourse(courseId);
+
+                            // Save data to localStorage
+                            saveData();
+
+                            // Show success message
+                            showToast('success', 'Success', `Course ${course.code} deleted successfully`);
+
+                            // Reload courses
+                            loadCourses();
+                        } catch (error) {
+                            showToast('error', 'Error', error.message);
+                        }
+                    }
+                }
+            ]);
+        }
+
+        // Show manage files modal
+        function showManageFilesModal(courseId) {
+            // Get course data
+            const course = dataManager.getCourse(courseId);
+
+            // Create modal content
+            const content = `
+                <h4>${course.name} (${course.code}) Files</h4>
+                <div class="files-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Title</th>
+                                <th>Type</th>
+                                <th>Word Count</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="files-body">
+                            ${generateFilesRows(course)}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="form-group" style="margin-top: 1rem;">
+                    <button id="add-file-btn" class="btn btn-primary"><i class="fas fa-plus"></i> Add File</button>
+                </div>
+            `;
+
+            // Show modal
+            const { modal } = showModal(`Manage Files - ${course.code}`, content, [
+                {
+                    id: 'close',
+                    text: 'Close',
+                    class: 'btn-outline',
+                    handler: () => { }
+                }
+            ]);
+
+            // Set up add file button
+            modal.querySelector('#add-file-btn').addEventListener('click', () => {
+                showAddFileModal(courseId);
+            });
+
+            // Set up edit and delete buttons for each file
+            if (course.files) {
+                course.files.forEach((file, index) => {
+                    const editBtn = modal.querySelector(`#edit-file-${index}`);
+                    const deleteBtn = modal.querySelector(`#delete-file-${index}`);
+                    if (editBtn) {
+                        editBtn.addEventListener('click', () => {
+                            showEditFileModal(courseId, index);
+                        });
+                    }
+
+                    if (deleteBtn) {
+                        deleteBtn.addEventListener('click', () => {
+                            showDeleteFileModal(courseId, index);
+                        });
+                    }
+                });
+            }
+        }
+
+        // Generate files table rows
+        function generateFilesRows(course) {
+            if (!course.files || course.files.length === 0) {
+                return '<tr><td colspan="5" class="text-center">No files found</td></tr>';
+            }
+
+            return course.files.map((file, index) => `
+                <tr>
+                    <td>${index + 1}</td>
+                    <td>${file.title}</td>
+                    <td>${file.type}</td>
+                    <td>${file.wordCount || 0}</td>
+                    <td>
+                        <div class="actions">
+                            <button id="edit-file-${index}" class="btn btn-outline btn-sm"><i class="fas fa-edit"></i></button>
+                            <button id="delete-file-${index}" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        // Show add file modal
+        function showAddFileModal(courseId) {
+            // Create modal content
+            const content = `
+                <form id="add-file-form">
+                    <div class="form-group">
+                        <label for="file-title">Title</label>
+                        <input type="text" id="file-title" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="file-src">Source/Filename</label>
+                        <input type="text" id="file-src" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="file-type">Type</label>
+                        <select id="file-type" class="form-control" required>
+                            <option value="lecture">Lecture</option>
+                            <option value="section">Section</option>
+                            <option value="assignment">Assignment</option>
+                            <option value="exam">Exam</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="file-word-count">Word Count</label>
+                        <input type="number" id="file-word-count" class="form-control" min="0" value="0">
+                    </div>
+                </form>
+            `;
+
+            // Show modal
+            showModal('Add File', content, [
+                {
+                    id: 'cancel',
+                    text: 'Cancel',
+                    class: 'btn-outline',
+                    handler: () => { }
+                },
+                {
+                    id: 'save',
+                    text: 'Save',
+                    class: 'btn-primary',
+                    handler: () => {
+                        // Get form values
+                        const title = document.getElementById('file-title').value;
+                        const src = document.getElementById('file-src').value;
+                        const type = document.getElementById('file-type').value;
+                        const wordCount = parseInt(document.getElementById('file-word-count').value) || 0;
+
+                        // Validate form
+                        if (!title || !src || !type) {
+                            showToast('error', 'Validation Error', 'Please fill in all required fields');
+                            return;
+                        }
+
+                        // Create file data
+                        const fileData = {
+                            title,
+                            src,
+                            type,
+                            wordCount,
+                            quizzes: [],
+                            messages: []
+                        };
+
+                        try {
+                            // Add file
+                            dataManager.addCourseFile(courseId, fileData);
+
+                            // Save data to localStorage
+                            saveData();
+
+                            // Show success message
+                            showToast('success', 'Success', 'File added successfully');
+
+                            // Reload files modal
+                            showManageFilesModal(courseId);
+                        } catch (error) {
+                            showToast('error', 'Error', error.message);
+                        }
+                    }
+                }
+            ]);
+        }
+
+        // Show edit file modal
+        function showEditFileModal(courseId, fileIndex) {
+            // Get course data
+            const course = dataManager.getCourse(courseId);
+            const file = course.files[fileIndex];
+
+            // Create modal content
+            const content = `
+                <form id="edit-file-form">
+                    <div class="form-group">
+                        <label for="file-title">Title</label>
+                        <input type="text" id="file-title" class="form-control" value="${file.title}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="file-src">Source/Filename</label>
+                        <input type="text" id="file-src" class="form-control" value="${file.src}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="file-type">Type</label>
+                        <select id="file-type" class="form-control" required>
+                            <option value="lecture" ${file.type === 'lecture' ? 'selected' : ''}>Lecture</option>
+                            <option value="section" ${file.type === 'section' ? 'selected' : ''}>Section</option>
+                            <option value="assignment" ${file.type === 'assignment' ? 'selected' : ''}>Assignment</option>
+                            <option value="exam" ${file.type === 'exam' ? 'selected' : ''}>Exam</option>
+                            <option value="other" ${file.type === 'other' ? 'selected' : ''}>Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="file-word-count">Word Count</label>
+                        <input type="number" id="file-word-count" class="form-control" min="0" value="${file.wordCount || 0}">
+                    </div>
+                </form>
+            `;
+
+            // Show modal
+            showModal('Edit File', content, [
+                {
+                    id: 'cancel',
+                    text: 'Cancel',
+                    class: 'btn-outline',
+                    handler: () => { }
+                },
+                {
+                    id: 'save',
+                    text: 'Save',
+                    class: 'btn-primary',
+                    handler: () => {
+                        // Get form values
+                        const title = document.getElementById('file-title').value;
+                        const src = document.getElementById('file-src').value;
+                        const type = document.getElementById('file-type').value;
+                        const wordCount = parseInt(document.getElementById('file-word-count').value) || 0;
+
+                        // Validate form
+                        if (!title || !src || !type) {
+                            showToast('error', 'Validation Error', 'Please fill in all required fields');
+                            return;
+                        }
+
+                        // Create file data
+                        const fileData = {
+                            title,
+                            src,
+                            type,
+                            wordCount
+                        };
+
+                        try {
+                            // Update file
+                            dataManager.updateCourseFile(courseId, fileIndex, fileData);
+
+                            // Save data to localStorage
+                            saveData();
+
+                            // Show success message
+                            showToast('success', 'Success', 'File updated successfully');
+
+                            // Reload files modal
+                            showManageFilesModal(courseId);
+                        } catch (error) {
+                            showToast('error', 'Error', error.message);
+                        }
+                    }
+                }
+            ]);
+        }
+
+        // Show delete file modal
+        function showDeleteFileModal(courseId, fileIndex) {
+            // Get course data
+            const course = dataManager.getCourse(courseId);
+            const file = course.files[fileIndex];
+
+            // Create modal content
+            const content = `
+                <p>Are you sure you want to delete the file "${file.title}"?</p>
+                <p>This action cannot be undone.</p>
+            `;
+
+            // Show modal
+            showModal('Delete File', content, [
+                {
+                    id: 'cancel',
+                    text: 'Cancel',
+                    class: 'btn-outline',
+                    handler: () => { }
+                },
+                {
+                    id: 'delete',
+                    text: 'Delete',
+                    class: 'btn-danger',
+                    handler: () => {
+                        try {
+                            // Delete file
+                            dataManager.deleteCourseFile(courseId, fileIndex);
+
+                            // Save data to localStorage
+                            saveData();
+
+                            // Show success message
+                            showToast('success', 'Success', 'File deleted successfully');
+
+                            // Reload files modal
+                            showManageFilesModal(courseId);
+                        } catch (error) {
+                            showToast('error', 'Error', error.message);
+                        }
+                    }
+                }
+            ]);
+        }
+
+        // Load schedule content
+        function loadSchedule() {
+            const scheduleContainer = document.getElementById('schedule');
+
+            // Get schedule data
+            const scheduleEntries = dataManager.getAllScheduleEntries();
+            const days = DATA.days || {};
+            const timeSlots = DATA.time_slots || {};
+
+            // Create schedule content
+            scheduleContainer.innerHTML = `
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"><i class="fas fa-calendar-alt"></i> Schedule</h3>
+                <div class="card-actions">
+                    <button id="add-schedule-btn" class="btn btn-primary"><i class="fas fa-plus"></i> Add Entry</button>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Day</th>
+                            <th>Time</th>
+                            <th>Course</th>
+                            <th>Instructor</th>
+                            <th>Session Type</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="schedule-body">
+                        ${generateScheduleRows(scheduleEntries, days, timeSlots)}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    `;
+
+            // Set up add button
+            document.getElementById('add-schedule-btn').addEventListener('click', showAddScheduleEntryModal);
+
+            // Set up edit and delete buttons
+            Object.keys(scheduleEntries).forEach(scheduleId => {
+                const editBtn = document.getElementById(`edit-schedule-${scheduleId}`);
+                const deleteBtn = document.getElementById(`delete-schedule-${scheduleId}`);
+
+                if (editBtn) {
+                    editBtn.addEventListener('click', () => {
+                        showEditScheduleEntryModal(scheduleId);
+                    });
+                }
+
+                if (deleteBtn) {
+                    deleteBtn.addEventListener('click', () => {
+                        showDeleteScheduleEntryModal(scheduleId);
+                    });
+                }
+            });
+        }
+
+        // Generate schedule table rows
+        function generateScheduleRows(scheduleEntries, days, timeSlots) {
+            if (Object.keys(scheduleEntries).length === 0) {
+                return '<tr><td colspan="6" class="text-center">No schedule entries found</td></tr>';
+            }
+
+            return Object.entries(scheduleEntries).map(([id, entry]) => {
+                const course = dataManager.getCourse(entry.course_id) || { code: 'Unknown', name: 'Unknown' };
+                const instructor = dataManager.getInstructor(entry.instructor_id) || { name: 'Unknown' };
+                const day = days[entry.day_id] || 'Unknown';
+                const timeSlot = timeSlots[entry.time_slot_id] || 'Unknown';
+                const sessionType = DATA.session_types[entry.session_type_id] || 'Unknown';
+
+                return `
+            <tr>
+                <td>${day}</td>
+                <td>${timeSlot}</td>
+                <td>${course.code} - ${course.name}</td>
+                <td>${instructor.name}</td>
+                <td>${sessionType}</td>
+                <td>
+                    <div class="actions">
+                        <button id="edit-schedule-${id}" class="btn btn-outline btn-sm"><i class="fas fa-edit"></i></button>
+                        <button id="delete-schedule-${id}" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
+                    </div>
+                </td>
+            </tr>
+        `;
+            }).join('');
+        }
+
+        // Show add schedule entry modal
+        function showAddScheduleEntryModal() {
+            // Get options for select fields
+            const days = DATA.days || {};
+            const timeSlots = DATA.time_slots || {};
+            const courses = dataManager.getAllCourses();
+            const instructors = dataManager.getAllInstructors();
+            const sessionTypes = DATA.session_types || {};
+
+            const dayOptions = Object.entries(days).map(([id, name]) => `<option value="${id}">${name}</option>`).join('');
+            const timeSlotOptions = Object.entries(timeSlots).map(([id, time]) => `<option value="${id}">${time}</option>`).join('');
+            const courseOptions = Object.entries(courses).map(([id, course]) => `<option value="${id}">${course.code} - ${course.name}</option>`).join('');
+            const instructorOptions = Object.entries(instructors).map(([id, instructor]) => `<option value="${id}">${instructor.name}</option>`).join('');
+            const sessionTypeOptions = Object.entries(sessionTypes).map(([id, type]) => `<option value="${id}">${type}</option>`).join('');
+
+            // Create modal content
+            const content = `
+        <form id="add-schedule-form">
+            <div class="form-group">
+                <label for="schedule-day">Day</label>
+                <select id="schedule-day" class="form-control" required>
+                    <option value="">Select Day</option>
+                    ${dayOptions}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="schedule-time-slot">Time Slot</label>
+                <select id="schedule-time-slot" class="form-control" required>
+                    <option value="">Select Time Slot</option>
+                    ${timeSlotOptions}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="schedule-course">Course</label>
+                <select id="schedule-course" class="form-control" required>
+                    <option value="">Select Course</option>
+                    ${courseOptions}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="schedule-instructor">Instructor</label>
+                <select id="schedule-instructor" class="form-control" required>
+                    <option value="">Select Instructor</option>
+                    ${instructorOptions}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="schedule-session-type">Session Type</label>
+                <select id="schedule-session-type" class="form-control" required>
+                    <option value="">Select Session Type</option>
+                    ${sessionTypeOptions}
+                </select>
+            </div>
+        </form>
+    `;
+
+            // Show modal
+            showModal('Add Schedule Entry', content, [
+                {
+                    id: 'cancel',
+                    text: 'Cancel',
+                    class: 'btn-outline',
+                    handler: () => { }
+                },
+                {
+                    id: 'save',
+                    text: 'Save',
+                    class: 'btn-primary',
+                    handler: () => {
+                        // Get form values
+                        const dayId = document.getElementById('schedule-day').value;
+                        const timeSlotId = document.getElementById('schedule-time-slot').value;
+                        const courseId = document.getElementById('schedule-course').value;
+                        const instructorId = document.getElementById('schedule-instructor').value;
+                        const sessionTypeId = document.getElementById('schedule-session-type').value;
+
+                        // Validate form
+                        if (!dayId || !timeSlotId || !courseId || !instructorId || !sessionTypeId) {
+                            showToast('error', 'Validation Error', 'Please fill in all required fields');
+                            return;
+                        }
+
+                        // Create schedule data
+                        const scheduleData = {
+                            day_id: dayId,
+                            time_slot_id: timeSlotId,
+                            course_id: courseId,
+                            instructor_id: instructorId,
+                            session_type_id: sessionTypeId
+                        };
+
+                        try {
+                            // Add schedule entry
+                            dataManager.addScheduleEntry(scheduleData);
+
+                            // Save data to localStorage
+                            saveData();
+
+                            // Show success message
+                            showToast('success', 'Success', 'Schedule entry added successfully');
+
+                            // Reload schedule
+                            loadSchedule();
+                        } catch (error) {
+                            showToast('error', 'Error', error.message);
+                        }
+                    }
+                }
+            ]);
+        }
+
+        // Load instructors content
+        function loadInstructors() {
+            const instructorsContainer = document.getElementById('instructors');
+
+            // Get instructors data
+            const instructors = dataManager.getAllInstructors();
+
+            // Create instructors content
+            instructorsContainer.innerHTML = `
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"><i class="fas fa-chalkboard-teacher"></i> Instructors</h3>
+                <div class="card-actions">
+                    <button id="add-instructor-btn" class="btn btn-primary"><i class="fas fa-plus"></i> Add Instructor</button>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Title</th>
+                            <th>Department</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="instructors-body">
+                        ${generateInstructorRows(instructors)}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    `;
+
+            // Set up add button
+            document.getElementById('add-instructor-btn').addEventListener('click', showAddInstructorModal);
+
+            // Set up edit and delete buttons
+            Object.keys(instructors).forEach(instructorId => {
+                const editBtn = document.getElementById(`edit-instructor-${instructorId}`);
+                const deleteBtn = document.getElementById(`delete-instructor-${instructorId}`);
+
+                if (editBtn) {
+                    editBtn.addEventListener('click', () => {
+                        showEditInstructorModal(instructorId);
+                    });
+                }
+
+                if (deleteBtn) {
+                    deleteBtn.addEventListener('click', () => {
+                        showDeleteInstructorModal(instructorId);
+                    });
+                }
+            });
+        }
+
+        // Generate instructor table rows
+        function generateInstructorRows(instructors) {
+            if (Object.keys(instructors).length === 0) {
+                return '<tr><td colspan="4" class="text-center">No instructors found</td></tr>';
+            }
+
+            return Object.entries(instructors).map(([id, instructor]) => `
+        <tr>
+            <td>${instructor.name}</td>
+            <td>${instructor.title || 'N/A'}</td>
+            <td>${instructor.department_id || 'N/A'}</td>
+            <td>
+                <div class="actions">
+                    <button id="edit-instructor-${id}" class="btn btn-outline btn-sm"><i class="fas fa-edit"></i></button>
+                    <button id="delete-instructor-${id}" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
+                </div>
+            </td>
+        </tr>
+    `).join('');
+        }
+
+        // Load developer info
+        function loadDeveloper() {
+            const developerContainer = document.getElementById('developer');
+            const developerInfo = dataManager.getDeveloperInfo();
+
+            developerContainer.innerHTML = `
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"><i class="fas fa-code"></i> Developer Information</h3>
+                <div class="card-actions">
+                    <button id="edit-developer-btn" class="btn btn-primary"><i class="fas fa-edit"></i> Edit</button>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="data-table">
+                    <tr>
+                        <th>Name</th>
+                        <td>${developerInfo.name || 'Not set'}</td>
+                    </tr>
+                    <tr>
+                        <th>Role</th>
+                        <td>${developerInfo.role || 'Not set'}</td>
+                    </tr>
+                    <tr>
+                        <th>Website</th>
+                        <td>${developerInfo.website ? `<a href="${developerInfo.website}" target="_blank">${developerInfo.website}</a>` : 'Not set'}</td>
+                    </tr>
+                    <tr>
+                        <th>Social Links</th>
+                        <td>
+                            ${developerInfo.social ?
+                    Object.entries(developerInfo.social).map(([platform, link]) =>
+                        `<div><strong>${platform}:</strong> <a href="${link}" target="_blank">${link}</a></div>`
+                    ).join('') :
+                    'No social links'
+                }
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    `;
+
+            // Set up edit button
+            document.getElementById('edit-developer-btn').addEventListener('click', showEditDeveloperModal);
+        }
+
+        // Show add instructor modal
+        function showAddInstructorModal() {
+            // Generate unique ID
+            const instructorId = generateUniqueId('INS_', Object.keys(dataManager.getAllInstructors()));
+
+            // Create modal content
+            const content = `
+                <form id="add-instructor-form">
+                    <div class="form-group">
+                        <label for="instructor-id">Instructor ID</label>
+                        <input type="text" id="instructor-id" class="form-control" value="${instructorId}" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="instructor-name">Name</label>
+                        <input type="text" id="instructor-name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="instructor-title">Title</label>
+                        <input type="text" id="instructor-title" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="instructor-department">Department ID</label>
+                        <input type="text" id="instructor-department" class="form-control" value="DEP_001">
+                    </div>
+                </form>
+            `;
+
+            // Show modal
+            showModal('Add Instructor', content, [
+                {
+                    id: 'cancel',
+                    text: 'Cancel',
+                    class: 'btn-outline',
+                    handler: () => { }
+                },
+                {
+                    id: 'save',
+                    text: 'Save',
+                    class: 'btn-primary',
+                    handler: () => {
+                        // Get form values
+                        const id = document.getElementById('instructor-id').value;
+                        const name = document.getElementById('instructor-name').value;
+                        const title = document.getElementById('instructor-title').value;
+                        const departmentId = document.getElementById('instructor-department').value;
+
+                        // Validate form
+                        if (!name || !title) {
+                            showToast('error', 'Validation Error', 'Please fill in all required fields');
+                            return;
+                        }
+
+                        // Create instructor data
+                        const instructorData = {
+                            name,
+                            title,
+                            department_id: departmentId
+                        };
+
+                        try {
+                            // Add instructor
+                            dataManager.addInstructor(id, instructorData);
+
+                            // Save data to localStorage
+                            saveData();
+
+                            // Show success message
+                            showToast('success', 'Success', `Instructor ${name} added successfully`);
+
+                            // Reload instructors
+                            loadInstructors();
+                        } catch (error) {
+                            showToast('error', 'Error', error.message);
+                        }
+                    }
+                }
+            ]);
+        }
+
+        // Show edit instructor modal
+        function showEditInstructorModal(instructorId) {
+            // Get instructor data
+            const instructor = dataManager.getInstructor(instructorId);
+
+            // Create modal content
+            const content = `
+                <form id="edit-instructor-form">
+                    <div class="form-group">
+                        <label for="instructor-id">Instructor ID</label>
+                        <input type="text" id="instructor-id" class="form-control" value="${instructorId}" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="instructor-name">Name</label>
+                        <input type="text" id="instructor-name" class="form-control" value="${instructor.name}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="instructor-title">Title</label>
+                        <input type="text" id="instructor-title" class="form-control" value="${instructor.title}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="instructor-department">Department ID</label>
+                        <input type="text" id="instructor-department" class="form-control" value="${instructor.department_id}">
+                    </div>
+                </form>
+            `;
+
+            // Show modal
+            showModal('Edit Instructor', content, [
+                {
+                    id: 'cancel',
+                    text: 'Cancel',
+                    class: 'btn-outline',
+                    handler: () => { }
+                },
+                {
+                    id: 'save',
+                    text: 'Save',
+                    class: 'btn-primary',
+                    handler: () => {
+                        // Get form values
+                        const name = document.getElementById('instructor-name').value;
+                        const title = document.getElementById('instructor-title').value;
+                        const departmentId = document.getElementById('instructor-department').value;
+
+                        // Validate form
+                        if (!name || !title) {
+                            showToast('error', 'Validation Error', 'Please fill in all required fields');
+                            return;
+                        }
+
+                        // Create instructor data
+                        const instructorData = {
+                            name,
+                            title,
+                            department_id: departmentId
+                        };
+
+                        try {
+                            // Update instructor
+                            dataManager.updateInstructor(instructorId, instructorData);
+
+                            // Save data to localStorage
+                            saveData();
+
+                            // Show success message
+                            showToast('success', 'Success', `Instructor ${name} updated successfully`);
+
+                            // Reload instructors
+                            loadInstructors();
+                        } catch (error) {
+                            showToast('error', 'Error', error.message);
+                        }
+                    }
+                }
+            ]);
+        }
+
+        // Show delete instructor modal
+        function showDeleteInstructorModal(instructorId) {
+            // Get instructor data
+            const instructor = dataManager.getInstructor(instructorId);
+
+            // Create modal content
+            const content = `
+                <p>Are you sure you want to delete the instructor "${instructor.name}"?</p>
+                <p>This action cannot be undone and will also remove this instructor from all courses and schedule entries.</p>
+            `;
+
+            // Show modal
+            showModal('Delete Instructor', content, [
+                {
+                    id: 'cancel',
+                    text: 'Cancel',
+                    class: 'btn-outline',
+                    handler: () => { }
+                },
+                {
+                    id: 'delete',
+                    text: 'Delete',
+                    class: 'btn-danger',
+                    handler: () => {
+                        try {
+                            // Delete instructor
+                            dataManager.deleteInstructor(instructorId);
+
+                            // Save data to localStorage
+                            saveData();
+
+                            // Show success message
+                            showToast('success', 'Success', `Instructor ${instructor.name} deleted successfully`);
+
+                            // Reload instructors
+                            loadInstructors();
+                        } catch (error) {
+                            showToast('error', 'Error', error.message);
+                        }
+                    }
+                }
+            ]);
+        }
+
+        // Show add schedule entry modal
+        function showAddScheduleEntryModal() {
+            // Generate unique ID
+            const scheduleId = generateUniqueId('SCH_', Object.keys(dataManager.getAllScheduleEntries()));
+
+            // Get all courses, instructors, days, time slots, and session types
+            const courses = dataManager.getAllCourses();
+            const instructors = dataManager.getAllInstructors();
+            const days = DATA.days || {};
+            const timeSlots = DATA.time_slots || {};
+            const sessionTypes = DATA.session_types || {};
+
+            // Generate options for dropdowns
+            const courseOptions = Object.entries(courses).map(([id, course]) =>
+                `<option value="${id}">${course.code} - ${course.name}</option>`
+            ).join('');
+
+            const instructorOptions = Object.entries(instructors).map(([id, instructor]) =>
+                `<option value="${id}">${instructor.name} (${instructor.title})</option>`
+            ).join('');
+
+            const dayOptions = Object.entries(days).map(([id, day]) =>
+                `<option value="${id}">${day}</option>`
+            ).join('');
+
+            const timeSlotOptions = Object.entries(timeSlots).map(([id, timeSlot]) =>
+                `<option value="${id}">${timeSlot}</option>`
+            ).join('');
+
+            const sessionTypeOptions = Object.entries(sessionTypes).map(([id, sessionType]) =>
+                `<option value="${id}">${sessionType}</option>`
+            ).join('');
+
+            // Create modal content
+            const content = `
+                <form id="add-schedule-form">
+                    <div class="form-group">
+                        <label for="schedule-id">Schedule ID</label>
+                        <input type="text" id="schedule-id" class="form-control" value="${scheduleId}" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="schedule-day">Day</label>
+                        <select id="schedule-day" class="form-control" required>
+                            <option value="">Select Day</option>
+                            ${dayOptions}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="schedule-time-slot">Time Slot</label>
+                        <select id="schedule-time-slot" class="form-control" required>
+                            <option value="">Select Time Slot</option>
+                            ${timeSlotOptions}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="schedule-course">Course</label>
+                        <select id="schedule-course" class="form-control" required>
+                            <option value="">Select Course</option>
+                            ${courseOptions}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="schedule-instructor">Instructor</label>
+                        <select id="schedule-instructor" class="form-control" required>
+                            <option value="">Select Instructor</option>
+                            ${instructorOptions}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="schedule-session-type">Session Type</label>
+                        <select id="schedule-session-type" class="form-control" required>
+                            <option value="">Select Session Type</option>
+                            ${sessionTypeOptions}
+                        </select>
+                    </div>
+                </form>
+            `;
+
+            // Show modal
+            showModal('Add Schedule Entry', content, [
+                {
+                    id: 'cancel',
+                    text: 'Cancel',
+                    class: 'btn-outline',
+                    handler: () => { }
+                },
+                {
+                    id: 'save',
+                    text: 'Save',
+                    class: 'btn-primary',
+                    handler: () => {
+                        // Get form values
+                        const id = document.getElementById('schedule-id').value;
+                        const dayId = document.getElementById('schedule-day').value;
+                        const timeSlotId = document.getElementById('schedule-time-slot').value;
+                        const courseId = document.getElementById('schedule-course').value;
+                        const instructorId = document.getElementById('schedule-instructor').value;
+                        const sessionTypeId = document.getElementById('schedule-session-type').value;
+
+                        // Validate form
+                        if (!dayId || !timeSlotId || !courseId || !instructorId || !sessionTypeId) {
+                            showToast('error', 'Validation Error', 'Please fill in all required fields');
+                            return;
+                        }
+
+                        // Create schedule data
+                        const scheduleData = {
+                            day_id: dayId,
+                            time_slot_id: timeSlotId,
+                            course_id: courseId,
+                            instructor_id: instructorId,
+                            session_type_id: sessionTypeId
+                        };
+
+                        try {
+                            // Add schedule entry
+                            dataManager.addScheduleEntry(id, scheduleData);
+
+                            // Save data to localStorage
+                            saveData();
+
+                            // Show success message
+                            showToast('success', 'Success', 'Schedule entry added successfully');
+
+                            // Reload schedule
+                            loadSchedule();
+                        } catch (error) {
+                            showToast('error', 'Error', error.message);
+                        }
+                    }
+                }
+            ]);
+        }
+
+        // Show edit schedule entry modal
+        function showEditScheduleEntryModal(scheduleId) {
+            // Get schedule entry data
+            const scheduleEntry = dataManager.getAllScheduleEntries()[scheduleId];
+
+            // Get all courses, instructors, days, time slots, and session types
+            const courses = dataManager.getAllCourses();
+            const instructors = dataManager.getAllInstructors();
+            const days = DATA.days || {};
+            const timeSlots = DATA.time_slots || {};
+            const sessionTypes = DATA.session_types || {};
+
+            // Generate options for dropdowns
+            const courseOptions = Object.entries(courses).map(([id, course]) =>
+                `<option value="${id}" ${scheduleEntry.course_id === id ? 'selected' : ''}>${course.code} - ${course.name}</option>`
+            ).join('');
+
+            const instructorOptions = Object.entries(instructors).map(([id, instructor]) =>
+                `<option value="${id}" ${scheduleEntry.instructor_id === id ? 'selected' : ''}>${instructor.name} (${instructor.title})</option>`
+            ).join('');
+
+            const dayOptions = Object.entries(days).map(([id, day]) =>
+                `<option value="${id}" ${scheduleEntry.day_id === id ? 'selected' : ''}>${day}</option>`
+            ).join('');
+
+            const timeSlotOptions = Object.entries(timeSlots).map(([id, timeSlot]) =>
+                `<option value="${id}" ${scheduleEntry.time_slot_id === id ? 'selected' : ''}>${timeSlot}</option>`
+            ).join('');
+
+            const sessionTypeOptions = Object.entries(sessionTypes).map(([id, sessionType]) =>
+                `<option value="${id}" ${scheduleEntry.session_type_id === id ? 'selected' : ''}>${sessionType}</option>`
+            ).join('');
+
+            // Create modal content
+            const content = `
+                <form id="edit-schedule-form">
+                    <div class="form-group">
+                        <label for="schedule-id">Schedule ID</label>
+                        <input type="text" id="schedule-id" class="form-control" value="${scheduleId}" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="schedule-day">Day</label>
+                        <select id="schedule-day" class="form-control" required>
+                            <option value="">Select Day</option>
+                            ${dayOptions}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="schedule-time-slot">Time Slot</label>
+                        <select id="schedule-time-slot" class="form-control" required>
+                            <option value="">Select Time Slot</option>
+                            ${timeSlotOptions}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="schedule-course">Course</label>
+                        <select id="schedule-course" class="form-control" required>
+                            <option value="">Select Course</option>
+                            ${courseOptions}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="schedule-instructor">Instructor</label>
+                        <select id="schedule-instructor" class="form-control" required>
+                            <option value="">Select Instructor</option>
+                            ${instructorOptions}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="schedule-session-type">Session Type</label>
+                        <select id="schedule-session-type" class="form-control" required>
+                            <option value="">Select Session Type</option>
+                            ${sessionTypeOptions}
+                        </select>
+                    </div>
+                </form>
+            `;
+
+            // Show modal
+            showModal('Edit Schedule Entry', content, [
+                {
+                    id: 'cancel',
+                    text: 'Cancel',
+                    class: 'btn-outline',
+                    handler: () => { }
+                },
+                {
+                    id: 'save',
+                    text: 'Save',
+                    class: 'btn-primary',
+                    handler: () => {
+                        // Get form values
+                        const dayId = document.getElementById('schedule-day').value;
+                        const timeSlotId = document.getElementById('schedule-time-slot').value;
+                        const courseId = document.getElementById('schedule-course').value;
+                        const instructorId = document.getElementById('schedule-instructor').value;
+                        const sessionTypeId = document.getElementById('schedule-session-type').value;
+
+                        // Validate form
+                        if (!dayId || !timeSlotId || !courseId || !instructorId || !sessionTypeId) {
+                            showToast('error', 'Validation Error', 'Please fill in all required fields');
+                            return;
+                        }
+
+                        // Create schedule data
+                        const scheduleData = {
+                            day_id: dayId,
+                            time_slot_id: timeSlotId,
+                            course_id: courseId,
+                            instructor_id: instructorId,
+                            session_type_id: sessionTypeId
+                        };
+
+                        try {
+                            // Update schedule entry
+                            dataManager.updateScheduleEntry(scheduleId, scheduleData);
+
+                            // Save data to localStorage
+                            saveData();
+
+                            // Show success message
+                            showToast('success', 'Success', 'Schedule entry updated successfully');
+
+                            // Reload schedule
+                            loadSchedule();
+                        } catch (error) {
+                            showToast('error', 'Error', error.message);
+                        }
+                    }
+                }
+            ]);
+        }
+
+        // Show delete schedule entry modal
+        function showDeleteScheduleEntryModal(scheduleId) {
+            // Get schedule entry data
+            const scheduleEntry = dataManager.getAllScheduleEntries()[scheduleId];
+            const course = dataManager.getCourse(scheduleEntry.course_id);
+            const instructor = dataManager.getInstructor(scheduleEntry.instructor_id);
+            const day = DATA.days[scheduleEntry.day_id];
+            const timeSlot = DATA.time_slots[scheduleEntry.time_slot_id];
+            const sessionType = DATA.session_types[scheduleEntry.session_type_id];
+
+            // Create modal content
+            const content = `
+                <p>Are you sure you want to delete this schedule entry?</p>
+                <ul>
+                    <li><strong>Day:</strong> ${day}</li>
+                    <li><strong>Time:</strong> ${timeSlot}</li>
+                    <li><strong>Course:</strong> ${course.code} - ${course.name}</li>
+                    <li><strong>Instructor:</strong> ${instructor.name}</li>
+                    <li><strong>Session Type:</strong> ${sessionType}</li>
+                </ul>
+                <p>This action cannot be undone.</p>
+            `;
+
+            // Show modal
+            showModal('Delete Schedule Entry', content, [
+                {
+                    id: 'cancel',
+                    text: 'Cancel',
+                    class: 'btn-outline',
+                    handler: () => { }
+                },
+                {
+                    id: 'delete',
+                    text: 'Delete',
+                    class: 'btn-danger',
+                    handler: () => {
+                        try {
+                            // Delete schedule entry
+                            dataManager.deleteScheduleEntry(scheduleId);
+
+                            // Save data to localStorage
+                            saveData();
+
+                            // Show success message
+                            showToast('success', 'Success', 'Schedule entry deleted successfully');
+
+                            // Reload schedule
+                            loadSchedule();
+                        } catch (error) {
+                            showToast('error', 'Error', error.message);
+                        }
+                    }
+                }
+            ]);
+        }
+
+        // Load dashboard
+        function loadDashboard() {
+            const dashboardContainer = document.getElementById('dashboard');
+
+            // Get stats
+            const courseCount = dataManager.countCourses();
+            const instructorCount = dataManager.countInstructors();
+            const fileCount = dataManager.countFiles();
+            const scheduleCount = dataManager.countScheduleEntries();
+
+            // Create dashboard content
+            dashboardContainer.innerHTML = `
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-book"></i></div>
+                        <div class="stat-content">
+                            <div class="stat-value">${courseCount}</div>
+                            <div class="stat-label">Courses</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                        <div class="stat-content">
+                            <div class="stat-value">${instructorCount}</div>
+                            <div class="stat-label">Instructors</div>
+                        </div>
+                    </div>
+                                        <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-file-alt"></i></div>
+                        <div class="stat-content">
+                            <div class="stat-value">${fileCount}</div>
+                            <div class="stat-label">Files</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-calendar-alt"></i></div>
+                        <div class="stat-content">
+                            <div class="stat-value">${scheduleCount}</div>
+                            <div class="stat-label">Schedule Entries</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title"><i class="fas fa-info-circle"></i> System Information</h3>
+                    </div>
+                    <div class="card-body">
+                        <table class="data-table">
+                            <tr>
+                                <th>Institution</th>
+                                <td>${DATA.metadata.institution_name || 'Not set'}</td>
+                            </tr>
+                            <tr>
+                                <th>Faculty</th>
+                                <td>${DATA.metadata.faculty_name || 'Not set'}</td>
+                            </tr>
+                            <tr>
+                                <th>Level/Term</th>
+                                <td>Level ${DATA.metadata.level || '?'}, Term ${DATA.metadata.term || '?'}</td>
+                            </tr>
+                            <tr>
+                                <th>Version</th>
+                                <td>${DATA.metadata.version || '1.0.0'}</td>
+                            </tr>
+                            <tr>
+                                <th>Developer</th>
+                                <td>${DATA.developer.name || 'Not set'}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title"><i class="fas fa-chart-bar"></i> Course Statistics</h3>
+                    </div>
+                    <div class="card-body">
+                        <div id="course-stats-container">
+                            ${generateCourseStatsTable()}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Generate course stats table
+        function generateCourseStatsTable() {
+            const courses = dataManager.getAllCourses();
+
+            if (Object.keys(courses).length === 0) {
+                return '<p class="text-center">No courses available</p>';
+            }
+
+            let html = `
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Course</th>
+                            <th>Files</th>
+                            <th>Word Count</th>
+                            <th>Instructors</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+
+            Object.entries(courses).forEach(([id, course]) => {
+                const fileCount = course.files ? course.files.length : 0;
+                const wordCount = course.files ? course.files.reduce((sum, file) => sum + (file.wordCount || 0), 0) : 0;
+                const instructorCount = course.instructors ? course.instructors.length : 0;
+
+                html += `
+                    <tr>
+                        <td>${course.code} - ${course.name}</td>
+                        <td>${fileCount}</td>
+                        <td>${wordCount}</td>
+                        <td>${instructorCount}</td>
+                    </tr>
+                `;
+            });
+
+            html += `
+                    </tbody>
+                </table>
+            `;
+
+            return html;
+        }
+
+        // Load metadata
+        function loadMetadata() {
+            const metadataContainer = document.getElementById('metadata');
+            const metadata = dataManager.getMetadata();
+
+            metadataContainer.innerHTML = `
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title"><i class="fas fa-cog"></i> Metadata</h3>
+                        <div class="card-actions">
+                            <button id="edit-metadata-btn" class="btn btn-primary"><i class="fas fa-edit"></i> Edit</button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <table class="data-table">
+                            <tr>
+                                <th>Institution ID</th>
+                                <td>${metadata.institution_id || 'Not set'}</td>
+                            </tr>
+                            <tr>
+                                <th>Institution Name</th>
+                                <td>${metadata.institution_name || 'Not set'}</td>
+                            </tr>
+                            <tr>
+                                <th>Faculty ID</th>
+                                <td>${metadata.faculty_id || 'Not set'}</td>
+                            </tr>
+                            <tr>
+                                <th>Faculty Name</th>
+                                <td>${metadata.faculty_name || 'Not set'}</td>
+                            </tr>
+                            <tr>
+                                <th>Level</th>
+                                <td>${metadata.level || 'Not set'}</td>
+                            </tr>
+                            <tr>
+                                <th>Term</th>
+                                <td>${metadata.term || 'Not set'}</td>
+                            </tr>
+                            <tr>
+                                <th>Schedule Type</th>
+                                <td>${metadata.schedule_type || 'Not set'}</td>
+                            </tr>
+                            <tr>
+                                <th>Version</th>
+                                <td>${metadata.version || 'Not set'}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            `;
+
+            // Set up edit button
+            document.getElementById('edit-metadata-btn').addEventListener('click', showEditMetadataModal);
+        }
+
+        // Show edit metadata modal
+        function showEditMetadataModal() {
+            const metadata = dataManager.getMetadata();
+
+            // Create modal content
+            const content = `
+                <form id="edit-metadata-form">
+                    <div class="form-group">
+                        <label for="institution-id">Institution ID</label>
+                        <input type="text" id="institution-id" class="form-control" value="${metadata.institution_id || ''}">
+                    </div>
+                    <div class="form-group">
+                        <label for="institution-name">Institution Name</label>
+                        <input type="text" id="institution-name" class="form-control" value="${metadata.institution_name || ''}">
+                    </div>
+                    <div class="form-group">
+                        <label for="faculty-id">Faculty ID</label>
+                        <input type="text" id="faculty-id" class="form-control" value="${metadata.faculty_id || ''}">
+                    </div>
+                    <div class="form-group">
+                        <label for="faculty-name">Faculty Name</label>
+                        <input type="text" id="faculty-name" class="form-control" value="${metadata.faculty_name || ''}">
+                    </div>
+                    <div class="form-group">
+                        <label for="level">Level</label>
+                        <input type="number" id="level" class="form-control" min="1" max="4" value="${metadata.level || 1}">
+                    </div>
+                    <div class="form-group">
+                        <label for="term">Term</label>
+                        <input type="number" id="term" class="form-control" min="1" max="2" value="${metadata.term || 1}">
+                    </div>
+                    <div class="form-group">
+                        <label for="schedule-type">Schedule Type</label>
+                        <select id="schedule-type" class="form-control">
+                            <option value="Face to Face" ${metadata.schedule_type === 'Face to Face' ? 'selected' : ''}>Face to Face</option>
+                            <option value="Online" ${metadata.schedule_type === 'Online' ? 'selected' : ''}>Online</option>
+                            <option value="Hybrid" ${metadata.schedule_type === 'Hybrid' ? 'selected' : ''}>Hybrid</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="version">Version</label>
+                        <input type="text" id="version" class="form-control" value="${metadata.version || '1.0.0'}">
+                    </div>
+                </form>
+            `;
+
+            // Show modal
+            showModal('Edit Metadata', content, [
+                {
+                    id: 'cancel',
+                    text: 'Cancel',
+                    class: 'btn-outline',
+                    handler: () => { }
+                },
+                {
+                    id: 'save',
+                    text: 'Save',
+                    class: 'btn-primary',
+                    handler: () => {
+                        // Get form values
+                        const institutionId = document.getElementById('institution-id').value;
+                        const institutionName = document.getElementById('institution-name').value;
+                        const facultyId = document.getElementById('faculty-id').value;
+                        const facultyName = document.getElementById('faculty-name').value;
+                        const level = parseInt(document.getElementById('level').value);
+                        const term = parseInt(document.getElementById('term').value);
+                        const scheduleType = document.getElementById('schedule-type').value;
+                        const version = document.getElementById('version').value;
+
+                        // Create metadata object
+                        const metadataData = {
+                            institution_id: institutionId,
+                            institution_name: institutionName,
+                            faculty_id: facultyId,
+                            faculty_name: facultyName,
+                            level,
+                            term,
+                            schedule_type: scheduleType,
+                            version
+                        };
+
+                        try {
+                            // Update metadata
+                            dataManager.updateMetadata(metadataData);
+
+                            // Save data to localStorage
+                            saveData();
+
+                            // Show success message
+                            showToast('success', 'Success', 'Metadata updated successfully');
+
+                            // Reload metadata
+                            loadMetadata();
+                        } catch (error) {
+                            showToast('error', 'Error', error.message);
+                        }
+                    }
+                }
+            ]);
+        }
+
+        // Load developer info
+        function loadDeveloper() {
+            const developerContainer = document.getElementById('developer');
+            const developer = dataManager.getDeveloperInfo();
+
+            developerContainer.innerHTML = `
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title"><i class="fas fa-user-cog"></i> Developer Information</h3>
+                        <div class="card-actions">
+                            <button id="edit-developer-btn" class="btn btn-primary"><i class="fas fa-edit"></i> Edit</button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <table class="data-table">
+                            <tr>
+                                <th>Name</th>
+                                <td>${developer.name || 'Not set'}</td>
+                            </tr>
+                            <tr>
+                                <th>Role</th>
+                                <td>${developer.role || 'Not set'}</td>
+                            </tr>
+                            <tr>
+                                <th>Website</th>
+                                <td>${developer.website ? `<a href="${developer.website}" target="_blank">${developer.website}</a>` : 'Not set'}</td>
+                            </tr>
+                            <tr>
+                                <th>Social</th>
+                                <td>
+                                    ${developer.social ? Object.entries(developer.social).map(([platform, link]) =>
+                `<div><strong>${platform}:</strong> <a href="${link}" target="_blank">${link}</a></div>`
+            ).join('') : 'Not set'}
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            `;
+
+            // Set up edit button
+            document.getElementById('edit-developer-btn').addEventListener('click', showEditDeveloperModal);
+        }
+
+        // Show edit developer modal
+        function showEditDeveloperModal() {
+            const developer = dataManager.getDeveloperInfo();
+
+            // Create social inputs HTML
+            let socialInputsHtml = '';
+            if (developer.social) {
+                Object.entries(developer.social).forEach(([platform, link]) => {
+                    socialInputsHtml += `
+                        <div class="social-input-group">
+                            <div class="form-group">
+                                <label>Platform</label>
+                                <input type="text" class="form-control social-platform" value="${platform}">
+                            </div>
+                            <div class="form-group">
+                                <label>Link</label>
+                                <input type="text" class="form-control social-link" value="${link}">
+                            </div>
+                            <button type="button" class="btn btn-danger remove-social-btn"><i class="fas fa-times"></i></button>
+                        </div>
+                    `;
+                });
+            }
+
+            // Create modal content
+            const content = `
+                <form id="edit-developer-form">
+                    <div class="form-group">
+                        <label for="developer-name">Name</label>
+                        <input type="text" id="developer-name" class="form-control" value="${developer.name || ''}">
+                    </div>
+                    <div class="form-group">
+                        <label for="developer-role">Role</label>
+                        <input type="text" id="developer-role" class="form-control" value="${developer.role || ''}">
+                    </div>
+                    <div class="form-group">
+                        <label for="developer-website">Website</label>
+                        <input type="text" id="developer-website" class="form-control" value="${developer.website || ''}">
+                    </div>
+                    <div class="form-group">
+                        <label>Social Links</label>
+                        <div id="social-inputs-container">
+                            ${socialInputsHtml}
+                        </div>
+                        <button type="button" id="add-social-btn" class="btn btn-outline"><i class="fas fa-plus"></i> Add Social Link</button>
+                    </div>
+                </form>
+            `;
+
+            // Show modal
+            const { modal } = showModal('Edit Developer Information', content, [
+                {
+                    id: 'cancel',
+                    text: 'Cancel',
+                    class: 'btn-outline',
+                    handler: () => { }
+                },
+                {
+                    id: 'save',
+                    text: 'Save',
+                    class: 'btn-primary',
+                    handler: () => {
+                        // Get form values
+                        const name = document.getElementById('developer-name').value;
+                        const role = document.getElementById('developer-role').value;
+                        const website = document.getElementById('developer-website').value;
+
+                        // Get social links
+                        const social = {};
+                        const socialInputGroups = modal.querySelectorAll('.social-input-group');
+                        socialInputGroups.forEach(group => {
+                            const platform = group.querySelector('.social-platform').value;
+                            const link = group.querySelector('.social-link').value;
+                            if (platform && link) {
+                                social[platform] = link;
+                            }
+                        });
+
+                        // Create developer data
+                        const developerData = {
+                            name,
+                            role,
+                            website,
+                            social
+                        };
+
+                        try {
+                            // Update developer info
+                            dataManager.updateDeveloperInfo(developerData);
+
+                            // Save data to localStorage
+                            saveData();
+
+                            // Show success message
+                            showToast('success', 'Success', 'Developer information updated successfully');
+
+                            // Reload developer info
+                            loadDeveloper();
+                        } catch (error) {
+                            showToast('error', 'Error', error.message);
+                        }
+                    }
+                }
+            ]);
+
+            // Set up add social button
+            modal.querySelector('#add-social-btn').addEventListener('click', () => {
+                const socialInputsContainer = modal.querySelector('#social-inputs-container');
+                const newSocialInput = document.createElement('div');
+                newSocialInput.className = 'social-input-group';
+                newSocialInput.innerHTML = `
+                    <div class="form-group">
+                        <label>Platform</label>
+                        <input type="text" class="form-control social-platform">
+                    </div>
+                    <div class="form-group">
+                        <label>Link</label>
+                        <input type="text" class="form-control social-link">
+                    </div>
+                    <button type="button" class="btn btn-danger remove-social-btn"><i class="fas fa-times"></i></button>
+                `;
+                socialInputsContainer.appendChild(newSocialInput);
+
+                // Set up remove button
+                newSocialInput.querySelector('.remove-social-btn').addEventListener('click', () => {
+                    socialInputsContainer.removeChild(newSocialInput);
+                });
+            });
+
+            // Set up existing remove buttons
+            modal.querySelectorAll('.remove-social-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const socialInputGroup = btn.closest('.social-input-group');
+                    socialInputGroup.parentNode.removeChild(socialInputGroup);
+                });
+            });
+        }
+
+        // Update JSON editor with current data
+        function updateJsonEditor() {
+            const jsonTextarea = document.getElementById('json-textarea');
+            jsonTextarea.value = JSON.stringify(dataManager.getData(), null, 4);
+        }
+
+        // Copy JSON to clipboard
+        function copyJsonToClipboard() {
+            const jsonTextarea = document.getElementById('json-textarea');
+            jsonTextarea.select();
+            document.execCommand('copy');
+            showToast('success', 'Copied', 'JSON copied to clipboard');
+        }
+
+        // Update data from JSON editor
+        function updateFromJsonEditor() {
+            const jsonTextarea = document.getElementById('json-textarea');
+            try {
+                const newData = JSON.parse(jsonTextarea.value);
+                dataManager.setData(newData);
+                saveData();
+                showToast('success', 'Success', 'Data updated from JSON editor');
+
+                // Reload current tab
+                const activeTab = document.querySelector('.tab.active');
+                if (activeTab) {
+                    const tabId = activeTab.getAttribute('data-tab');
+                    switch (tabId) {
+                        case 'dashboard':
+                            loadDashboard();
+                            break;
+                        case 'courses':
+                            loadCourses();
+                            break;
+                        case 'instructors':
+                            loadInstructors();
+                            break;
+                        case 'schedule':
+                            loadSchedule();
+                            break;
+                        case 'metadata':
+                            loadMetadata();
+                            break;
+                        case 'developer':
+                            loadDeveloper();
+                            break;
+                    }
+                }
+            } catch (error) {
+                showToast('error', 'Error', `Invalid JSON: ${error.message}`);
+            }
+        }
+
+        // Export data to file
+        function exportData() {
+            const jsonData = dataManager.exportToJSON();
+            const blob = new Blob([jsonData], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'academic_data.json';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        // Import data from file
+        function importData() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = '.json';
+            input.onchange = (event) => {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        try {
+                            const jsonData = e.target.result;
+                            dataManager.importFromJSON(jsonData);
+                            saveData();
+                            showToast('success', 'Success', 'Data imported successfully');
+
+                            // Reload current tab
+                            const activeTab = document.querySelector('.tab.active');
+                            if (activeTab) {
+                                activeTab.click();
+                            }
+
+                            // Update JSON editor
+                            updateJsonEditor();
+                        } catch (error) {
+                            showToast('error', 'Error', `Import failed: ${error.message}`);
+                        }
+                    };
+                    reader.readAsText(file);
+                }
+            };
+            input.click();
+        }
+
+        // Save data to localStorage
+        function saveData() {
+            localStorage.setItem('academicData', JSON.stringify(dataManager.getData()));
+            updateJsonEditor();
+        }
+    </script>
+</body>
+
+</html>
