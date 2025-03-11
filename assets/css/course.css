@@ -73,17 +73,16 @@
 }
 
 .material-card {
-    background: var(--background-color);
-    border-radius: 8px;
-    padding: 1.25rem;
+    background: var(--card-background);
     border: 1px solid var(--border-color);
-    transition: all 0.3s ease;
+    border-radius: 12px;
+    padding: 1.25rem;
+    transition: all 0.2s ease;
 }
 
 .material-card:hover {
     transform: translateY(-2px);
-    border-color: var(--primary-color);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .material-icon {
@@ -303,3 +302,23 @@
         grid-template-columns: 1fr;
     }
 }
+
+/* Replace the existing word count styles with these simpler ones */
+.word-count-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.8rem;
+    background: var(--background-color);
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin: 0.5rem 0;
+}
+
+.word-count-badge i {
+    color: var(--primary-color);
+    font-size: 0.9rem;
+}
+
+/* Remove all other word-count related styles */

@@ -112,7 +112,9 @@ function renderMaterials(course) {
         return;
     }
 
-    // Sort and group files
+    // Calculate total course word count
+    const totalWordCount = course.files.reduce((sum, file) => sum + (file.wordCount || 0), 0);
+
     course.files.forEach(file => {
         if (typeof file === 'string') {
             // Handle old format files...
@@ -142,6 +144,18 @@ function renderMaterials(course) {
                     icon = 'fa-file';
             }
 
+            // Calculate word count percentage
+            const percentage = totalWordCount > 0 
+                ? Math.round((file.wordCount / totalWordCount) * 100) 
+                : 0;
+
+            const wordCountHtml = `
+                <div class="word-count-badge">
+                    <i class="fas fa-chart-pie"></i>
+                    <span>${percentage}% of course content</span>
+                </div>
+            `;
+
             const contributorsHtml = file.contributors ? `
                 <div class="material-contributors">
                     ${file.contributors.map(id => {
@@ -159,6 +173,7 @@ function renderMaterials(course) {
                 </div>
                 <div class="material-content">
                     <h4>${file.title}</h4>
+                    ${wordCountHtml}
                     ${contributorsHtml}
                     ${file.messages ? file.messages.map(msg => `
                         <div class="message">

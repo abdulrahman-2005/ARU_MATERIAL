@@ -102,16 +102,39 @@ function getTotalWordCount(meta_data) {
     }
 }
 
+function getTotalCourseWords(courseCode) {
+    let totalWords = 0;
+    const course = getCourseByCode(DATA, courseCode);
+    const files = getCourseFiles(course);
+    for (const file of files) {
+        if (file["wordCount"]) {
+            totalWords += file["wordCount"];
+        }
+    }
+    return totalWords;
+}
 
+function setCourseWordCount(meta_data) {
+    const courses = getCoursesArray(meta_data);
+    for (const course of courses) {
+        const files = getCourseFiles(course);
+        let totalWords = 0;
+        for (const file of files) {
+            if (file["wordCount"]) {
+                totalWords += file["wordCount"];
+            }
+        }
+        course["wordCount"] = totalWords;
+    }
+    return meta_data;
+}
 
 try {
     DATA = addMidtermMessageToFiles(DATA);
-    const totalWords = getTotalWordCount(DATA);
-    console.log(`Total word count: ${totalWords}`);
+    DATA = setCourseWordCount(DATA);
 } catch (e) {
     console.error(e);
 }
-
 
 const version = JSON.parse(localStorage.getItem("MATERIAL_FCI_VERSION"));
 DATA.metadata.version = version;

@@ -969,31 +969,31 @@
             <div class="tab" data-tab="metadata">Metadata</div>
             <div class="tab" data-tab="developer">Developer Info</div>
             <div class="tab" data-tab="json-editor">JSON Editor</div>
-        </div>
+                </div>
 
         <div id="dashboard" class="tab-content active">
             <!-- Dashboard content will be generated dynamically -->
-        </div>
+                        </div>
 
         <div id="courses" class="tab-content">
             <!-- Courses content will be generated dynamically -->
-        </div>
+                    </div>
 
         <div id="instructors" class="tab-content">
             <!-- Instructors content will be generated dynamically -->
-        </div>
+                        </div>
 
         <div id="schedule" class="tab-content">
             <!-- Schedule content will be generated dynamically -->
-        </div>
+                    </div>
 
         <div id="metadata" class="tab-content">
             <!-- Metadata content will be generated dynamically -->
-        </div>
+                        </div>
 
         <div id="developer" class="tab-content">
             <!-- Developer info content will be generated dynamically -->
-        </div>
+                    </div>
 
         <div id="json-editor" class="tab-content">
             <div class="card">
@@ -1002,15 +1002,15 @@
                     <div class="card-actions">
                         <button id="copy-json" class="btn btn-outline"><i class="fas fa-copy"></i> Copy</button>
                         <button id="update-json" class="btn btn-primary"><i class="fas fa-save"></i> Update</button>
-                    </div>
+                        </div>
                 </div>
                 <div class="card-body">
                     <textarea id="json-textarea" class="form-control"
                         style="height: 500px; font-family: monospace;"></textarea>
                 </div>
             </div>
-        </div>
-    </div>
+                    </div>
+                </div>
 
     <!-- Modal container -->
     <div id="modal-container"></div>
@@ -1294,44 +1294,44 @@
                     </div>
                     <div class="card-body">
                         <table class="data-table">
-                            <thead>
-                                <tr>
-                                    <th>Code</th>
-                                    <th>Name</th>
-                                    <th>Credit Hours</th>
-                                    <th>Files</th>
+                                <thead>
+                                    <tr>
+                                        <th>Code</th>
+                                        <th>Name</th>
+                                        <th>Credit Hours</th>
+                                        <th>Files</th>
                                     <th>Lectures</th>
                                     <th>Sections</th>
-                                </tr>
-                            </thead>
+                                    </tr>
+                                </thead>
                             <tbody id="course-stats-body">
                                 ${generateCourseStatsRows()}
-                            </tbody>
-                        </table>
+                                </tbody>
+                            </table>
                     </div>
                 </div>
-                
+
                 <div class="card">
                     <div class="card-header">
                         <h3 class="card-title"><i class="fas fa-chalkboard-teacher"></i> Instructor Load</h3>
                     </div>
                     <div class="card-body">
                         <table class="data-table">
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Title</th>
-                                    <th>Courses</th>
-                                    <th>Lectures</th>
-                                    <th>Sections</th>
-                                </tr>
-                            </thead>
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Title</th>
+                                        <th>Courses</th>
+                                        <th>Lectures</th>
+                                        <th>Sections</th>
+                                    </tr>
+                                </thead>
                             <tbody id="instructor-stats-body">
                                 ${generateInstructorStatsRows()}
-                            </tbody>
-                        </table>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-                </div>
             `;
         }
 
@@ -1392,22 +1392,22 @@
                     </div>
                     <div class="card-body">
                         <table class="data-table">
-                            <thead>
-                                <tr>
+                                <thead>
+                                    <tr>
                                     <th>ID</th>
-                                    <th>Code</th>
-                                    <th>Name</th>
-                                    <th>Credit Hours</th>
+                                        <th>Code</th>
+                                        <th>Name</th>
+                                        <th>Credit Hours</th>
                                     <th>Files</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
                             <tbody id="courses-body">
                                 ${generateCoursesRows(courses)}
-                            </tbody>
-                        </table>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-                </div>
             `;
 
             // Set up add course button
@@ -1451,7 +1451,7 @@
                             <button id="edit-course-${id}" class="btn btn-outline"><i class="fas fa-edit"></i></button>
                             <button id="manage-files-${id}" class="btn btn-outline"><i class="fas fa-file-alt"></i></button>
                             <button id="delete-course-${id}" class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                        </div>
+                </div>
                     </td>
                 </tr>
             `).join('');
@@ -1476,7 +1476,7 @@
                     <div class="form-group">
                         <label for="course-id">Course ID</label>
                         <input type="text" id="course-id" class="form-control" value="${courseId}" readonly>
-                    </div>
+                </div>
                     <div class="form-group">
                         <label for="course-code">Course Code</label>
                         <input type="text" id="course-code" class="form-control" required>
@@ -1743,23 +1743,23 @@
                 <h4>${course.name} (${course.code}) Files</h4>
                 <div class="files-container">
                     <table class="data-table">
-                        <thead>
-                            <tr>
+                                <thead>
+                                    <tr>
                                 <th>#</th>
-                                <th>Title</th>
+                                        <th>Title</th>
                                 <th>Type</th>
                                 <th>Word Count</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
                         <tbody id="files-body">
                             ${generateFilesRows(course)}
-                        </tbody>
-                    </table>
-                </div>
+                                </tbody>
+                            </table>
+                        </div>
                 <div class="form-group" style="margin-top: 1rem;">
                     <button id="add-file-btn" class="btn btn-primary"><i class="fas fa-plus"></i> Add File</button>
-                </div>
+                    </div>
             `;
 
             // Show modal
@@ -1813,7 +1813,7 @@
                         <div class="actions">
                             <button id="edit-file-${index}" class="btn btn-outline btn-sm"><i class="fas fa-edit"></i></button>
                             <button id="delete-file-${index}" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
-                        </div>
+                </div>
                     </td>
                 </tr>
             `).join('');
@@ -1840,12 +1840,12 @@
                             <option value="assignment">Assignment</option>
                             <option value="exam">Exam</option>
                             <option value="other">Other</option>
-                        </select>
-                    </div>
+                            </select>
+                        </div>
                     <div class="form-group">
                         <label for="file-word-count">Word Count</label>
                         <input type="number" id="file-word-count" class="form-control" min="0" value="0">
-                    </div>
+                            </div>
                 </form>
             `;
 
@@ -1916,7 +1916,7 @@
                     <div class="form-group">
                         <label for="file-title">Title</label>
                         <input type="text" id="file-title" class="form-control" value="${file.title}" required>
-                    </div>
+                        </div>
                     <div class="form-group">
                         <label for="file-src">Source/Filename</label>
                         <input type="text" id="file-src" class="form-control" value="${file.src}" required>
@@ -1930,7 +1930,7 @@
                             <option value="exam" ${file.type === 'exam' ? 'selected' : ''}>Exam</option>
                             <option value="other" ${file.type === 'other' ? 'selected' : ''}>Other</option>
                         </select>
-                    </div>
+                </div>
                     <div class="form-group">
                         <label for="file-word-count">Word Count</label>
                         <input type="number" id="file-word-count" class="form-control" min="0" value="${file.wordCount || 0}">
@@ -2047,14 +2047,14 @@
 
             // Create schedule content
             scheduleContainer.innerHTML = `
-        <div class="card">
-            <div class="card-header">
+                    <div class="card">
+                        <div class="card-header">
                 <h3 class="card-title"><i class="fas fa-calendar-alt"></i> Schedule</h3>
                 <div class="card-actions">
                     <button id="add-schedule-btn" class="btn btn-primary"><i class="fas fa-plus"></i> Add Entry</button>
                 </div>
-            </div>
-            <div class="card-body">
+                        </div>
+                        <div class="card-body">
                 <table class="data-table">
                     <thead>
                         <tr>
@@ -2070,8 +2070,8 @@
                         ${generateScheduleRows(scheduleEntries, days, timeSlots)}
                     </tbody>
                 </table>
-            </div>
-        </div>
+                            </div>
+                        </div>
     `;
 
             // Set up add button
@@ -2150,36 +2150,36 @@
                 <select id="schedule-day" class="form-control" required>
                     <option value="">Select Day</option>
                     ${dayOptions}
-                </select>
-            </div>
+                            </select>
+                        </div>
             <div class="form-group">
                 <label for="schedule-time-slot">Time Slot</label>
                 <select id="schedule-time-slot" class="form-control" required>
                     <option value="">Select Time Slot</option>
                     ${timeSlotOptions}
                 </select>
-            </div>
+                            </div>
             <div class="form-group">
                 <label for="schedule-course">Course</label>
                 <select id="schedule-course" class="form-control" required>
                     <option value="">Select Course</option>
                     ${courseOptions}
                 </select>
-            </div>
+                        </div>
             <div class="form-group">
                 <label for="schedule-instructor">Instructor</label>
                 <select id="schedule-instructor" class="form-control" required>
                     <option value="">Select Instructor</option>
                     ${instructorOptions}
                 </select>
-            </div>
+                    </div>
             <div class="form-group">
                 <label for="schedule-session-type">Session Type</label>
                 <select id="schedule-session-type" class="form-control" required>
                     <option value="">Select Session Type</option>
                     ${sessionTypeOptions}
                 </select>
-            </div>
+                </div>
         </form>
     `;
 
@@ -2247,29 +2247,29 @@
 
             // Create instructors content
             instructorsContainer.innerHTML = `
-        <div class="card">
-            <div class="card-header">
+                <div class="card">
+                    <div class="card-header">
                 <h3 class="card-title"><i class="fas fa-chalkboard-teacher"></i> Instructors</h3>
                 <div class="card-actions">
                     <button id="add-instructor-btn" class="btn btn-primary"><i class="fas fa-plus"></i> Add Instructor</button>
                 </div>
-            </div>
-            <div class="card-body">
+                    </div>
+                    <div class="card-body">
                 <table class="data-table">
-                    <thead>
-                        <tr>
+                                <thead>
+                                    <tr>
                             <th>Name</th>
-                            <th>Title</th>
+                                        <th>Title</th>
                             <th>Department</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
                     <tbody id="instructors-body">
                         ${generateInstructorRows(instructors)}
-                    </tbody>
-                </table>
-            </div>
-        </div>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
     `;
 
             // Set up add button
@@ -2321,14 +2321,14 @@
             const developerInfo = dataManager.getDeveloperInfo();
 
             developerContainer.innerHTML = `
-        <div class="card">
-            <div class="card-header">
+                    <div class="card">
+                        <div class="card-header">
                 <h3 class="card-title"><i class="fas fa-code"></i> Developer Information</h3>
                 <div class="card-actions">
                     <button id="edit-developer-btn" class="btn btn-primary"><i class="fas fa-edit"></i> Edit</button>
                 </div>
-            </div>
-            <div class="card-body">
+                        </div>
+                        <div class="card-body">
                 <table class="data-table">
                     <tr>
                         <th>Name</th>
@@ -2354,8 +2354,8 @@
                         </td>
                     </tr>
                 </table>
-            </div>
-        </div>
+                            </div>
+                        </div>
     `;
 
             // Set up edit button
@@ -2373,11 +2373,11 @@
                     <div class="form-group">
                         <label for="instructor-id">Instructor ID</label>
                         <input type="text" id="instructor-id" class="form-control" value="${instructorId}" readonly>
-                    </div>
+                        </div>
                     <div class="form-group">
                         <label for="instructor-name">Name</label>
                         <input type="text" id="instructor-name" class="form-control" required>
-                    </div>
+                        </div>
                     <div class="form-group">
                         <label for="instructor-title">Title</label>
                         <input type="text" id="instructor-title" class="form-control" required>
@@ -2385,7 +2385,7 @@
                     <div class="form-group">
                         <label for="instructor-department">Department ID</label>
                         <input type="text" id="instructor-department" class="form-control" value="DEP_001">
-                    </div>
+                </div>
                 </form>
             `;
 
@@ -2452,15 +2452,15 @@
                     <div class="form-group">
                         <label for="instructor-id">Instructor ID</label>
                         <input type="text" id="instructor-id" class="form-control" value="${instructorId}" readonly>
-                    </div>
+            </div>
                     <div class="form-group">
                         <label for="instructor-name">Name</label>
                         <input type="text" id="instructor-name" class="form-control" value="${instructor.name}" required>
-                    </div>
+        </div>
                     <div class="form-group">
                         <label for="instructor-title">Title</label>
                         <input type="text" id="instructor-title" class="form-control" value="${instructor.title}" required>
-                    </div>
+    </div>
                     <div class="form-group">
                         <label for="instructor-department">Department ID</label>
                         <input type="text" id="instructor-department" class="form-control" value="${instructor.department_id}">
@@ -2602,42 +2602,42 @@
                     <div class="form-group">
                         <label for="schedule-id">Schedule ID</label>
                         <input type="text" id="schedule-id" class="form-control" value="${scheduleId}" readonly>
-                    </div>
-                    <div class="form-group">
+            </div>
+                <div class="form-group">
                         <label for="schedule-day">Day</label>
                         <select id="schedule-day" class="form-control" required>
                             <option value="">Select Day</option>
                             ${dayOptions}
                         </select>
-                    </div>
-                    <div class="form-group">
+                </div>
+                <div class="form-group">
                         <label for="schedule-time-slot">Time Slot</label>
                         <select id="schedule-time-slot" class="form-control" required>
                             <option value="">Select Time Slot</option>
                             ${timeSlotOptions}
                         </select>
-                    </div>
-                    <div class="form-group">
+                </div>
+                <div class="form-group">
                         <label for="schedule-course">Course</label>
                         <select id="schedule-course" class="form-control" required>
                             <option value="">Select Course</option>
                             ${courseOptions}
                         </select>
-                    </div>
-                    <div class="form-group">
+                </div>
+                <div class="form-group">
                         <label for="schedule-instructor">Instructor</label>
                         <select id="schedule-instructor" class="form-control" required>
                             <option value="">Select Instructor</option>
                             ${instructorOptions}
-                        </select>
-                    </div>
-                    <div class="form-group">
+                    </select>
+                </div>
+                <div class="form-group">
                         <label for="schedule-session-type">Session Type</label>
                         <select id="schedule-session-type" class="form-control" required>
                             <option value="">Select Session Type</option>
                             ${sessionTypeOptions}
                         </select>
-                    </div>
+                </div>
                 </form>
             `;
 
@@ -2771,8 +2771,8 @@
                             <option value="">Select Session Type</option>
                             ${sessionTypeOptions}
                         </select>
-                    </div>
-                </form>
+                </div>
+            </form>
             `;
 
             // Show modal
@@ -2926,13 +2926,13 @@
                             <div class="stat-value">${scheduleCount}</div>
                             <div class="stat-label">Schedule Entries</div>
                         </div>
-                    </div>
-                </div>
-                
+        </div>
+    </div>
+
                 <div class="card">
                     <div class="card-header">
                         <h3 class="card-title"><i class="fas fa-info-circle"></i> System Information</h3>
-                    </div>
+            </div>
                     <div class="card-body">
                         <table class="data-table">
                             <tr>
@@ -3079,22 +3079,22 @@
             // Create modal content
             const content = `
                 <form id="edit-metadata-form">
-                    <div class="form-group">
+                <div class="form-group">
                         <label for="institution-id">Institution ID</label>
                         <input type="text" id="institution-id" class="form-control" value="${metadata.institution_id || ''}">
-                    </div>
-                    <div class="form-group">
+                </div>
+                <div class="form-group">
                         <label for="institution-name">Institution Name</label>
                         <input type="text" id="institution-name" class="form-control" value="${metadata.institution_name || ''}">
-                    </div>
-                    <div class="form-group">
+                </div>
+                <div class="form-group">
                         <label for="faculty-id">Faculty ID</label>
                         <input type="text" id="faculty-id" class="form-control" value="${metadata.faculty_id || ''}">
-                    </div>
-                    <div class="form-group">
+                </div>
+                <div class="form-group">
                         <label for="faculty-name">Faculty Name</label>
                         <input type="text" id="faculty-name" class="form-control" value="${metadata.faculty_name || ''}">
-                    </div>
+                </div>
                     <div class="form-group">
                         <label for="level">Level</label>
                         <input type="number" id="level" class="form-control" min="1" max="4" value="${metadata.level || 1}">
@@ -3114,8 +3114,8 @@
                     <div class="form-group">
                         <label for="version">Version</label>
                         <input type="text" id="version" class="form-control" value="${metadata.version || '1.0.0'}">
-                    </div>
-                </form>
+                </div>
+            </form>
             `;
 
             // Show modal
@@ -3184,8 +3184,8 @@
                         <h3 class="card-title"><i class="fas fa-user-cog"></i> Developer Information</h3>
                         <div class="card-actions">
                             <button id="edit-developer-btn" class="btn btn-primary"><i class="fas fa-edit"></i> Edit</button>
-                        </div>
-                    </div>
+        </div>
+    </div>
                     <div class="card-body">
                         <table class="data-table">
                             <tr>
@@ -3230,11 +3230,11 @@
                             <div class="form-group">
                                 <label>Platform</label>
                                 <input type="text" class="form-control social-platform" value="${platform}">
-                            </div>
-                            <div class="form-group">
+            </div>
+                <div class="form-group">
                                 <label>Link</label>
                                 <input type="text" class="form-control social-link" value="${link}">
-                            </div>
+                </div>
                             <button type="button" class="btn btn-danger remove-social-btn"><i class="fas fa-times"></i></button>
                         </div>
                     `;
@@ -3244,11 +3244,11 @@
             // Create modal content
             const content = `
                 <form id="edit-developer-form">
-                    <div class="form-group">
+                <div class="form-group">
                         <label for="developer-name">Name</label>
                         <input type="text" id="developer-name" class="form-control" value="${developer.name || ''}">
-                    </div>
-                    <div class="form-group">
+                </div>
+                <div class="form-group">
                         <label for="developer-role">Role</label>
                         <input type="text" id="developer-role" class="form-control" value="${developer.role || ''}">
                     </div>
