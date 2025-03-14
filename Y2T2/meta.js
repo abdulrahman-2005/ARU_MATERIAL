@@ -470,6 +470,7 @@ let DATA = {
                             "text": "Quiz available for this lecture"
                         }
                     ],
+                    "wordCount": 813
                 }
             ]
         },
