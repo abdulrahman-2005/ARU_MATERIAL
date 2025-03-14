@@ -446,17 +446,30 @@ let DATA = {
                     "title": "Lecture 2",
                     "src": "Lecture2.pdf",
                     "type": "lecture",
-                    "quizzes": [],
-                    "messages": [],
+                    "quizzes": [
+                        "QZ_016"
+                    ],
+                    "messages": [
+                        {
+                            "type": "quiz-available",
+                            "text": "Quiz available for this lecture"
+                        }
+                    ],
                     "wordCount": 883
                 },
                 {
                     "title": "Lecture 3",
                     "src": "Lecture3.pdf",
                     "type": "lecture",
-                    "quizzes": [],
-                    "messages": [],
-                    "wordCount": 813
+                    "quizzes": [
+                        "QZ_017"
+                    ],
+                    "messages": [
+                        {
+                            "type": "quiz-available",
+                            "text": "Quiz available for this lecture"
+                        }
+                    ],
                 }
             ]
         },
@@ -3494,6 +3507,460 @@ const QUIZ_DATA = {
                 "correct_answer": 1,
                 "points": 2,
                 "explanation": "The developer should debug the error handling code for invalid login attempts. The test results show that while valid logins work correctly, invalid login attempts cause a system crash instead of displaying the expected error message. This indicates a defect in the error handling logic that needs to be fixed before the system can be considered properly tested."
+            }
+        ],
+        "instructions": [
+            "You have 10 minutes to complete this quiz",
+            "Each question is worth 2 points",
+            "You need 70% to pass",
+            "All questions must be answered before submission",
+            "Questions and answers are randomized for each attempt"
+        ]
+    },
+    "QZ_016": {
+        "title": "Systems Analysis & Design Quiz",
+        "course_id": "SAD101",
+        "related_file": "SAD101_Lecture2.pdf",
+        "time_limit": 10,
+        "passing_score": 70,
+        "randomize_questions": true,
+        "questions": [
+            {
+                "id": "Q1",
+                "text": "Which of the following best describes the primary role of a systems analyst when acting as a consultant?",
+                "type": "multiple_choice",
+                "options": [
+                    "Writing code for the new information system",
+                    "Managing the project budget and timeline",
+                    "Bringing a fresh perspective that organization insiders might not have",
+                    "Supporting existing systems and handling technical issues"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "As stated in the lecture, when acting as a consultant, the systems analyst's advantage is that they 'can bring with them a fresh perspective that other people in an organization do not possess.' This outside viewpoint helps identify issues and solutions that might be overlooked by those too close to the existing systems."
+            },
+            {
+                "id": "Q2",
+                "text": "In the context of information systems, what distinguishes knowledge workers from other information workers?",
+                "type": "multiple_choice",
+                "options": [
+                    "Knowledge workers always have management responsibilities",
+                    "Knowledge workers' responsibilities are based on a specialized body of knowledge",
+                    "Knowledge workers focus solely on data entry and validation",
+                    "Knowledge workers primarily handle technical maintenance of systems"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "According to the lecture, knowledge workers are defined as 'a subset of information workers whose responsibilities are based on a specialized body of knowledge.' This specialized knowledge distinguishes them from general information workers who may be involved in creation, collection, processing, distribution, and use of information without requiring specialized expertise."
+            },
+            {
+                "id": "Q3",
+                "text": "A company is implementing a new system that will connect their inventory management, accounting, and human resources functions into one integrated platform. Which of the following best describes this approach?",
+                "type": "multiple_choice",
+                "options": [
+                    "Transaction Processing System (TPS)",
+                    "Office Automation System (OAS)",
+                    "Enterprise Resource Planning (ERP)",
+                    "Executive Support System (ESS)"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "Enterprise Resource Planning (ERP) is described in the lecture as having 'the goal of integrating many different information systems within the corporation.' This matches the scenario where inventory, accounting, and HR systems are being integrated into a single platform."
+            },
+            {
+                "id": "Q4",
+                "text": "Why is user involvement throughout the systems development process considered critical?",
+                "type": "multiple_choice",
+                "options": [
+                    "It reduces the cost of system development",
+                    "It shortens the timeline for implementation",
+                    "It prevents the system from falling into disuse due to user dissatisfaction",
+                    "It simplifies the technical architecture of the system"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "The lecture explicitly states that 'user involvement throughout the systems project is critical to the successful development of computerized information systems' and notes that 'Installing a system without suitable planning leads to great user dissatisfaction and frequently causes the system to fall into disuse.' This highlights that systems developed without adequate user involvement often fail because they don't meet actual user needs."
+            },
+            {
+                "id": "Q5",
+                "text": "What is the primary difference between a systems analyst and a business analyst?",
+                "type": "multiple_choice",
+                "options": [
+                    "Systems analysts work with external clients while business analysts work internally",
+                    "Systems analysts focus on both technical and business aspects while business analysts focus only on non-technical aspects",
+                    "Systems analysts design databases while business analysts design user interfaces",
+                    "Systems analysts work on large projects while business analysts work on smaller ones"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "According to the lecture, 'A business analyst focuses on only the non-technical aspects of systems analysis and design.' This implies that systems analysts cover both technical and non-technical aspects of systems analysis and design, while business analysts specialize in just the business/non-technical components."
+            },
+            {
+                "id": "Q6",
+                "text": "When a systems analyst is working as an 'agent of change,' what is their primary responsibility?",
+                "type": "multiple_choice",
+                "options": [
+                    "Developing technical documentation for the system",
+                    "Causing change, developing a plan for change, and facilitating that change",
+                    "Providing technical expertise on hardware and software",
+                    "Serving as a resource for those managing other projects"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "The lecture defines an agent of change as 'a person who causes changing, developing a plan for change, and works with others in facilitating that change.' This role focuses on managing the organizational and human aspects of implementing new systems rather than just the technical components."
+            },
+            {
+                "id": "Q7",
+                "text": "Which of the following best illustrates the relationship between system designers and system builders?",
+                "type": "multiple_choice",
+                "options": [
+                    "System designers implement the code while system builders test it",
+                    "System designers manage the project while system builders interact with users",
+                    "System designers translate user requirements into technical solutions while system builders construct systems based on those specifications",
+                    "System designers handle database components while system builders focus on user interfaces"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "The lecture defines system designers as 'technical specialists who translate system users' business requirements and constraints into technical solutions,' while system builders (programmers) are 'technical specialists who construct information systems and components based on the design specifications generated by the system designers.' This shows a clear workflow where designers create the specifications and builders implement them."
+            },
+            {
+                "id": "Q8",
+                "text": "A company has implemented a system that allows its executives to view graphical summaries of key performance indicators and drill down into detailed data when needed. Which category of information system does this best represent?",
+                "type": "multiple_choice",
+                "options": [
+                    "Transaction Processing System (TPS)",
+                    "Office Automation System (OAS)",
+                    "Decision Support System (DSS)",
+                    "Executive Support System (ESS)"
+                ],
+                "correct_answer": 3,
+                "points": 2,
+                "explanation": "Based on the lecture's categorization of information systems, an Executive Support System (ESS) is designed specifically for executives to view high-level data and metrics. The scenario describes a system that provides graphical summaries of KPIs with drill-down capabilities, which aligns with the purpose of an ESS - supporting executive decision-making with summarized, strategic information."
+            },
+            {
+                "id": "Q9",
+                "text": "Why is having 'strong personal and professional ethics' considered an important quality for a systems analyst?",
+                "type": "multiple_choice",
+                "options": [
+                    "It helps them complete projects faster",
+                    "It allows them to charge higher rates for their services",
+                    "It improves their programming abilities",
+                    "It helps them shape appropriate client relationships and handle sensitive information"
+                ],
+                "correct_answer": 3,
+                "points": 2,
+                "explanation": "The lecture notes that systems analysts need 'strong personal and professional ethics' and specifically mentions they 'need to shape their client relationships.' Systems analysts often have access to sensitive business information and must make decisions that affect many stakeholders, making ethical conduct essential to maintaining trust and making responsible recommendations."
+            },
+            {
+                "id": "Q10",
+                "text": "A business is developing a website that will allow customers to place orders at any time and provide service information to international clients. Which primary advantages of using the Web does this leverage?",
+                "type": "multiple_choice",
+                "options": [
+                    "Lower development costs and simplified maintenance",
+                    "24-hour access and reaching people regardless of time zone",
+                    "Enhanced security features and improved data validation",
+                    "Faster processing speed and reduced server requirements"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "The lecture explicitly lists '24-hour access for users' and 'Creating a global system, thus reaching people in remote locations without worry of the time zone in which they are located' as key advantages of using the Web. The scenario of an ordering website with international reach directly leverages these specific benefits."
+            },
+            {
+                "id": "Q11",
+                "text": "In the systems development process, what typically happens when a system is installed without suitable planning?",
+                "type": "multiple_choice",
+                "options": [
+                    "The system requires more hardware resources than anticipated",
+                    "The programming becomes more complex and difficult to maintain",
+                    "Users become dissatisfied and the system often falls into disuse",
+                    "The system needs more frequent security updates"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "The lecture explicitly states that 'Installing a system without suitable planning leads to great user dissatisfaction and frequently causes the system to fall into disuse.' This highlights the importance of proper systems analysis and design methodology to ensure user needs are met and the system achieves its intended purpose."
+            },
+            {
+                "id": "Q12",
+                "text": "Which of the following stakeholders would typically be responsible for funding the development, operation, and maintenance of an information system?",
+                "type": "multiple_choice",
+                "options": [
+                    "System users",
+                    "System owners",
+                    "External service providers",
+                    "Knowledge workers"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "According to the lecture, system owners are 'an information system's sponsor usually responsible for funding the project of developing, operating, and maintaining the information system.' This distinguishes them from system users who use the system or other stakeholders who may be involved in different capacities."
+            },
+            {
+                "id": "Q13",
+                "text": "A retail company is implementing a system that will process customer transactions, update inventory levels, and generate receipts in real-time. Which category of information system does this represent?",
+                "type": "multiple_choice",
+                "options": [
+                    "Transaction Processing System (TPS)",
+                    "Knowledge Work System (KWS)",
+                    "Decision Support System (DSS)",
+                    "Expert System (ES)"
+                ],
+                "correct_answer": 0,
+                "points": 2,
+                "explanation": "Based on the eight categories of information systems mentioned in the lecture, a Transaction Processing System (TPS) is designed to handle and record daily routine transactions such as sales, purchases, and inventory updates. The scenario describing a system that processes customer transactions, updates inventory, and generates receipts in real-time is a classic example of a TPS."
+            },
+            {
+                "id": "Q14",
+                "text": "A systems analyst is working with users to determine how a new system should function and what problems it needs to solve. Which of the following skills would be MOST important for this task?",
+                "type": "multiple_choice",
+                "options": [
+                    "Computer programming expertise",
+                    "Project budget management",
+                    "Database design knowledge",
+                    "Interpersonal communication skills"
+                ],
+                "correct_answer": 3,
+                "points": 2,
+                "explanation": "The lecture lists 'Good interpersonal communication skills' as one of the key skills needed by systems analysts. When working with users to understand requirements and problems, the ability to communicate effectively is crucial. While technical skills like programming are important for other aspects of the analyst's role, gathering accurate requirements depends primarily on communication skills."
+            },
+            {
+                "id": "Q15",
+                "text": "What distinguishes a programmer/analyst from a systems analyst?",
+                "type": "multiple_choice",
+                "options": [
+                    "A programmer/analyst works only with internal stakeholders",
+                    "A programmer/analyst includes the responsibilities of both programmer and systems analyst",
+                    "A programmer/analyst focuses only on technical design, not business analysis",
+                    "A programmer/analyst manages the project budget and timeline"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "According to the lecture, 'A programmer/analyst (or analyst/programmer) includes the responsibilities of both the computer programmer and the systems analyst.' This means they combine the analysis skills with the technical implementation skills, handling both the investigation of requirements and the coding of solutions."
+            }
+        ],
+        "instructions": [
+            "You have 10 minutes to complete this quiz",
+            "Each question is worth 2 points",
+            "You need 70% to pass",
+            "All questions must be answered before submission",
+            "Questions and answers are randomized for each attempt"
+        ]
+    },
+    "QZ_017": {
+        "title": "System Analysis & Design Quiz",
+        "course_id": "SAD101",
+        "related_file": "SAD101_Lecture3.pdf",
+        "time_limit": 10,
+        "passing_score": 70,
+        "randomize_questions": true,
+        "questions": [
+            {
+                "id": "Q1",
+                "text": "Which phase of the Systems Development Life Cycle is considered critical to the success of the entire project because it prevents addressing the wrong problem?",
+                "type": "multiple_choice",
+                "options": [
+                    "Testing and Maintaining the System",
+                    "Identifying Problems, Opportunities, and Objectives",
+                    "Designing the Recommended System",
+                    "Analyzing System Needs"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "The lecture explicitly states that 'Identifying Problems, Opportunities, and Objectives' is critical to the success of the rest of the project because no one wants to waste time addressing the wrong problem. This phase sets the foundation for the entire project by ensuring efforts are directed toward solving the correct issues."
+            },
+            {
+                "id": "Q2",
+                "text": "During the 'Determining Human Information Requirements' phase, what key elements should the analyst try to understand about the current system?",
+                "type": "multiple_choice",
+                "options": [
+                    "Cost, time, resources, and personnel",
+                    "Hardware, software, networks, and databases",
+                    "Who, what, where, when, how, and why",
+                    "Input, process, output, and feedback"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "The lecture specifies that during the 'Determining Human Information Requirements' phase, the analyst needs to understand the who, what, where, when, how, and why of the current system. These elements provide a comprehensive understanding of how the system operates from multiple perspectives."
+            },
+            {
+                "id": "Q3",
+                "text": "What is the primary output of the 'Analyzing System Needs' phase?",
+                "type": "multiple_choice",
+                "options": [
+                    "Computer programs and system documentation",
+                    "Data flow diagrams and entity relationship diagrams",
+                    "Recommendation on what, if anything, should be done",
+                    "Trained personnel and installed system"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "According to the lecture, the output of the 'Analyzing System Needs' phase is a recommendation on what, if anything, should be done. This comes in the form of a system proposal that summarizes findings about users, current system usability, cost/benefit analysis of alternatives, and makes recommendations on future actions."
+            },
+            {
+                "id": "Q4",
+                "text": "Which of the following activities is NOT part of the 'Designing the Recommended System' phase?",
+                "type": "multiple_choice",
+                "options": [
+                    "Designing the human-computer interface",
+                    "Creating data flow diagrams",
+                    "Designing system controls",
+                    "Designing backup procedures"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "Creating data flow diagrams is an activity performed during the 'Analyzing System Needs' phase, not the 'Designing the Recommended System' phase. The design phase includes designing procedures for data entry, designing the human-computer interface, designing system controls, designing database/files, and designing backup procedures."
+            },
+            {
+                "id": "Q5",
+                "text": "According to the lecture, approximately what percentage of total time spent on systems projects may be devoted to systems maintenance?",
+                "type": "multiple_choice",
+                "options": [
+                    "25%",
+                    "40%",
+                    "60%",
+                    "80%"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "The lecture mentions that some researchers estimate that the amount of time spent on systems maintenance may be as much as 60 percent of the total time spent on systems projects. This highlights the significance of the maintenance phase in the systems development life cycle."
+            },
+            {
+                "id": "Q6",
+                "text": "What are the two primary reasons for performing system maintenance according to the lecture?",
+                "type": "multiple_choice",
+                "options": [
+                    "Training users and installing equipment",
+                    "Removing software errors and enhancing existing software",
+                    "Converting files and building databases",
+                    "Designing controls and backup procedures"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "The lecture explicitly states that maintenance is performed for two reasons: removing software errors and enhancing existing software. These activities ensure that the system continues to operate correctly and meets evolving user needs over time."
+            },
+            {
+                "id": "Q7",
+                "text": "Which of the following tools would an analyst most likely use to communicate structured decisions to programmers?",
+                "type": "multiple_choice",
+                "options": [
+                    "Spreadsheets and graphs",
+                    "Interviews and questionnaires",
+                    "Structure charts and pseudocode",
+                    "Feasibility reports and executive summaries"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "According to the lecture, in the 'Developing and Documenting Software' phase, the analyst uses structure charts and pseudocode to communicate to the programmer what needs to be programmed. These tools provide a clear representation of the system's logical structure and required functionality."
+            },
+            {
+                "id": "Q8",
+                "text": "When does system evaluation take place in the Systems Development Life Cycle?",
+                "type": "multiple_choice",
+                "options": [
+                    "Only during the final implementation phase",
+                    "During every phase of the SDLC",
+                    "Only after the system has been fully implemented",
+                    "Only during the testing and maintenance phase"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "The lecture states that actual evaluation takes place during every phase of the Systems Development Life Cycle, not just at the end. This continuous evaluation approach helps identify and address issues throughout the development process rather than waiting until the final stages."
+            },
+            {
+                "id": "Q9",
+                "text": "In the context of the Systems Development Life Cycle, what are 'opportunities'?",
+                "type": "multiple_choice",
+                "options": [
+                    "Situations that require immediate system updates",
+                    "Financial benefits gained by implementing a new system",
+                    "Situations that the analyst believes can be improved through computerized information systems",
+                    "Technical capabilities that weren't available in previous systems"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "According to the lecture, opportunities are defined as situations that the analyst believes can be improved through the use of computerized information systems. These represent potential improvements rather than existing problems that need to be fixed."
+            },
+            {
+                "id": "Q10",
+                "text": "What is the primary output of the 'Identifying Problems, Opportunities, and Objectives' phase?",
+                "type": "multiple_choice",
+                "options": [
+                    "A data dictionary listing all data items used in the system",
+                    "A feasibility report containing problem definition and objective summaries",
+                    "Documentation of the current system's architecture",
+                    "Computer programs and system documentation"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "The lecture states that the output of the 'Identifying Problems, Opportunities, and Objectives' phase is a feasibility report containing problem definition and objective summaries from which management can make a decision on whether to proceed with the proposed project."
+            },
+            {
+                "id": "Q11",
+                "text": "When a systems analyst is analyzing structured decisions, which of the following is NOT mentioned as a major method for analysis?",
+                "type": "multiple_choice",
+                "options": [
+                    "Structured English",
+                    "Decision tables",
+                    "Decision trees",
+                    "Structured Query Language (SQL)"
+                ],
+                "correct_answer": 3,
+                "points": 2,
+                "explanation": "The lecture mentions three major methods for analysis of structured decisions: Structured English, Decision tables, and Decision trees. Structured Query Language (SQL) is not mentioned as a method for analyzing structured decisions in this context."
+            },
+            {
+                "id": "Q12",
+                "text": "At what point does the lecture suggest it becomes more feasible to perform a new systems study rather than continue maintenance?",
+                "type": "multiple_choice",
+                "options": [
+                    "When the system has been in use for more than 5 years",
+                    "When user requirements change significantly",
+                    "When the cost of continued maintenance exceeds the cost of creating a new system",
+                    "When hardware becomes obsolete"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "The lecture states that over time, the cost of continued maintenance will be greater than that of creating an entirely new system. At that point, it becomes more feasible to perform a new systems study rather than continuing to maintain the existing system."
+            },
+            {
+                "id": "Q13",
+                "text": "During the 'Testing and Maintaining the System' phase, what is the correct sequence for testing?",
+                "type": "multiple_choice",
+                "options": [
+                    "Test with actual data first, then with sample data",
+                    "Test with sample data first, then with actual data",
+                    "Test by programmers first, then by analysts",
+                    "Test by users first, then by IT staff"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "According to the lecture, testing should take place first with sample data and then with actual data. This approach allows issues to be identified and resolved in a controlled environment before risking actual production data."
+            },
+            {
+                "id": "Q14",
+                "text": "What does the 'system transformation' in the implementation phase involve?",
+                "type": "multiple_choice",
+                "options": [
+                    "Converting the organization's business processes",
+                    "Transforming user requirements into system specifications",
+                    "Converting files from old formats to new ones, installing equipment, and bringing the new system into production",
+                    "Transforming manual procedures into automated ones"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "The lecture defines system transformation during the implementation phase as converting files from old formats to new ones, or building a database, installing equipment, and bringing the new system into production. This involves all the practical steps needed to transition from the old system to the new one."
+            },
+            {
+                "id": "Q15",
+                "text": "What does a data dictionary list according to the lecture?",
+                "type": "multiple_choice",
+                "options": [
+                    "Only the primary keys of all database tables",
+                    "All the data items used in the system, as well as their specifications",
+                    "Only the relationships between different data entities",
+                    "The sequence of data processing operations"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "The lecture defines a data dictionary as a document that lists all the data items used in the system, as well as their specifications. This comprehensive listing serves as a reference for understanding the data that flows through the system."
             }
         ],
         "instructions": [
