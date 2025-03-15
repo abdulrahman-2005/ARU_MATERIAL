@@ -3990,221 +3990,221 @@ const QUIZ_DATA = {
     },
     "QZ_018": {
         "title": "Introduction to Algorithms Quiz",
-        "course_id": "CSXXX",
-        "related_file": "algorithms_intro.pdf",
+        "course_id": "ALG101",
+        "related_file": "ALG101_Chaper0.pdf",
         "time_limit": 10,
         "passing_score": 70,
         "randomize_questions": true,
         "questions": [
             {
                 "id": "Q1",
-                "text": "What is the most accurate definition of an algorithm?",
-                "type": "multiple_choice", 
+                "text": "What is the primary origin of the word 'algorithm'?",
+                "type": "multiple_choice",
                 "options": [
-                    "Any procedure that solves a computational problem",
-                    "An explicit, precise, unambiguous, mechanically-executable sequence of elementary instructions",
-                    "A mathematical formula expressed in code",
-                    "A sequence of instructions written in a programming language"
+                    "From Greek roots arithmos (number) and algos (pain)",
+                    "From the name of Persian scholar Muhammad ibn Mūsā al-Khwārizmī",
+                    "From the Latin word 'algorismus' meaning calculation",
+                    "From King Algus of Spain who invented mathematical procedures"
                 ],
                 "correct_answer": 1,
                 "points": 2,
-                "explanation": "As defined in the lecture, an algorithm is 'an explicit, precise, unambiguous, mechanically-executable sequence of elementary instructions, usually intended to accomplish a specific purpose.' This definition emphasizes the mechanical nature and precision of algorithms, distinguishing them from vague procedures or general mathematical formulas."
+                "explanation": "The word 'algorithm' derives from the name of the 9th century Persian scholar Muhammad ibn Mūsā al-Khwārizmī, not from Greek roots. This etymology is explained in the lecture as a common misconception that it comes from arithmos (number) and algos (pain)."
             },
             {
                 "id": "Q2",
-                "text": "The word 'algorithm' derives from the name of which historical figure?",
-                "type": "multiple_choice", 
+                "text": "According to the lecture, what is an algorithm?",
+                "type": "multiple_choice",
                 "options": [
-                    "Al-Jabr, an Arabic mathematician",
-                    "Muh̩ammad ibn Mūsā al-Khwārizmī, a 9th century Persian scholar",
-                    "Algorismus, a Greek philosopher",
-                    "Euclid of Alexandria, a Greek mathematician"
+                    "Any step-by-step procedure for solving a problem",
+                    "A computer program written in a specific programming language",
+                    "An explicit, precise, unambiguous, mechanically-executable sequence of elementary instructions",
+                    "A mathematical formula that calculates a specific result"
                 ],
-                "correct_answer": 1,
+                "correct_answer": 2,
                 "points": 2,
-                "explanation": "The word 'algorithm' is a corruption of the name of the 9th century Persian scholar Muh̩ammad ibn Mūsā al-Khwārizmī. It does not derive from Greek roots as some might assume. Al-Khwārizmī wrote important treatises on algebra and the decimal system, influencing mathematical development in Europe."
+                "explanation": "The lecture defines an algorithm as 'an explicit, precise, unambiguous, mechanically-executable sequence of elementary instructions, usually intended to accomplish a specific purpose.' This definition emphasizes the precise and executable nature of algorithms."
             },
             {
                 "id": "Q3",
-                "text": "What is the time complexity of the lattice multiplication algorithm for multiplying an m-digit number by an n-digit number?",
-                "type": "multiple_choice", 
+                "text": "What is the asymptotic time complexity of the lattice multiplication algorithm for multiplying an m-digit number by an n-digit number?",
+                "type": "multiple_choice",
                 "options": [
                     "O(m + n)",
                     "O(max(m, n))",
                     "O(mn)",
-                    "O(m log n)"
+                    "O(2^(m+n))"
                 ],
                 "correct_answer": 2,
                 "points": 2,
-                "explanation": "The lattice multiplication algorithm computes the product of any m-digit number and any n-digit number in O(mn) time. As stated in the lecture, the running time is dominated by the number of single-digit multiplications, which is mn (one for each pair of digits from the two numbers)."
+                "explanation": "As stated in the lecture, all variants of the lattice algorithm compute the product of any m-digit number and any n-digit number in O(mn) time. The running time is dominated by the number of single-digit multiplications, which is m×n."
             },
             {
                 "id": "Q4",
-                "text": "What is the primary job of an algorithm designer according to the lecture?",
-                "type": "multiple_choice", 
+                "text": "What is the time complexity of the peasant multiplication algorithm (also known as Russian peasant multiplication) for multiplying two numbers x and y?",
+                "type": "multiple_choice",
                 "options": [
-                    "Writing efficient code that runs quickly",
-                    "Proving mathematical theorems about computational problems",
-                    "Teaching other people how and why algorithms work",
-                    "Finding the most elegant solution to a problem"
+                    "O(x + y)",
+                    "O(log x · log y)",
+                    "O(xy)",
+                    "O(x^2)"
                 ],
-                "correct_answer": 2,
+                "correct_answer": 1,
                 "points": 2,
-                "explanation": "The lecture emphasizes: 'Your primary job as an algorithm designer is teaching other people how and why your algorithms work. If you can't communicate your ideas to other human beings, they may as well not exist.' This highlights the importance of clear communication in algorithm design, placing it above code production and demonstrating intelligence."
+                "explanation": "The peasant multiplication algorithm performs O(log min{x, y}) operations, and each operation requires at most O(log max{x, y}) single-digit operations. This gives an overall running time of O(log min{x, y} · log max{x, y}) = O(log x · log y)."
             },
             {
                 "id": "Q5",
-                "text": "Which of the following is NOT one of the four components needed for a complete description of an algorithm, according to the lecture?",
-                "type": "multiple_choice", 
+                "text": "If you sing 'n Bottles of Beer on the Wall', how many times will you sing the word 'beer'?",
+                "type": "multiple_choice",
                 "options": [
-                    "What: A precise specification of the problem",
-                    "How: A precise description of the algorithm itself",
-                    "Why: A proof that the algorithm solves the problem",
-                    "Who: The intended users of the algorithm"
+                    "n",
+                    "2n",
+                    "3n",
+                    "3n + 3"
                 ],
                 "correct_answer": 3,
                 "points": 2,
-                "explanation": "According to the lecture, a complete description of any algorithm has four components: 'What' (problem specification), 'How' (algorithm description), 'Why' (correctness proof), and 'How fast' (running time analysis). The intended users ('Who') is not listed as one of these essential components."
+                "explanation": "The lecture explicitly states that 'BottlesOfBeer(n) mentions beer exactly 3n + 3 times.' In each verse, 'beer' is sung 3 times, and there are n verses plus a final mention in the closing."
             },
             {
                 "id": "Q6",
-                "text": "Consider the following algorithm:\n```\nPeasantMultiply(x,y):\n  prod ← 0\n  while x > 0\n    if x is odd\n      prod ← prod + y\n    x ← ⌊x/2⌋\n    y ← y + y\n  return prod\n```\nWhat is the time complexity of this algorithm?",
-                "type": "multiple_choice", 
+                "text": "Which of the following songs has a quadratic O(n²) singing time according to the lecture?",
+                "type": "multiple_choice",
                 "options": [
-                    "O(x)",
-                    "O(log x)",
-                    "O(y)",
-                    "O(x + y)"
+                    "'n Bottles of Beer on the Wall'",
+                    "'The TELNET Song' by Guy Steele",
+                    "'The n Days of Christmas'",
+                    "'Row, Row, Row Your Boat'"
                 ],
-                "correct_answer": 1,
+                "correct_answer": 2,
                 "points": 2,
-                "explanation": "The peasant multiplication algorithm has a time complexity of O(log x). As mentioned in the lecture, this algorithm performs O(log x) parity, addition, and mediation operations. The algorithm divides x by 2 in each iteration, resulting in O(log x) iterations of the while loop."
+                "explanation": "The lecture explicitly identifies 'The n Days of Christmas' as having quadratic O(n²) singing time. This is because the song mentions the name of a gift Σ(i=1 to n) i = n(n+1)/2 times, which is Θ(n²)."
             },
             {
                 "id": "Q7",
-                "text": "Which of the following is a key difference between the lattice multiplication algorithm and the peasant multiplication algorithm?",
-                "type": "multiple_choice", 
+                "text": "What is a reduction in the context of algorithm design?",
+                "type": "multiple_choice",
                 "options": [
-                    "Lattice multiplication requires O(n) time while peasant multiplication requires O(log n) time",
-                    "Lattice multiplication uses place-value notation, while peasant multiplication does not necessarily require it",
-                    "Lattice multiplication works only for decimal numbers, while peasant multiplication works for any base",
-                    "Lattice multiplication is recursive, while peasant multiplication is iterative"
+                    "Simplifying an algorithm to use less memory",
+                    "Writing an algorithm for problem X that uses an algorithm for problem Y as a black box",
+                    "The process of converting a recursive algorithm to an iterative one",
+                    "Decreasing the asymptotic complexity of an algorithm"
                 ],
                 "correct_answer": 1,
                 "points": 2,
-                "explanation": "As stated in the lecture, the lattice algorithm relies on place-value notation. In contrast, the peasant multiplication algorithm does not necessarily rely on place-value notation. It reduces multiplication to simpler operations like determining parity, addition, duplation, and mediation, which can be performed without explicitly using place-value representation."
+                "explanation": "As defined in the lecture, reduction is 'the single most common technique used in designing algorithms' where 'reducing one problem X to another problem Y means to write an algorithm for X that uses an algorithm for Y as a black box or subroutine.'"
             },
             {
                 "id": "Q8",
-                "text": "In the Huntington-Hill congressional apportionment algorithm, how is the priority of a state calculated?",
-                "type": "multiple_choice", 
+                "text": "According to the lecture, what is the time complexity of 'The TELNET Song' by Guy Steele for singing the first n verses?",
+                "type": "multiple_choice",
                 "options": [
-                    "P/(r+1) where P is population and r is current representatives",
-                    "P/√(r(r+1)) where P is population and r is current representatives",
-                    "P/(2r+1) where P is population and r is current representatives",
-                    "P/r where P is population and r is current representatives"
+                    "O(n)",
+                    "O(n²)",
+                    "O(n³)",
+                    "O(2^n)"
                 ],
-                "correct_answer": 1,
+                "correct_answer": 3,
                 "points": 2,
-                "explanation": "In the Huntington-Hill method, the priority of each state is defined to be P/√(r(r+1)), where P is the state's population and r is the number of representatives already allocated to that state. This formula is used to determine which state gets the next representative in each iteration of the algorithm."
+                "explanation": "The lecture states that 'The TELNET Song' by Guy Steele 'actually takes Θ(2^n) time to sing the first n verses.' This is an example of exponential time complexity."
             },
             {
                 "id": "Q9",
-                "text": "What is the running time of the Huntington-Hill apportionment algorithm when implemented with a binary heap priority queue?",
-                "type": "multiple_choice", 
+                "text": "What is the recurrence relation that describes the number of operations T(x, y) in the peasant multiplication algorithm?",
+                "type": "multiple_choice",
                 "options": [
-                    "O(n)",
-                    "O(R)",
-                    "O(Rn)",
-                    "O(R log n)"
+                    "T(x, y) ≤ T(x/2, y) + 1",
+                    "T(x, y) ≤ T(⌊x/2⌋, 2y) + 2 with base case T(0, y) = 0",
+                    "T(x, y) = T(x-1, y) + T(x, y-1)",
+                    "T(x, y) = 2T(x/2, y/2) + xy"
                 ],
-                "correct_answer": 3,
+                "correct_answer": 1,
                 "points": 2,
-                "explanation": "As explained in the lecture, if we implement the priority queue in the Huntington-Hill algorithm as a binary heap, we have N = O(1) and I = E = O(log n), so the overall algorithm runs in O(R log n) time, where R is the total number of representatives and n is the number of states."
+                "explanation": "The lecture gives the recurrence relation for the peasant multiplication algorithm as T(x, y) ≤ T(⌊x/2⌋, 2y) + 2 with base case T(0, y) = 0, where T(x, y) denotes the number of parity, addition, and mediation operations required to compute x · y."
             },
             {
                 "id": "Q10",
-                "text": "What makes 'Martin's algorithm' (BeAMillionaireAndNeverPayTaxes) NOT a true algorithm according to the lecture?",
-                "type": "multiple_choice", 
+                "text": "What's missing in Martin's 'algorithm' for being a millionaire and never paying taxes that prevents it from being a true algorithm?",
+                "type": "multiple_choice",
                 "options": [
-                    "It's too simple to be considered an algorithm",
-                    "It's illegal to avoid paying taxes",
-                    "The first step ('Get a million dollars') is too vague and not mechanically executable",
-                    "It lacks proper input and output specifications"
+                    "It doesn't specify what to do if the tax man doesn't come",
+                    "The first step 'Get a million dollars' is too vague and not mechanically executable",
+                    "It doesn't include a recursive case",
+                    "It doesn't terminate after a finite number of steps"
                 ],
-                "correct_answer": 2,
+                "correct_answer": 1,
                 "points": 2,
-                "explanation": "Martin's procedure fails to be an algorithm because the first step ('Get a million dollars') is too vague to be considered an actual algorithm. As the lecture states, this step is not 'explicit, precise, unambiguous, mechanically-executable' for most people. An algorithm must have clear, executable steps that anyone could follow."
+                "explanation": "The lecture points out that Martin's 'algorithm' is not a true algorithm because the first step 'Get a million dollars' is too vague - it's 'a doozy!' For most people, this step is not unambiguous or mechanically executable, which violates the definition of an algorithm."
             },
             {
                 "id": "Q11",
-                "text": "The time complexity of singing 'The n Days of Christmas' is:",
-                "type": "multiple_choice", 
+                "text": "According to the lecture, what is the primary job of an algorithm designer?",
+                "type": "multiple_choice",
                 "options": [
-                    "O(n)",
-                    "O(n log n)",
-                    "O(n²)",
-                    "O(n³)"
+                    "Creating efficient executable code",
+                    "Proving mathematical theorems about computational complexity",
+                    "Teaching other people how and why algorithms work",
+                    "Designing new data structures"
                 ],
                 "correct_answer": 2,
                 "points": 2,
-                "explanation": "The lecture demonstrates that the singing time for 'The n Days of Christmas' is O(n²). Specifically, the singer mentions the name of a gift Σᵢ₌₁ⁿi = n(n+1)/2 times. This quadratic growth occurs because each day i requires singing about i gifts, and there are n days total."
+                "explanation": "The lecture emphasizes: 'Your primary job as an algorithm designer is teaching other people how and why your algorithms work. If you can't communicate your ideas to other human beings, they may as well not exist. Producing correct and efficient executable code is an important but secondary goal.'"
             },
             {
                 "id": "Q12",
-                "text": "According to the lecture, why is pseudocode often better than plain English prose for describing algorithms?",
-                "type": "multiple_choice", 
+                "text": "What does the Huntington-Hill apportionment algorithm do?",
+                "type": "multiple_choice",
                 "options": [
-                    "Pseudocode is more technically impressive and scholarly",
-                    "Pseudocode helps avoid ambiguities in natural language and better reveals algorithmic structure",
-                    "Pseudocode is easier to translate into any programming language",
-                    "Pseudocode is the only way to properly analyze algorithm efficiency"
+                    "Sorts an array of integers in O(n log n) time",
+                    "Allocates representatives to states based on population",
+                    "Finds the shortest path in a weighted graph",
+                    "Multiplies two integers using duplation and mediation"
                 ],
                 "correct_answer": 1,
                 "points": 2,
-                "explanation": "The lecture states: 'Colloquial English is full of ambiguities and shades of meaning, but algorithms must be described as unambiguously as possible. Prose is a poor medium for precision.' It further explains that pseudocode 'uses the structure of formal programming languages and mathematics to break algorithms into primitive steps' and 'reveals the internal structure of the algorithm but hides irrelevant implementation details.'"
+                "explanation": "The Huntington-Hill algorithm is described in the lecture as an apportionment algorithm used to allocate representatives to states in the United States House of Representatives, with each state getting a number of representatives proportional to its population."
             },
             {
                 "id": "Q13",
-                "text": "Consider the following recursive algorithm to compute x·y:\n```\nMultiply(x, y):\n  if x = 0\n    return 0\n  else if x is even\n    return Multiply(⌊x/2⌋, 2y)\n  else\n    return Multiply(⌊x/2⌋, 2y) + y\n```\nWhat recurrence relation describes the number of operations T(x,y) performed by this algorithm?",
-                "type": "multiple_choice", 
+                "text": "Which of the following best characterizes how algorithms should be described according to the lecture?",
+                "type": "multiple_choice",
                 "options": [
-                    "T(x,y) = T(x/2,2y) + 1 with T(0,y) = 0",
-                    "T(x,y) ≤ T(⌊x/2⌋,2y) + 2 with T(0,y) = 0",
-                    "T(x,y) = 2·T(x/2,y) + 1 with T(0,y) = 0",
-                    "T(x,y) = T(x-1,y) + 1 with T(0,y) = 0"
-                ],
-                "correct_answer": 1,
-                "points": 2,
-                "explanation": "The recursive algorithm performs a constant number of operations plus a recursive call to Multiply(⌊x/2⌋, 2y). This gives us the recurrence relation T(x,y) ≤ T(⌊x/2⌋,2y) + 2 with the base case T(0,y) = 0. This is essentially the same recurrence mentioned in the lecture for peasant multiplication, which has the solution T(x,y) = O(log x)."
-            },
-            {
-                "id": "Q14",
-                "text": "What classical computational model is described in the lecture that allows multiplication to be performed in constant time?",
-                "type": "multiple_choice", 
-                "options": [
-                    "The RAM model",
-                    "The Turing machine model",
-                    "The compass and straightedge model",
-                    "The lattice model"
+                    "In plain English prose to make them accessible to non-programmers",
+                    "Using formal programming languages like C++ or Java",
+                    "Using pseudocode and structured English that reveals structure while hiding irrelevant implementation details",
+                    "Using mathematical equations and formulas exclusively"
                 ],
                 "correct_answer": 2,
                 "points": 2,
-                "explanation": "The lecture describes how Greek geometers used compass and straightedge constructions to perform operations like multiplication. In this idealized computational model, each primitive operation (drawing lines, circles, finding intersections) takes constant time by definition. The lecture specifically states that in this model, the MultiplyOrDivide algorithm 'runs in O(1) time!'"
+                "explanation": "The lecture states: 'In my opinion, the clearest way to present an algorithm is using a combination of pseudocode and structured English. Pseudocode uses the structure of formal programming languages and mathematics to break algorithms into primitive steps; the primitive steps themselves can be written using mathematical notation, pure English, or an appropriate mixture of the two, whatever is clearest.'"
+            },
+            {
+                "id": "Q14",
+                "text": "What mistake should be avoided when describing algorithms according to the lecture?",
+                "type": "multiple_choice",
+                "options": [
+                    "Using mathematical notation",
+                    "Including implementation details",
+                    "Describing repeated operations informally (e.g., 'Do [this] first, then [that], and so on')",
+                    "Using pseudocode instead of a formal programming language"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "The lecture explicitly warns against 'one especially pernicious habit': 'Never describe repeated operations informally, as in \"Do [this] first, then do [that] second, and so on.\" or \"Repeat this process until [something]\".'"
             },
             {
                 "id": "Q15",
-                "text": "What algorithmic error does the lecture warn against when writing algorithm descriptions?",
-                "type": "multiple_choice", 
+                "text": "According to the lecture, what are the four components of a complete algorithm description?",
+                "type": "multiple_choice",
                 "options": [
-                    "Using too much mathematical notation",
-                    "Describing operations too formally",
-                    "Using programming language-specific features",
-                    "Describing repeated operations informally (e.g., 'Do this, then do that, and so on')"
+                    "Preconditions, postconditions, invariants, and termination proof",
+                    "Inputs, outputs, steps, and examples",
+                    "Problem specification, algorithm description, correctness proof, and running time analysis",
+                    "Data structures, pseudocode, edge cases, and optimizations"
                 ],
-                "correct_answer": 3,
+                "correct_answer": 2,
                 "points": 2,
-                "explanation": "The lecture specifically warns: 'Never describe repeated operations informally, as in \"Do [this] first, then do [that] second, and so on.\" or \"Repeat this process until [something]\". As anyone who has taken one of those frustrating \"What comes next in this sequence?\" tests already knows, describing the first few steps of an algorithm says little or nothing about what happens in later steps.' Instead, loops should be explicitly written as loops and recursion should be explicitly described."
+                "explanation": "The lecture lists four components for a complete algorithm description: 'What: A precise specification of the problem that the algorithm solves. How: A precise description of the algorithm itself. Why: A proof that the algorithm solves the problem it is supposed to solve. How fast: An analysis of the running time of the algorithm.'"
             }
         ],
         "instructions": [
@@ -4215,6 +4215,5 @@ const QUIZ_DATA = {
             "Questions and answers are randomized for each attempt"
         ]
     }
-
 
 }
