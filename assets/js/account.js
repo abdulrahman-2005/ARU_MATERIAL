@@ -68,8 +68,20 @@ class AccountSystem {
 
     calculateAverageScore(results) {
         if (Object.keys(results).length === 0) return 0;
-        const totalScore = Object.values(results).reduce((acc, curr) => acc + curr.percentage, 0);
-        return totalScore / Object.keys(results).length;
+        
+        let totalScore = 0;
+        let length = 0;
+
+        Object.values(results).forEach(result => {
+            if (result.percentage > 0) {
+                totalScore += result.percentage;
+                length++;
+            }
+        }
+
+        );
+        
+        return length > 0 ? (totalScore / length).toFixed(1) : 0;
     }
 
     calculateAverageTime(timeData) {
@@ -194,7 +206,7 @@ class AccountSystem {
                 date: new Date(result.timestamp).toLocaleDateString()
             }))
             .slice(-5)
-            .reverse(); // Show most recent first
+            .reverse();
     }
 
     getTimeAnalysis(results) {
