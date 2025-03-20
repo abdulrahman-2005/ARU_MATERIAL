@@ -25,7 +25,7 @@ let DATA = {
         "SE101": [1, 2, 3],
         "DB101": [1, 2, 3],
         "SAD101": [1, 2, 3],
-        "NET101": [1, 2, 3],
+        "NET101": [2,3,4],
         "ALG101": [0, 1],
     },
     "midterm_included_sections": {
@@ -520,24 +520,45 @@ let DATA = {
                     "title": "Lecture 2: Network Models",
                     "src": "Lecture2.pdf",
                     "type": "lecture",
-                    "quizzes": [],
-                    "messages": [],
+                    "quizzes": [
+                        "QZ_019"
+                    ],
+                    "messages": [
+                        {
+                            "type": "quiz-available",
+                            "text": "Quiz available for this lecture"
+                        }
+                    ],
                     "wordCount": 1743
                 },
                 {
                     "title": "Lecture 3: Physical Layer",
                     "src": "Lecture3.pdf",
                     "type": "lecture",
-                    "quizzes": [],
-                    "messages": [],
+                    "quizzes": [
+                        "QZ_020"
+                    ],
+                    "messages": [
+                        {
+                            "type": "quiz-available",
+                            "message": "Quiz available for this lecture"
+                        }
+                    ],
                     "wordCount": 1334
                 },
                 {
                     "title": "Lecture 4: DataLink Layer",
                     "src": "Lecture4.pdf",
                     "type": "lecture",
-                    "quizzes": [],
-                    "messages": [],
+                    "quizzes": [
+                        "QZ_021"
+                    ],
+                    "messages": [
+                        {
+                            "type": "quiz-available",
+                            "message": "Quiz available for this lecture"
+                        }
+                    ],
                     "wordCount": 591
                 }
             ]
@@ -4205,6 +4226,687 @@ const QUIZ_DATA = {
                 "correct_answer": 2,
                 "points": 2,
                 "explanation": "The lecture lists four components for a complete algorithm description: 'What: A precise specification of the problem that the algorithm solves. How: A precise description of the algorithm itself. Why: A proof that the algorithm solves the problem it is supposed to solve. How fast: An analysis of the running time of the algorithm.'"
+            }
+        ],
+        "instructions": [
+            "You have 10 minutes to complete this quiz",
+            "Each question is worth 2 points",
+            "You need 70% to pass",
+            "All questions must be answered before submission",
+            "Questions and answers are randomized for each attempt"
+        ]
+    },
+    "QZ_019": {
+        "title": "Computer Networks - Network Model Quiz",
+        "course_id": "NET101",
+        "related_file": "NET101_Lecture2.pdf",
+        "time_limit": 10,
+        "passing_score": 70,
+        "randomize_questions": true,
+        "questions": [
+            {
+                "id": "Q1",
+                "text": "What is the primary purpose of a network model?",
+                "type": "multiple_choice",
+                "options": [
+                    "To physically connect network devices with cables",
+                    "To serve as a group of concepts that enable devices to send data hop by hop and end to end",
+                    "To replace the need for an operating system on network devices",
+                    "To eliminate the need for protocols in networking"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "As defined in the lecture, a network model is 'a group of concepts that will make a device know how to send data hop by hop (step by step) & then end to end.' It provides the framework for how data communication should work in a network environment."
+            },
+            {
+                "id": "Q2",
+                "text": "Which of the following statements about protocols is correct?",
+                "type": "multiple_choice",
+                "options": [
+                    "Protocols are physical components of networking hardware",
+                    "A protocol is a set of logical rules that devices must follow to communicate",
+                    "Protocols are only relevant to the upper layers of the OSI model",
+                    "Each network can only use one protocol at a time"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "The lecture explicitly defines a protocol as 'a set of logical rules that devices must follow to communicate.' Protocols are essential components of network models that define how devices should interact with each other."
+            },
+            {
+                "id": "Q3",
+                "text": "What is the relationship between OSI and TCP/IP models by the end of the 1990s?",
+                "type": "multiple_choice",
+                "options": [
+                    "OSI became the dominant model while TCP/IP fell out of use",
+                    "Both models were equally implemented in enterprise networks",
+                    "TCP/IP became the common choice, and OSI fell away",
+                    "OSI and TCP/IP merged into a single unified model"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "According to the lecture, 'During the 1990s, companies began adding OSI, TCP/IP, or both to their enterprise networks. However, by the end of the 1990s, TCP/IP had become the common choice, and OSI fell away.' This indicates that TCP/IP eventually dominated over OSI."
+            },
+            {
+                "id": "Q4",
+                "text": "Which of the following best describes the function of the Transport Layer in the OSI model?",
+                "type": "multiple_choice",
+                "options": [
+                    "It defines the physical characteristics of transmission media",
+                    "It focuses on application issues and is mostly implemented in software",
+                    "It focuses on data delivery between endpoint hosts and provides reliable data transfer services",
+                    "It determines the route from source to destination"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "As stated in the lecture, the Transport Layer 'focuses on data delivery between the two endpoint hosts, providing reliable data transfer services to the upper layers.' Its main objective is to secure reliable data transport across the network from end to end."
+            },
+            {
+                "id": "Q5",
+                "text": "What are the three operations that occur when data arrives at the Transport Layer?",
+                "type": "multiple_choice",
+                "options": [
+                    "Encryption, compression, and transmission",
+                    "Data segmentation, addressing and sequencing, error detection",
+                    "Routing, switching, and forwarding",
+                    "Session establishment, session management, and session termination"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "According to the lecture, when data arrives at the Transport Layer, three operations occur: 1. Data segmentation, 2. Addressing and sequencing, and 3. Error detection. These operations prepare the data for reliable transmission across the network."
+            },
+            {
+                "id": "Q6",
+                "text": "In the context of the data encapsulation process, what is added to a segment to form a packet?",
+                "type": "multiple_choice",
+                "options": [
+                    "A 14-byte header with source and destination MAC addresses",
+                    "A 4-byte trailer representing CRC",
+                    "A 20-byte header containing source IP and destination IP",
+                    "Session and sequence numbers"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "The lecture states that at the Network/Internet/IP Layer, a 'Network layer receives segment from transport layer, hence a header of 20 byte size is added to form Packet. The 20 byte header contain source IP and destination IP.'"
+            },
+            {
+                "id": "Q7",
+                "text": "Which layer is responsible for finding common data representation between sender and receiver through encoding and decoding data with suitable extensions?",
+                "type": "multiple_choice",
+                "options": [
+                    "Application Layer",
+                    "Session Layer",
+                    "Presentation Layer",
+                    "Transport Layer"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "According to the lecture, the Presentation Layer 'is responsible for finding common data representation between sender and receiver' and 'Common data representation means encoding and decoding data through suitable extension.' It handles data formats such as ASCII text and image types like JPEG."
+            },
+            {
+                "id": "Q8",
+                "text": "What is the fundamental difference between IP addresses and MAC addresses?",
+                "type": "multiple_choice",
+                "options": [
+                    "IP addresses are temporary while MAC addresses are permanent",
+                    "IP addresses are for end devices only, while MAC addresses are for all devices (end and intermediate)",
+                    "IP addresses use IPv6 format while MAC addresses use IPv4 format",
+                    "IP addresses are used for global routing while MAC addresses are only used within LANs"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "The lecture notes state: '1. IP address is an address for end devices only. 2. MAC address is an address for all devices (i.e., end and intermediate devices).' This fundamental difference affects how addressing works at different network layers."
+            },
+            {
+                "id": "Q9",
+                "text": "Which layer of the OSI model is responsible for bit transmission?",
+                "type": "multiple_choice",
+                "options": [
+                    "Data Link Layer",
+                    "Physical Layer",
+                    "Network Layer",
+                    "Transport Layer"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "According to the lecture, the Physical Layer 'is responsible for Bit transmission.' It defines the physical characteristics of the transmission medium and encodes signals onto the medium to transmit frames."
+            },
+            {
+                "id": "Q10",
+                "text": "What happens during the addressing and sequencing operation at the Transport Layer?",
+                "type": "multiple_choice",
+                "options": [
+                    "Data is encrypted for secure transmission",
+                    "A header containing session number and sequence number is added to each data part",
+                    "Data is divided into small parts of 1460 bytes each",
+                    "Data is compressed to reduce transmission time"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "The lecture explains that during the addressing and sequencing stage at the Transport Layer, 'a header is added to each data part; 4 byte called session number and 4 byte called sequence number.' This allows the receiving end to properly reassemble the data parts."
+            },
+            {
+                "id": "Q11",
+                "text": "What is encapsulation in the context of network models?",
+                "type": "multiple_choice",
+                "options": [
+                    "The process of encrypting data for secure transmission",
+                    "The process of putting headers (and sometimes trailers) around some data",
+                    "The process of compressing data to reduce transmission time",
+                    "The process of breaking down data into smaller packets"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "As defined in the lecture, 'The term encapsulation refers to the process of putting headers (and sometimes trailers (tail)) around some data.' This process occurs at various layers as data travels down the OSI or TCP/IP stack."
+            },
+            {
+                "id": "Q12",
+                "text": "Which protocol is primarily responsible for addressing and routing at the Network Layer?",
+                "type": "multiple_choice",
+                "options": [
+                    "TCP (Transmission Control Protocol)",
+                    "UDP (User Datagram Protocol)",
+                    "HTTP (Hypertext Transfer Protocol)",
+                    "IP (Internet Protocol)"
+                ],
+                "correct_answer": 3,
+                "points": 2,
+                "explanation": "According to the lecture, 'The TCP/IP network layer includes a small number of protocols, but only one major protocol: the Internet Protocol (IP).' It further states that 'IP provides several features, most importantly, addressing and routing.'"
+            },
+            {
+                "id": "Q13",
+                "text": "When a frame is created at the Data Link Layer, what components are added to the packet received from the Network Layer?",
+                "type": "multiple_choice",
+                "options": [
+                    "Only a 14-byte header with source and destination MAC addresses",
+                    "Only a 4-byte trailer representing CRC",
+                    "Both a 14-byte header (with MAC addresses and type) and a 4-byte CRC trailer",
+                    "A 20-byte header containing IP addresses"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "The lecture explains that the Data Link Layer encapsulates the packet with: '1. 14 byte header represent 12 bytes for source and destination MAC, they are responsible for hop to hop data delivery. Also, 2 bytes define the type of the packet... 2. 4 byte trailer (tail) represent CRC (Cyclic Redundancy Check).'"
+            },
+            {
+                "id": "Q14",
+                "text": "What is the main function of the Application Layer in the OSI model?",
+                "type": "multiple_choice",
+                "options": [
+                    "To define the application itself",
+                    "To provide services to application software and interface between software and the network",
+                    "To manage hardware connections between devices",
+                    "To compress data before transmission"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "The lecture states that 'Application layer protocols provide services (i.e., HTTP) to the application software (i.e., any web browser) running on a computer' and 'The application layer does not define the application itself, but it defines services that applications need.' It further mentions that 'the application layer provides an interface between software running on a computer (web browser) and the network itself.'"
+            },
+            {
+                "id": "Q15",
+                "text": "A network administrator needs to determine which protocol would be most appropriate for a real-time video conferencing application. Based on the lecture, which protocol would be the best choice?",
+                "type": "multiple_choice",
+                "options": [
+                    "FTP (File Transfer Protocol)",
+                    "SMTP (Simple Mail Transfer Protocol)",
+                    "HTTP (Hypertext Transfer Protocol)",
+                    "RTP (Real-time Transport Protocol)"
+                ],
+                "correct_answer": 3,
+                "points": 2,
+                "explanation": "According to the Application Layer protocols table in the lecture, 'RTP (Real time Transport Protocol)' is specifically designed for 'Voice, video, game (real time)' services. This makes it the most appropriate choice for real-time video conferencing applications."
+            }
+        ],
+        "instructions": [
+            "You have 10 minutes to complete this quiz",
+            "Each question is worth 2 points",
+            "You need 70% to pass",
+            "All questions must be answered before submission",
+            "Questions and answers are randomized for each attempt"
+        ]
+    },
+    "QZ_020": {
+        "title": "Computer Networks Physical Layer Quiz",
+        "course_id": "NET101",
+        "related_file": "NET101_Lecture3.pdf",
+        "time_limit": 10,
+        "passing_score": 70,
+        "randomize_questions": true,
+        "questions": [
+            {
+                "id": "Q1",
+                "text": "What is the primary distinction between LAN NICs and WAN NICs in terms of performance characteristics?",
+                "type": "multiple_choice",
+                "options": [
+                    "LAN NICs operate at higher speeds over shorter distances, while WAN NICs operate at lower speeds over longer distances",
+                    "LAN NICs operate at lower speeds over longer distances, while WAN NICs operate at higher speeds over shorter distances",
+                    "LAN NICs and WAN NICs have identical performance characteristics but connect to different types of networks",
+                    "LAN NICs operate wirelessly while WAN NICs always require physical connections"
+                ],
+                "correct_answer": 0,
+                "points": 2,
+                "explanation": "As stated in the lecture, LAN cards can push data with high speed but through short distances, while WAN cards can push data with low speed but through long distances. This fundamental difference reflects their design purposes - LANs for local high-speed connectivity versus WANs for geographic reach."
+            },
+            {
+                "id": "Q2",
+                "text": "In UTP Ethernet cables, how does a computer transmit binary data?",
+                "type": "multiple_choice",
+                "options": [
+                    "By sending 5 volts for 1's and 0 volts for 0's",
+                    "By sending light pulses through copper wires",
+                    "By modulating radio frequencies",
+                    "By sending alternate current patterns"
+                ],
+                "correct_answer": 0,
+                "points": 2,
+                "explanation": "The lecture explains that when a PC wants to send binary data via UTP cable, it sends 5 volt power for every 1's and zero volt for zeros. The receiver checks the power on the cable at regular intervals (determined by the clock rate) to interpret the binary data."
+            },
+            {
+                "id": "Q3",
+                "text": "What does the 'T' in '10 Base T' stand for in IEEE 802.3 standards?",
+                "type": "multiple_choice",
+                "options": [
+                    "Twisted Pair",
+                    "Transmission",
+                    "Transfer",
+                    "Technology"
+                ],
+                "correct_answer": 0,
+                "points": 2,
+                "explanation": "In the IEEE 802.3 standard notation, the 'T' in '10 Base T' stands for Twisted Pair, referring to the cable type used for this Ethernet standard. Similarly, 'F' stands for Fiber in standards like '10 Base F'."
+            },
+            {
+                "id": "Q4",
+                "text": "Which type of cable should be used when connecting two DTE (Data Terminal Equipment) devices directly to each other?",
+                "type": "multiple_choice",
+                "options": [
+                    "Crossover cable",
+                    "Straight-through cable",
+                    "Rollover cable",
+                    "Fiber optic cable"
+                ],
+                "correct_answer": 0,
+                "points": 2,
+                "explanation": "According to the lecture, a crossover cable is used to connect two DTE devices with each other or two DCE devices with each other. The crossover cable has reversed color codes at both ends, which effectively crosses the transmit pins of one device to the receive pins of the other device and vice versa."
+            },
+            {
+                "id": "Q5",
+                "text": "What is the maximum recommended distance for a UTP cable connection before signal degradation becomes significant?",
+                "type": "multiple_choice",
+                "options": [
+                    "100 meters",
+                    "400 meters",
+                    "1 kilometer",
+                    "10 kilometers"
+                ],
+                "correct_answer": 0,
+                "points": 2,
+                "explanation": "The lecture states that one disadvantage of UTP cable is its maximum distance limitation of 100 meters. Beyond this distance, signal degradation becomes significant enough to affect data transmission reliability, requiring the use of repeaters or other network devices."
+            },
+            {
+                "id": "Q6",
+                "text": "In the IEEE color code standard T568B for RJ45 connectors, which pin numbers are used for transmitting data?",
+                "type": "multiple_choice",
+                "options": [
+                    "Pins 1 and 2 (orange pair)",
+                    "Pins 3 and 6 (green pair)",
+                    "Pins 4 and 5 (blue pair)",
+                    "Pins 7 and 8 (brown pair)"
+                ],
+                "correct_answer": 0,
+                "points": 2,
+                "explanation": "According to the T568B standard shown in the lecture, the orange pair (pins 1 and 2) is used for transmitting data, while the green pair (pins 3 and 6) is used for receiving data. The blue and brown pairs (pins 4, 5, 7, and 8) are typically spare in 10/100 Mbps implementations."
+            },
+            {
+                "id": "Q7",
+                "text": "What is the primary function of a Hub in a network?",
+                "type": "multiple_choice",
+                "options": [
+                    "It floods data by forwarding received bits to all other ports",
+                    "It selectively forwards data only to the intended destination port",
+                    "It converts digital signals to analog signals",
+                    "It increases the network's logical address space"
+                ],
+                "correct_answer": 0,
+                "points": 2,
+                "explanation": "As described in the lecture, a Hub is essentially a multi-port repeater that floods data. It takes data bits received on an input port and forwards them to all other ports. This behavior creates a shared collision domain and operates at Layer 1 (Physical) of the OSI model."
+            },
+            {
+                "id": "Q8",
+                "text": "Which of the following correctly describes the relationship between fiber optic core diameter and maximum transmission distance?",
+                "type": "multiple_choice",
+                "options": [
+                    "Smaller core diameter generally allows for longer transmission distances",
+                    "Larger core diameter generally allows for longer transmission distances",
+                    "Core diameter has no impact on transmission distance",
+                    "Transmission distance is only determined by the type of fiber (SMF vs MMF)"
+                ],
+                "correct_answer": 0,
+                "points": 2,
+                "explanation": "The lecture indicates an inverse relationship between fiber core diameter and maximum transmission distance: Core diameter 62.5 μm → 400m, Core diameter 50 μm → 4Km, Core diameter 9 μm → 10Km, Core diameter 8 μm → 100Km. This shows that smaller core diameters generally enable longer transmission distances."
+            },
+            {
+                "id": "Q9",
+                "text": "What is POE in networking and what does it allow?",
+                "type": "multiple_choice",
+                "options": [
+                    "Power Over Ethernet - allows sending DC voltage over Ethernet cables to power devices",
+                    "Protocol Over Ethernet - allows running multiple protocols on a single Ethernet cable",
+                    "Path of Entry - provides security features for Ethernet connections",
+                    "Point of Exchange - designates where WAN and LAN networks interconnect"
+                ],
+                "correct_answer": 0,
+                "points": 2,
+                "explanation": "As explained in the lecture, POE stands for Power Over Ethernet. POE switches can use the 4 spare wires in an Ethernet cable to send DC voltage (up to 48 volts) to operate devices like IP phones, IP cameras, and wireless access points, eliminating the need for separate power cables."
+            },
+            {
+                "id": "Q10",
+                "text": "Which statement is true regarding the difference between DTE and DCE devices?",
+                "type": "multiple_choice",
+                "options": [
+                    "DTE devices operate at OSI Layer 3 or higher while DCE devices operate at Layer 2 or lower",
+                    "DTE devices operate at OSI Layer 2 or lower while DCE devices operate at Layer 3 or higher",
+                    "DTE and DCE devices operate at the same OSI layers but have different power requirements",
+                    "DTE devices can only connect wirelessly while DCE devices require physical connections"
+                ],
+                "correct_answer": 0,
+                "points": 2,
+                "explanation": "According to the lecture, DTE (Data Terminal Equipment) devices operate at OSI Layer 3 or higher and include end devices and routers, while DCE (Data Communication Equipment) devices operate at Layer 2 or lower and include devices like hubs, switches, and access points."
+            },
+            {
+                "id": "Q11",
+                "text": "When would a network administrator need to use a rollover cable?",
+                "type": "multiple_choice",
+                "options": [
+                    "For connecting to a device's console port for configuration purposes",
+                    "For connecting two switches together in a stack",
+                    "For extending the range of a UTP cable connection beyond 100 meters",
+                    "For connecting a computer to a standard network switch"
+                ],
+                "correct_answer": 0,
+                "points": 2,
+                "explanation": "The lecture states that a rollover cable (also called a console cable) is used specifically for console ports for configuration purposes. This cable has the standard color code at one end and the reverse color code at the other end, completely reversing the pin connections."
+            },
+            {
+                "id": "Q12",
+                "text": "Based on the IEEE 802.3 standard notation, what does '1000 Base T' represent?",
+                "type": "multiple_choice",
+                "options": [
+                    "An Ethernet standard that supports 1 Gbps over twisted pair cabling",
+                    "An Ethernet standard that supports 1000 Mbps over fiber optic cabling",
+                    "An Ethernet standard that supports 100 Mbps over twisted pair cabling",
+                    "An Ethernet standard that supports 1 Mbps over coaxial cabling"
+                ],
+                "correct_answer": 0,
+                "points": 2,
+                "explanation": "In the IEEE 802.3 standard notation, '1000 Base T' represents Gigabit Ethernet (1000 Mbps or 1 Gbps) over twisted pair cabling. The '1000' indicates the data rate in Mbps, 'Base' indicates baseband transmission (no modulation), and 'T' indicates twisted pair cabling."
+            },
+            {
+                "id": "Q13",
+                "text": "Why might STP (Shielded Twisted Pair) cable be preferred over UTP in certain environments?",
+                "type": "multiple_choice",
+                "options": [
+                    "Because STP provides better protection against electromagnetic interference",
+                    "Because STP supports longer maximum distances than UTP",
+                    "Because STP can carry higher data rates than UTP",
+                    "Because STP is generally less expensive to install than UTP"
+                ],
+                "correct_answer": 0,
+                "points": 2,
+                "explanation": "The lecture indicates that UTP is affected by electromagnetic fields produced by power cables, motors, or air conditioning if they are within a distance of less than 60cm. In such environments where electromagnetic interference (EMI) is a concern, STP (Shielded Twisted Pair) should be used instead, as it provides additional shielding against EMI."
+            },
+            {
+                "id": "Q14",
+                "text": "Which of the following statements is true about fiber optic cables compared to copper cables?",
+                "type": "multiple_choice",
+                "options": [
+                    "Fiber optic cables transmit data as photon beams and are immune to electromagnetic interference",
+                    "Fiber optic cables are generally limited to shorter distances than copper cables",
+                    "Fiber optic cables transmit data as electrical signals but at higher frequencies",
+                    "Fiber optic cables require less sophisticated equipment but cost more per meter"
+                ],
+                "correct_answer": 0,
+                "points": 2,
+                "explanation": "The lecture explains that fiber optic cables carry data as photon beams (light signals) rather than electrical signals. They offer protection against EMI (Electromagnetic Interference) and can span much larger distances than copper cables (from 400m up to 100km depending on the core diameter)."
+            },
+            {
+                "id": "Q15",
+                "text": "In an Ethernet UTP cable with 8 wires (4 pairs), how many wires are actually used for data transmission in Fast Ethernet (100 Mbps)?",
+                "type": "multiple_choice",
+                "options": [
+                    "4 wires (2 for transmit, 2 for receive)",
+                    "8 wires (4 for transmit, 4 for receive)",
+                    "2 wires (1 for transmit, 1 for receive)",
+                    "6 wires (3 for transmit, 3 for receive)"
+                ],
+                "correct_answer": 0,
+                "points": 2,
+                "explanation": "According to the lecture, in Fast Ethernet (100 Mbps), only 4 wires out of the 8 total wires are used for data transmission - 2 wires (1 pair) for transmitting data and 2 wires (1 pair) for receiving data. The remaining 4 wires are spare and can be used for other purposes like Power over Ethernet (PoE)."
+            }
+        ],
+        "instructions": [
+            "You have 10 minutes to complete this quiz",
+            "Each question is worth 2 points",
+            "You need 70% to pass",
+            "All questions must be answered before submission",
+            "Questions and answers are randomized for each attempt"
+        ]
+    },
+    "QZ_021": {
+        "title": "Data Link Layer Quiz",
+        "course_id": "NET101",
+        "related_file": "NET101_Lecture4.pdf",
+        "time_limit": 10,
+        "passing_score": 70,
+        "randomize_questions": true,
+        "questions": [
+            {
+                "id": "Q1",
+                "text": "What does MAC stand for in the context of networking?",
+                "type": "multiple_choice",
+                "options": [
+                    "Message Authentication Code",
+                    "Media Access Control",
+                    "Multiple Access Control",
+                    "Machine Access Configuration"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "MAC stands for Media Access Control. As mentioned in the lecture, it's a unique identifier assigned to a network interface controller (NIC) for use as a network address in communications within a network segment."
+            },
+            {
+                "id": "Q2",
+                "text": "How many bytes comprise an Ethernet MAC address?",
+                "type": "multiple_choice",
+                "options": [
+                    "4 bytes",
+                    "6 bytes",
+                    "8 bytes",
+                    "12 bytes"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "An Ethernet MAC address consists of 6 bytes (48 bits), which is represented as 12 hexadecimal digits. This provides approximately 281 trillion unique MAC addresses (2^48)."
+            },
+            {
+                "id": "Q3",
+                "text": "What is the difference between OUI and HUI in a MAC address?",
+                "type": "multiple_choice",
+                "options": [
+                    "OUI is for outbound traffic, HUI is for inbound traffic",
+                    "OUI identifies the vendor, HUI identifies the specific host device",
+                    "OUI is for unicast, HUI is for broadcast",
+                    "OUI is optional, HUI is mandatory"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "The first 6 hexadecimal digits of a MAC address are called the OUI (Organization Unique Identifier), which identifies the manufacturer or vendor (e.g., 64-D0-D6 for Samsung). The last 6 hexadecimal digits are the HUI (Host Unique Identifier), which identifies the specific host device."
+            },
+            {
+                "id": "Q4",
+                "text": "What is the broadcast MAC address?",
+                "type": "multiple_choice",
+                "options": [
+                    "00-00-00-00-00-00",
+                    "FF-FF-FF-FF-FF-FF",
+                    "A1-A1-A1-A1-A1-A1",
+                    "It varies by network"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "The broadcast MAC address is FF-FF-FF-FF-FF-FF. This is a hardware MAC address that is recognized by all devices on the network, allowing one device to send data to all other devices simultaneously."
+            },
+            {
+                "id": "Q5",
+                "text": "What is the key difference between a bridge and a switch?",
+                "type": "multiple_choice",
+                "options": [
+                    "Bridges operate at Layer 1, switches at Layer 2",
+                    "Bridges can only connect two segments, switches can connect multiple segments",
+                    "Bridges make forwarding decisions in software, switches use hardware ASIC",
+                    "Bridges support MAC addresses, switches only support IP addresses"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "Both bridges and switches are Layer 2 devices, but bridges make forwarding decisions based on software, while switches use hardware ASIC (Application Specific Integrated Circuits) for faster forwarding decisions. Additionally, a switch is essentially a multi-port bridge."
+            },
+            {
+                "id": "Q6",
+                "text": "What is the maximum size of an Ethernet frame?",
+                "type": "multiple_choice",
+                "options": [
+                    "64 bytes",
+                    "1500 bytes",
+                    "1518 bytes",
+                    "2048 bytes"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "The maximum Ethernet frame size is 1518 bytes. This consists of the maximum packet size (1500 bytes) plus the overhead (18 bytes) which includes destination MAC, source MAC, type field, and CRC."
+            },
+            {
+                "id": "Q7",
+                "text": "Which of the following statements about multicast MAC addresses is TRUE?",
+                "type": "multiple_choice",
+                "options": [
+                    "They are stored in ROM of the NIC",
+                    "They are hardware addresses like unicast MACs",
+                    "They are software addresses installed in RAM",
+                    "They are identical to broadcast MAC addresses"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "Multicast MAC addresses are software addresses that are installed in RAM, unlike unicast MAC addresses which are burned into the ROM of the NIC. Multicast addresses identify a group of hosts that process frames intended for a designated network service."
+            },
+            {
+                "id": "Q8",
+                "text": "What is the minimum size of an Ethernet frame?",
+                "type": "multiple_choice",
+                "options": [
+                    "46 bytes",
+                    "64 bytes",
+                    "128 bytes",
+                    "256 bytes"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "The minimum Ethernet frame size is 64 bytes. This consists of the minimum packet size (46 bytes) plus the overhead (18 bytes) which includes destination MAC, source MAC, type field, and CRC."
+            },
+            {
+                "id": "Q9",
+                "text": "How many unique vendor identifiers (OUIs) are possible in the MAC addressing scheme?",
+                "type": "multiple_choice",
+                "options": [
+                    "16,777,215",
+                    "281,474,976,710,656",
+                    "65,536",
+                    "4,294,967,296"
+                ],
+                "correct_answer": 0,
+                "points": 2,
+                "explanation": "The number of possible OUIs is 2^24 = 16,777,215. This is because the OUI portion of a MAC address consists of 24 bits (the first 3 bytes or 6 hexadecimal digits)."
+            },
+            {
+                "id": "Q10",
+                "text": "What distinguishes flooding from broadcasting in networking?",
+                "type": "multiple_choice",
+                "options": [
+                    "Flooding uses unicast addresses, broadcasting uses the FF-FF-FF-FF-FF-FF address",
+                    "Flooding has a specific destination MAC but unknown location, broadcasting has no specific destination",
+                    "Flooding targets Layer 3, broadcasting targets Layer 2",
+                    "Flooding is a hardware function, broadcasting is a software function"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "In flooding, the frame has a specific destination MAC address, but the switch doesn't know which port to send it to, so it sends it to all ports except the source. In broadcasting, the frame has the destination MAC address FF-FF-FF-FF-FF-FF and is intentionally sent to all devices on the network segment."
+            },
+            {
+                "id": "Q11",
+                "text": "What is the purpose of the Type field in an Ethernet frame?",
+                "type": "multiple_choice",
+                "options": [
+                    "To indicate the length of the frame",
+                    "To verify the integrity of the frame",
+                    "To identify the type of packet encapsulated (e.g., IPv4, IPv6)",
+                    "To specify the priority of the frame"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "The Type field in an Ethernet frame specifies the type of packet that is encapsulated within the frame, such as IPv4 or IPv6. The field is 2 bytes in size and helps the receiving device determine how to process the encapsulated data."
+            },
+            {
+                "id": "Q12",
+                "text": "What is the size of the CRC field in an Ethernet frame?",
+                "type": "multiple_choice",
+                "options": [
+                    "2 bytes",
+                    "4 bytes",
+                    "6 bytes",
+                    "8 bytes"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "The CRC (Cyclic Redundancy Check) field in an Ethernet frame is 4 bytes in size. It is used for error detection to ensure the integrity of the frame during transmission."
+            },
+            {
+                "id": "Q13",
+                "text": "If a device receives a frame with the destination MAC address FF-FF-FF-FF-FF-FF, what should it do?",
+                "type": "multiple_choice",
+                "options": [
+                    "Discard the frame as it's an invalid address",
+                    "Forward the frame to the next hop",
+                    "Process the frame as it's addressed to all devices",
+                    "Return the frame to the sender"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "FF-FF-FF-FF-FF-FF is the broadcast MAC address. When a device receives a frame with this destination address, it should process the frame because broadcast frames are intended for all devices on the network segment."
+            },
+            {
+                "id": "Q14",
+                "text": "What is the primary advantage of a switch over a bridge in a network?",
+                "type": "multiple_choice",
+                "options": [
+                    "Switches can connect more types of networks",
+                    "Switches operate at a higher layer of the OSI model",
+                    "Switches make forwarding decisions faster using hardware ASIC",
+                    "Switches support more protocols"
+                ],
+                "correct_answer": 2,
+                "points": 2,
+                "explanation": "The primary advantage of a switch over a bridge is that switches make forwarding decisions using hardware ASIC (Application Specific Integrated Circuits), which is much faster than the software-based decision making used in bridges. Additionally, switches are multi-port bridges, allowing them to connect more devices."
+            },
+            {
+                "id": "Q15",
+                "text": "How do multicast MAC addresses differ from unicast MAC addresses in terms of implementation?",
+                "type": "multiple_choice",
+                "options": [
+                    "Multicast addresses are assigned by DHCP, unicast addresses are assigned by IEEE",
+                    "Multicast addresses are stored in RAM, unicast addresses are burned into ROM",
+                    "Multicast addresses use 8 bytes, unicast addresses use 6 bytes",
+                    "Multicast addresses are temporary, unicast addresses are permanent"
+                ],
+                "correct_answer": 1,
+                "points": 2,
+                "explanation": "Unicast MAC addresses are hardware addresses that are burned into the ROM of the Network Interface Card (NIC). In contrast, multicast MAC addresses are software addresses that are installed in RAM. Multicast addresses identify groups of hosts rather than individual devices."
             }
         ],
         "instructions": [
