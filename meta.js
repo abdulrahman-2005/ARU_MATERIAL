@@ -14,8 +14,8 @@ let DATA = {
         "role": "Software Developer",
         "website": "https://abdoazmy.netlify.app",
         "social": {
-            "github": "https://github.com/AbdelrahmanAzmy",
-            "linkedin": "https://linkedin.com/in/abdelrahman-azmy",
+            "github": "https://www.github.com/abdulrahman-2005",
+            "linkedin": "https://www.linkedin.com/in/abuazmy2/",
             "globe": "https://abdoazmy.netlify.app"
         },
         "description": "Passionate about creating intuitive and efficient web applications"
