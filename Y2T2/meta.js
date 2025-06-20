@@ -560,7 +560,7 @@ let DATA = {
                     "quizzes": [],
                     "messages": [
                     ],
-                    "wordCount": 3397
+                    "wordCount": 1756
                 },
                 {
                     "title": "Lecture 6: Internet Protocols – ICMP, DHCP, ARP, DNS",
@@ -569,7 +569,7 @@ let DATA = {
                     "quizzes": [],
                     "messages": [
                     ],
-                    "wordCount": 3189
+                    "wordCount": 2702 
                 },
                 {
                     "title": "Lecture 7: Transport Layer – TCP & UDP",
@@ -578,7 +578,7 @@ let DATA = {
                     "quizzes": [],
                     "messages": [
                     ],
-                    "wordCount": 2371
+                    "wordCount": 1487
                 }
             ]
         }
