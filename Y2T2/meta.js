@@ -25,7 +25,7 @@ let DATA = {
         "SE101": [1, 2, 3],
         "DB101": [1, 2, 3],
         "SAD101": [1, 2, 3],
-        "NET101": [2,3,4],
+        "NET101": [2, 3, 4],
         "ALG101": [0, 1],
     },
     "midterm_included_sections": {
@@ -347,7 +347,7 @@ let DATA = {
                             "text": "Quiz available for this lecture"
                         }
                     ],
-                    
+
                 }
             ]
         },
@@ -505,9 +505,7 @@ let DATA = {
                     "title": "Lecture 1: Network Fundamentals",
                     "src": "Lecture1.pdf",
                     "type": "lecture",
-                    "quizzes": [
-                        "QZ_003"
-                    ],
+                    "quizzes": ["QZ_003"],
                     "messages": [
                         {
                             "type": "quiz-available",
@@ -520,9 +518,7 @@ let DATA = {
                     "title": "Lecture 2: Network Models",
                     "src": "Lecture2.pdf",
                     "type": "lecture",
-                    "quizzes": [
-                        "QZ_019"
-                    ],
+                    "quizzes": ["QZ_019"],
                     "messages": [
                         {
                             "type": "quiz-available",
@@ -535,9 +531,7 @@ let DATA = {
                     "title": "Lecture 3: Physical Layer",
                     "src": "Lecture3.pdf",
                     "type": "lecture",
-                    "quizzes": [
-                        "QZ_020"
-                    ],
+                    "quizzes": ["QZ_020"],
                     "messages": [
                         {
                             "type": "quiz-available",
@@ -550,9 +544,7 @@ let DATA = {
                     "title": "Lecture 4: DataLink Layer",
                     "src": "Lecture4.pdf",
                     "type": "lecture",
-                    "quizzes": [
-                        "QZ_021"
-                    ],
+                    "quizzes": ["QZ_021"],
                     "messages": [
                         {
                             "type": "quiz-available",
@@ -560,6 +552,33 @@ let DATA = {
                         }
                     ],
                     "wordCount": 591
+                },
+                {
+                    "title": "Lecture 5: Internet Layer & IPv4",
+                    "src": "NET101_Lecture5.pdf",
+                    "type": "lecture",
+                    "quizzes": [],
+                    "messages": [
+                    ],
+                    "wordCount": 3397
+                },
+                {
+                    "title": "Lecture 6: Internet Protocols – ICMP, DHCP, ARP, DNS",
+                    "src": "NET101_Lecture6.pdf",
+                    "type": "lecture",
+                    "quizzes": [],
+                    "messages": [
+                    ],
+                    "wordCount": 3189
+                },
+                {
+                    "title": "Lecture 7: Transport Layer – TCP & UDP",
+                    "src": "NET101_Lecture7.pdf",
+                    "type": "lecture",
+                    "quizzes": [],
+                    "messages": [
+                    ],
+                    "wordCount": 2371
                 }
             ]
         }
